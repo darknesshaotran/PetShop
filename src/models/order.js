@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
             // define association here
             Order.belongsTo(models.Account, { foreignKey: 'id_account', targetKey: 'id' });
             Order.belongsTo(models.Status, { foreignKey: 'id_status', targetKey: 'id' });
+            Order.belongsTo(models.Appointment, { foreignKey: 'id_appointment', targetKey: 'id' });
             Order.belongsToMany(models.Product, {
                 through: models.Order_Item,
                 as: 'Order_items',
@@ -22,8 +23,8 @@ module.exports = (sequelize, DataTypes) => {
     Order.init(
         {
             id_account: DataTypes.INTEGER,
-            createAt: DataTypes.DATE,
             id_status: DataTypes.INTEGER,
+            id_appointment: DataTypes.INTEGER,
             order_address: DataTypes.STRING,
             order_phoneNumber: DataTypes.STRING,
             totalPrice: DataTypes.INTEGER,

@@ -42,7 +42,7 @@ class CartServices {
         const cart = await db.Cart.findOne({
             where: { id_account: userID },
             attributes: {
-                exclude: ['id', 'createAt', 'createdAt', 'updatedAt'],
+                exclude: ['id', 'createdAt', 'updatedAt'],
             },
             include: [
                 {

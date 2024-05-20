@@ -2,7 +2,7 @@ const orderServices = require('../services/order.services');
 
 class OrderController {
     async createOrderWithCartItem(req, res, next) {
-        // cartItems: [ { id_size_item, quantity, id_cartItem, price }]
+        // cartItems: [ { id_product, quantity, id_cartItem }]
         const { cartItems, address, phoneNumber } = req.body;
         const { decoded_authorization } = req;
         const userID = decoded_authorization.userID;
@@ -10,7 +10,7 @@ class OrderController {
         res.json(result);
     }
     async createOneItemOrder(req, res, next) {
-        // Item: { id_size_item, quantity,  price }
+        // Item: { id_product, quantity }
         const { Item, address, phoneNumber } = req.body;
         const { decoded_authorization } = req;
         const userID = decoded_authorization.userID;

@@ -19,10 +19,6 @@ module.exports = {
                 onUpdate: 'CASCADE',
                 onDelete: 'CASCADE',
             },
-            createAt: {
-                type: 'TIMESTAMP',
-                defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
-            },
             id_status: {
                 allowNull: false,
                 type: Sequelize.INTEGER,
