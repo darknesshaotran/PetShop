@@ -65,100 +65,30 @@ const checkStatusExistsValidator = checkSchema(
 );
 const checkItemOrderValidator = checkSchema(
     {
-        Item: {
-            custom: {
-                options: async (value) => {
-                    const { id_size_item, quantity, price } = value;
-                    const shoes = await db.Size_Item.findOne({
-                        where: {
-                            id: id_size_item,
-                        },
-                        attributes: {
-                            exclude: ['createdAt', 'updatedAt'],
-                        },
-                        include: [
-                            {
-                                model: db.Shoes,
-                                attributes: ['id', 'name', 'price'],
-                                as: 'Shoes',
-                            },
-                        ],
-                    });
-                    if (!shoes) {
-                        throw { status: HTTP_STATUS.NOT_FOUND, message: 'item not found' };
-                    }
-                    if (isNaN(quantity)) {
-                        throw {
-                            status: HTTP_STATUS.UNPROCESSABLE_ENTITY,
-                            message: 'quantity must be a number',
-                        };
-                    }
-                    if (quantity > shoes.amount) {
-                        throw {
-                            status: HTTP_STATUS.UNPROCESSABLE_ENTITY,
-                            message: "quantity must be a lower than shoes's amount",
-                        };
-                    }
-                    if (Number(price) !== Number(shoes.Shoes.price)) {
-                        console.log(price, shoes.Shoes.price);
-                        throw {
-                            status: HTTP_STATUS.UNPROCESSABLE_ENTITY,
-                            message: 'price is not correct',
-                        };
-                    }
-                    return true;
-                },
-            },
-        },
-        phoneNumber: {
-            notEmpty: {
-                errorMessage: USERS_MESSAGES.PHONENUMBER_IS_REQUIRED,
-            },
-            isString: {
-                errorMessage: USERS_MESSAGES.PHONENUMBER_MUST_BE_STRING,
-            },
-            isMobilePhone: {
-                errorMessage: 'Phone number is invalid',
-            },
-        },
-        address: {
-            notEmpty: {
-                errorMessage: 'address is required',
-            },
-        },
-    },
-    ['body'],
-);
-const checkCartItemOrderValidator = checkSchema(
-    {
-        cartItems: {
+        Items: {
             custom: {
                 options: async (value) => {
                     for (let i = 0; i < value.length; i++) {
-                        const { id_size_item, quantity, price, id_cartItem } = value[i];
-                        const cart_Item = await db.Cart_Item.findOne({
-                            where: { id: id_cartItem },
-                        });
-                        if (!cart_Item) {
-                            throw {
-                                status: HTTP_STATUS.NOT_FOUND,
-                                message: 'cart item not found',
-                            };
+                        const { id_product, quantity, id_cartItem, price } = value[i];
+                        if (id_cartItem) {
+                            const cart_Item = await db.Cart_Item.findOne({
+                                where: { id: id_cartItem },
+                            });
+                            if (!cart_Item) {
+                                throw {
+                                    status: HTTP_STATUS.NOT_FOUND,
+                                    message: 'cart item not found',
+                                };
+                            }
                         }
-                        const shoes = await db.Size_Item.findOne({
-                            where: { id: id_size_item },
+
+                        const product = await db.Product.findOne({
+                            where: { id: id_product },
                             attributes: {
                                 exclude: ['createdAt', 'updatedAt'],
                             },
-                            include: [
-                                {
-                                    model: db.Shoes,
-                                    attributes: ['id', 'name', 'price'],
-                                    as: 'Shoes',
-                                },
-                            ],
                         });
-                        if (!shoes) {
+                        if (!product) {
                             throw { status: HTTP_STATUS.NOT_FOUND, message: 'item not found' };
                         }
                         if (isNaN(quantity)) {
@@ -167,14 +97,13 @@ const checkCartItemOrderValidator = checkSchema(
                                 message: 'quantity must be a number',
                             };
                         }
-                        if (quantity > shoes.amount) {
+                        if (quantity > product.amount) {
                             throw {
                                 status: HTTP_STATUS.UNPROCESSABLE_ENTITY,
-                                message: "quantity must be a lower than shoes's amount",
+                                message: "quantity must be a lower than product's amount",
                             };
                         }
-                        if (Number(price) !== Number(shoes.Shoes.price)) {
-                            console.log(price, shoes.Shoes.price);
+                        if (Number(price) !== Number(product.price)) {
                             throw {
                                 status: HTTP_STATUS.UNPROCESSABLE_ENTITY,
                                 message: 'price is not correct',
@@ -207,4 +136,3 @@ const checkCartItemOrderValidator = checkSchema(
 exports.OrderExistsValidator = validate(checkOrderExistsValidator);
 exports.StatusExistsValidator = validate(checkStatusExistsValidator);
 exports.ItemOrderValidator = validate(checkItemOrderValidator);
-exports.CartItemOrderValidator = validate(checkCartItemOrderValidator);

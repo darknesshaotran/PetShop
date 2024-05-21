@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2024 at 04:12 AM
+-- Generation Time: May 21, 2024 at 05:27 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -255,13 +255,21 @@ CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
   `id_account` int(11) NOT NULL,
   `id_status` int(11) NOT NULL,
-  `id_appointment` int(11) NOT NULL,
+  `id_appointment` int(11) DEFAULT NULL,
   `order_address` varchar(255) DEFAULT NULL,
   `order_phoneNumber` varchar(255) DEFAULT NULL,
   `totalPrice` int(11) DEFAULT NULL,
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `id_account`, `id_status`, `id_appointment`, `order_address`, `order_phoneNumber`, `totalPrice`, `createdAt`, `updatedAt`) VALUES
+(23, 2, 4, 1, 'Xuan Thieu 14 street', '0962240446', NULL, '2024-05-21 02:35:34', '2024-05-21 03:15:16'),
+(24, 2, 5, NULL, 'Xuan Thieu 14 street', '0962240446', 15, '2024-05-21 02:36:49', '2024-05-21 03:10:09');
 
 -- --------------------------------------------------------
 
@@ -271,7 +279,7 @@ CREATE TABLE `orders` (
 
 CREATE TABLE `order_items` (
   `id` int(11) NOT NULL,
-  `id_size_item` int(11) NOT NULL,
+  `id_product` int(11) NOT NULL,
   `id_order` int(11) NOT NULL,
   `quantity` int(11) DEFAULT NULL,
   `fixed_price` int(11) DEFAULT NULL,
@@ -279,6 +287,13 @@ CREATE TABLE `order_items` (
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `order_items`
+--
+
+INSERT INTO `order_items` (`id`, `id_product`, `id_order`, `quantity`, `fixed_price`, `isRate`, `createdAt`, `updatedAt`) VALUES
+(22, 1424, 24, 1, 15, 1, '2024-05-21 02:36:49', '2024-05-21 03:21:48');
 
 -- --------------------------------------------------------
 
@@ -303,7 +318,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `id_breed`, `name`, `amount`, `price`, `import_price`, `description`, `createdAt`, `updatedAt`) VALUES
-(1424, 9, 'con chó', 10, 15, 12, 'the sun can\'t shine without darkness', '2024-05-09 05:28:19', '2024-05-09 05:39:53');
+(1424, 9, 'con chó', 10, 15, 12, 'the sun can\'t shine without darkness', '2024-05-09 05:28:19', '2024-05-21 03:10:09');
 
 -- --------------------------------------------------------
 
@@ -313,7 +328,7 @@ INSERT INTO `products` (`id`, `id_breed`, `name`, `amount`, `price`, `import_pri
 
 CREATE TABLE `ratings` (
   `id` int(11) NOT NULL,
-  `id_product` int(11) NOT NULL,
+  `id_product` int(11) DEFAULT NULL,
   `id_service` int(11) DEFAULT NULL,
   `id_account` int(11) NOT NULL,
   `star` int(11) DEFAULT NULL,
@@ -327,7 +342,7 @@ CREATE TABLE `ratings` (
 --
 
 INSERT INTO `ratings` (`id`, `id_product`, `id_service`, `id_account`, `star`, `comment`, `createdAt`, `updatedAt`) VALUES
-(19, 1424, NULL, 7, 4, 'dấdasdasdas', '2024-05-09 05:36:55', '2024-05-09 05:36:55');
+(20, 1424, NULL, 2, 4, 'quá là ghê', '2024-05-21 03:21:48', '2024-05-21 03:26:55');
 
 -- --------------------------------------------------------
 
@@ -439,7 +454,8 @@ INSERT INTO `refreshtokens` (`id`, `refreshToken`, `exp`, `createdAt`, `updatedA
 (89, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNTIzMzI2MSwiZXhwIjoxNzE1NDA2MDYxfQ.p6zRT2_5AdAQWAVQ08EZlT-PLcMcYRJv8XL9zXNF6vQ', '1715406061', '2024-05-09 05:41:01', '2024-05-09 05:41:01'),
 (90, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNTIzNzgzNSwiZXhwIjoxNzE1NDEwNjM1fQ.NcFh_9M66P86hgdmKCKcnHaYwr81kdyHs27XEH-izvc', '1715410635', '2024-05-09 06:57:15', '2024-05-09 06:57:15'),
 (91, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNTIzODU4NSwiZXhwIjoxNzE1NDExMzg1fQ.te3TDhQ3Y09QuHjYICHbZ9qIyBPe-hl1gMCZKAcj8sM', '1715411385', '2024-05-09 07:09:45', '2024-05-09 07:09:45'),
-(92, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNTI0NjA1NywiZXhwIjoxNzE1NDE4ODU3fQ.xKGhL6onXSEfzrIvsDBylAdiuA95i-SorAXq2q6_dfM', '1715418857', '2024-05-09 09:14:17', '2024-05-09 09:14:17');
+(92, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNTI0NjA1NywiZXhwIjoxNzE1NDE4ODU3fQ.xKGhL6onXSEfzrIvsDBylAdiuA95i-SorAXq2q6_dfM', '1715418857', '2024-05-09 09:14:17', '2024-05-09 09:14:17'),
+(93, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjI1ODU0NywiZXhwIjoxNzE2NDMxMzQ3fQ.4j5Uu9a2E_rsxnI-n3itO5Hetw2qQJA9tUQ7m6gtKvY', '1716431347', '2024-05-21 02:29:07', '2024-05-21 02:29:07');
 
 -- --------------------------------------------------------
 
@@ -503,6 +519,7 @@ INSERT INTO `sequelizemeta` (`name`) VALUES
 CREATE TABLE `services` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
+  `image` varchar(255) NOT NULL,
   `description` text DEFAULT NULL,
   `price` int(11) NOT NULL,
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -619,7 +636,7 @@ ALTER TABLE `orders`
 ALTER TABLE `order_items`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_order` (`id_order`),
-  ADD KEY `id_size_item` (`id_size_item`);
+  ADD KEY `id_size_item` (`id_product`);
 
 --
 -- Indexes for table `products`
@@ -730,13 +747,13 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -748,13 +765,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `ratings`
 --
 ALTER TABLE `ratings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `refreshtokens`
 --
 ALTER TABLE `refreshtokens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -839,7 +856,8 @@ ALTER TABLE `orders`
 -- Constraints for table `order_items`
 --
 ALTER TABLE `order_items`
-  ADD CONSTRAINT `order_items_ibfk_2` FOREIGN KEY (`id_order`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `order_items_ibfk_2` FOREIGN KEY (`id_order`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `order_items_ibfk_3` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `products`

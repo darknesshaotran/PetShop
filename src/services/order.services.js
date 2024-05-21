@@ -6,23 +6,23 @@ const HTTP_STATUS = require('../constants/httpStatus');
 class OrderServices {
     async createOrderItem(Item, order) {
         await db.Order_Item.create({
-            id_size_item: Item.id_size_item,
+            id_product: Item.id_product,
             id_order: order.id,
             quantity: Item.quantity,
             fixed_price: Item.price * Item.quantity,
             isRate: 0,
         });
-        const size_Item = await db.Size_Item.findOne({ where: { id: Item.id_size_item } });
-        await db.Size_Item.update(
+        const product = await db.Product.findOne({ where: { id: Item.id_product } });
+        await db.Product.update(
             {
-                amount: Number(size_Item.amount) - Number(Item.quantity),
+                amount: Number(product.amount) - Number(Item.quantity),
             },
             {
-                where: { id: size_Item.id },
+                where: { id: product.id },
             },
         );
     }
-    async createOrderWithCartItem(cartItems, userID, address, phoneNumber) {
+    async createOrder(Items, userID, address, phoneNumber) {
         const order = await db.Order.create({
             id_account: userID,
             id_status: 1,
@@ -30,12 +30,14 @@ class OrderServices {
             order_phoneNumber: phoneNumber,
         });
         var totalPrice = 0;
-        for (let i = 0; i < cartItems.length; i++) {
-            await this.createOrderItem(cartItems[i], order);
-            totalPrice += cartItems[i].price * cartItems[i].quantity;
-            await db.Cart_Item.destroy({
-                where: { id: cartItems[i].id_cartItem },
-            });
+        for (let i = 0; i < Items.length; i++) {
+            await this.createOrderItem(Items[i], order);
+            totalPrice += Items[i].price * Items[i].quantity;
+            if (Items[i].id_cartItem) {
+                await db.Cart_Item.destroy({
+                    where: { id: Items[i].id_cartItem },
+                });
+            }
         }
         await db.Order.update(
             {
@@ -47,84 +49,65 @@ class OrderServices {
         );
         return {
             success: true,
-            message: 'create Order with cart successfully',
-            order: order,
-        };
-    }
-    async createOneItemOrder(Item, userID, address, phoneNumber) {
-        const order = await db.Order.create({
-            id_account: userID,
-            id_status: 1,
-            order_address: address,
-            order_phoneNumber: phoneNumber,
-        });
-        var totalPrice = 0;
-        await this.createOrderItem(Item, order);
-        totalPrice += Item.price * Item.quantity;
-        await db.Order.update(
-            {
-                totalPrice: totalPrice,
-            },
-            {
-                where: {
-                    id: order.id,
-                },
-            },
-        );
-        return {
-            success: true,
-            message: "create one item 's order successfully",
+            message: 'create Order successfully',
             order: order,
         };
     }
     async OrderDetails(id_order) {
-        const Order = await db.Order.findOne({
+        var order = await db.Order.findOne({
             where: { id: id_order },
-            attributes: {
-                exclude: ['createdAt', 'updatedAt'],
-            },
-            include: [
-                {
-                    model: db.Size_Item,
-                    through: {
-                        attributes: ['id', 'quantity', 'fixed_price', 'isRate'],
-                        as: 'order_item_infor',
-                    },
-                    as: 'Order_items',
-                    attributes: ['id', 'size', 'amount'],
-                    include: [
-                        {
-                            model: db.Shoes,
-                            as: 'Shoes',
-                            attributes: ['id', 'name', 'price'],
-                        },
-                    ],
-                },
-                { model: db.Status, as: 'Status', attributes: ['status'] },
-                {
-                    model: db.Account,
-                    attributes: {
-                        exclude: ['password', 'forgot_password_token', 'id_role'],
-                    },
-                    include: [
-                        {
-                            model: db.inforUser,
-                            as: 'inforUser',
-                            attributes: ['firstname', 'lastname', 'phoneNumber', 'avatar'],
-                        },
-                    ],
-                },
-            ],
         });
-        const order = JSON.parse(JSON.stringify(Order));
-        for (let i = 0; i < order.Order_items.length; i++) {
-            const Image = await db.Image.findOne({
-                where: { id_shoes: order.Order_items[i].Shoes.id },
-                attributes: ['image'],
+        if (!order.id_appointment) {
+            const Order = await db.Order.findOne({
+                where: { id: id_order },
+                attributes: {
+                    exclude: ['createdAt', 'updatedAt'],
+                },
+                include: [
+                    {
+                        model: db.Product,
+                        through: {
+                            attributes: ['id', 'quantity', 'fixed_price', 'isRate'],
+                            as: 'order_item_infor',
+                        },
+                        as: 'Products',
+                        attributes: ['id', 'name', 'amount', 'price'],
+                        include: [
+                            {
+                                model: db.Breed,
+                                attributes: ['id', 'name'],
+                            },
+                        ],
+                    },
+                    { model: db.Status, as: 'Status', attributes: ['status'] },
+                    {
+                        model: db.Account,
+                        attributes: {
+                            exclude: ['password', 'forgot_password_token', 'id_role'],
+                        },
+                        include: [
+                            {
+                                model: db.inforUser,
+                                as: 'inforUser',
+                                attributes: ['firstname', 'lastname', 'phoneNumber', 'avatar'],
+                            },
+                        ],
+                    },
+                ],
             });
-            const image = JSON.parse(JSON.stringify(Image));
-            order.Order_items[i].Shoes.image = image.image ? image.image : '';
+            order = JSON.parse(JSON.stringify(Order));
+            for (let i = 0; i < order.Products.length; i++) {
+                const Image = await db.Image.findOne({
+                    where: { id_product: order.Products[i].id },
+                    attributes: ['image'],
+                });
+                const image = JSON.parse(JSON.stringify(Image));
+                order.Products[i].image = image.image ? image.image : '';
+            }
+        } else {
+            // TO DO SHOW APPOINTMENT DETAIL
         }
+
         return {
             success: true,
             result: order,
@@ -144,15 +127,24 @@ class OrderServices {
     async CancelOrder(id_order) {
         const order = await db.Order.findOne({
             where: { id: id_order },
+            attributes: {
+                exclude: ['createdAt', 'updatedAt'],
+            },
             include: [
                 {
-                    model: db.Size_Item,
+                    model: db.Product,
                     through: {
-                        attributes: ['quantity', 'fixed_price'],
+                        attributes: ['id', 'quantity', 'fixed_price', 'isRate'],
                         as: 'order_item_infor',
                     },
-                    as: 'Order_items',
-                    attributes: ['id', 'amount', 'size'],
+                    as: 'Products',
+                    attributes: ['id', 'name', 'amount', 'price'],
+                    include: [
+                        {
+                            model: db.Breed,
+                            attributes: ['id', 'name'],
+                        },
+                    ],
                 },
                 { model: db.Status, as: 'Status', attributes: ['status'] },
             ],
@@ -160,18 +152,18 @@ class OrderServices {
         if (order.id_status > 1)
             throw new ErrorsWithStatus({
                 status: HTTP_STATUS.UNPROCESSABLE_ENTITY,
-                message: 'can not cancel order anymore',
+                message: 'Can not cancel order anymore',
             });
 
-        for (let i = 0; i < order.Order_items.length; i++) {
-            // khôi phục amount của shoes ở đây
-            const size_item = await db.Size_Item.findOne({ where: { id: order.Order_items[i].id } });
-            await db.Size_Item.update(
+        for (let i = 0; i < order.Products.length; i++) {
+            // khôi phục amount của product ở đây
+            const product = await db.Product.findOne({ where: { id: order.Products[i].id } });
+            await db.Product.update(
                 {
-                    amount: size_item.amount + order.Order_items[i].order_item_infor.quantity,
+                    amount: product.amount + order.Products[i].order_item_infor.quantity,
                 },
                 {
-                    where: { id: order.Order_items[i].id },
+                    where: { id: product.id },
                 },
             );
         }

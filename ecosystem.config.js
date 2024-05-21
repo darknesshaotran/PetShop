@@ -1,7 +1,7 @@
 module.exports = {
     apps: [
         {
-            name: 'shoesStore',
+            name: 'petShop',
             script: 'src/index.js',
         },
     ],

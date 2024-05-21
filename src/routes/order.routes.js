@@ -11,18 +11,13 @@ const {
 } = require('../middlewares/order.middlewares');
 const router = Router();
 
-router.post(
-    '/createOneItem',
-    accessTokenValidator,
-    ItemOrderValidator,
-    wrapController(orderControllers.createOneItemOrder),
-);
-router.post(
-    '/create',
-    accessTokenValidator,
-    CartItemOrderValidator,
-    wrapController(orderControllers.createOrderWithCartItem),
-);
+// router.post(
+//     '/createOneItem',
+//     accessTokenValidator,
+//     ItemOrderValidator,
+//     wrapController(orderControllers.createOneItemOrder),
+// );
+router.post('/create', accessTokenValidator, ItemOrderValidator, wrapController(orderControllers.createOrder));
 router.get('/history', accessTokenValidator, wrapController(orderControllers.HistoryOrder));
 router.get('/:id_order', accessTokenValidator, OrderExistsValidator, wrapController(orderControllers.OrderDetails));
 router.put(

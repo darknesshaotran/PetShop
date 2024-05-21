@@ -1,20 +1,12 @@
 const orderServices = require('../services/order.services');
 
 class OrderController {
-    async createOrderWithCartItem(req, res, next) {
-        // cartItems: [ { id_product, quantity, id_cartItem }]
-        const { cartItems, address, phoneNumber } = req.body;
+    async createOrder(req, res, next) {
+        // Items: [ { id_product, quantity, id_cartItem, price }]
+        const { Items, address, phoneNumber } = req.body;
         const { decoded_authorization } = req;
         const userID = decoded_authorization.userID;
-        const result = await orderServices.createOrderWithCartItem(cartItems, userID, address, phoneNumber);
-        res.json(result);
-    }
-    async createOneItemOrder(req, res, next) {
-        // Item: { id_product, quantity }
-        const { Item, address, phoneNumber } = req.body;
-        const { decoded_authorization } = req;
-        const userID = decoded_authorization.userID;
-        const result = await orderServices.createOneItemOrder(Item, userID, address, phoneNumber);
+        const result = await orderServices.createOrder(Items, userID, address, phoneNumber);
         res.json(result);
     }
     async OrderDetails(req, res, next) {

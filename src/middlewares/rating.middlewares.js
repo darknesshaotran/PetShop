@@ -29,21 +29,43 @@ const checkRatingExistsValidator = checkSchema(
 );
 const checkAddRatingValidator = checkSchema(
     {
-        id_shoes: {
+        id_product: {
             custom: {
                 options: async (value) => {
-                    const shoes = await db.Shoes.findOne({
-                        where: {
-                            id: value,
-                        },
-                        attributes: {
-                            exclude: ['createdAt', 'updatedAt'],
-                        },
-                    });
-                    if (!shoes) {
-                        throw { status: HTTP_STATUS.NOT_FOUND, message: 'shoes not found' };
+                    if (value) {
+                        const product = await db.Product.findOne({
+                            where: {
+                                id: value,
+                            },
+                            attributes: {
+                                exclude: ['createdAt', 'updatedAt'],
+                            },
+                        });
+                        if (!product) {
+                            throw { status: HTTP_STATUS.NOT_FOUND, message: 'product not found' };
+                        }
+                        return true;
                     }
-                    return true;
+                },
+            },
+        },
+        id_service: {
+            custom: {
+                options: async (value) => {
+                    if (value) {
+                        const service = await db.Service.findOne({
+                            where: {
+                                id: value,
+                            },
+                            attributes: {
+                                exclude: ['createdAt', 'updatedAt'],
+                            },
+                        });
+                        if (!service) {
+                            throw { status: HTTP_STATUS.NOT_FOUND, message: 'service not found' };
+                        }
+                        return true;
+                    }
                 },
             },
         },

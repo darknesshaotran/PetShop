@@ -1,6 +1,6 @@
 const productServices = require('../services/product.services');
 
-class ShoesController {
+class ProductController {
     async getListProduct(req, res, next) {
         const { minPrice, maxPrice, limit, page, id_breed, search, isDesc } = req.query;
         const result = await productServices.getListProduct(
@@ -42,4 +42,4 @@ class ShoesController {
         res.json(result);
     }
 }
-module.exports = new ShoesController();
+module.exports = new ProductController();

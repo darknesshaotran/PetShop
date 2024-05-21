@@ -53,5 +53,5 @@ const USERS_MESSAGES = {
     PHONENUMBER_IS_REQUIRED: 'phone number is required',
     PHONENUMBER_MUST_BE_STRING: 'phone number must be string',
 };
-const SHOES_MESSAGE = {};
+const PRODUCT_MESSAGE = {};
 module.exports = USERS_MESSAGES;

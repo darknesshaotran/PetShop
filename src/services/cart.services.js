@@ -101,7 +101,7 @@ class CartServices {
         });
         return {
             success: true,
-            message: 'delete shoes successfully',
+            message: 'delete product successfully',
         };
     }
 }

@@ -4,12 +4,13 @@ const ErrorsWithStatus = require('../constants/Error');
 const HTTP_STATUS = require('../constants/httpStatus');
 
 class RatingServices {
-    async addRating(star, comment, userID, id_shoes, id_order_item) {
+    async addRating(star, comment, userID, id_product, id_service, id_order_item) {
         await db.Rating.create({
             star: Number(star),
             comment: comment,
             id_account: userID,
-            id_shoes: id_shoes,
+            id_product: id_product,
+            id_service: id_service,
         });
         await db.Order_Item.update(
             {

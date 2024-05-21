@@ -1,9 +1,8 @@
 const cartServices = require('../services/cart.services');
 
-class ShoesController {
+class CartController {
     async addToCart(req, res, next) {
         const { decoded_authorization } = req;
-        console.log('hehehe');
         const userID = decoded_authorization.userID;
         const { id_product, quantity } = req.body;
         const result = await cartServices.addToCart(userID, id_product, quantity);
@@ -27,4 +26,4 @@ class ShoesController {
         res.json(result);
     }
 }
-module.exports = new ShoesController();
+module.exports = new CartController();
