@@ -5,8 +5,8 @@ class BreedController {
         res.json(result);
     }
     async deleteBreed(req, res, next) {
-        const { id_category } = req.params;
-        const result = await BreedServices.deleteBreed(id_category);
+        const { id_breed } = req.params;
+        const result = await BreedServices.deleteBreed(id_breed);
         res.json(result);
     }
     async addBreed(req, res, next) {

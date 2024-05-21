@@ -12,14 +12,16 @@ class RatingServices {
             id_product: id_product,
             id_service: id_service,
         });
-        await db.Order_Item.update(
-            {
-                isRate: 1,
-            },
-            {
-                where: { id: id_order_item },
-            },
-        );
+        if (id_order_item) {
+            await db.Order_Item.update(
+                {
+                    isRate: 1,
+                },
+                {
+                    where: { id: id_order_item },
+                },
+            );
+        }
         return {
             success: true,
             message: 'Add rating successfully',

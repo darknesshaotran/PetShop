@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2024 at 05:27 AM
+-- Generation Time: May 21, 2024 at 10:25 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -268,8 +268,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `id_account`, `id_status`, `id_appointment`, `order_address`, `order_phoneNumber`, `totalPrice`, `createdAt`, `updatedAt`) VALUES
-(23, 2, 4, 1, 'Xuan Thieu 14 street', '0962240446', NULL, '2024-05-21 02:35:34', '2024-05-21 03:15:16'),
-(24, 2, 5, NULL, 'Xuan Thieu 14 street', '0962240446', 15, '2024-05-21 02:36:49', '2024-05-21 03:10:09');
+(23, 2, 4, 1, 'Xuan Thieu 14 street', '0962240446', NULL, '2024-05-21 02:35:34', '2024-05-21 03:15:16');
 
 -- --------------------------------------------------------
 
@@ -287,13 +286,6 @@ CREATE TABLE `order_items` (
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `order_items`
---
-
-INSERT INTO `order_items` (`id`, `id_product`, `id_order`, `quantity`, `fixed_price`, `isRate`, `createdAt`, `updatedAt`) VALUES
-(22, 1424, 24, 1, 15, 1, '2024-05-21 02:36:49', '2024-05-21 03:21:48');
 
 -- --------------------------------------------------------
 
@@ -342,7 +334,11 @@ CREATE TABLE `ratings` (
 --
 
 INSERT INTO `ratings` (`id`, `id_product`, `id_service`, `id_account`, `star`, `comment`, `createdAt`, `updatedAt`) VALUES
-(20, 1424, NULL, 2, 4, 'quá là ghê', '2024-05-21 03:21:48', '2024-05-21 03:26:55');
+(20, 1424, NULL, 2, 4, 'quá là ghê', '2024-05-21 03:21:48', '2024-05-21 03:26:55'),
+(21, NULL, 5, 2, 5, 'sản phẩm chất lượng cao', '2024-05-21 07:09:53', '2024-05-21 07:09:53'),
+(23, NULL, 4, 2, 5, 'mát xa phê ', '2024-05-21 07:12:14', '2024-05-21 07:12:14'),
+(25, NULL, 4, 2, 5, 'mát xa phê ', '2024-05-21 08:01:27', '2024-05-21 08:01:27'),
+(26, NULL, 4, 2, 5, 'mát xa phê ', '2024-05-21 08:01:29', '2024-05-21 08:01:29');
 
 -- --------------------------------------------------------
 
@@ -455,7 +451,9 @@ INSERT INTO `refreshtokens` (`id`, `refreshToken`, `exp`, `createdAt`, `updatedA
 (90, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNTIzNzgzNSwiZXhwIjoxNzE1NDEwNjM1fQ.NcFh_9M66P86hgdmKCKcnHaYwr81kdyHs27XEH-izvc', '1715410635', '2024-05-09 06:57:15', '2024-05-09 06:57:15'),
 (91, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNTIzODU4NSwiZXhwIjoxNzE1NDExMzg1fQ.te3TDhQ3Y09QuHjYICHbZ9qIyBPe-hl1gMCZKAcj8sM', '1715411385', '2024-05-09 07:09:45', '2024-05-09 07:09:45'),
 (92, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNTI0NjA1NywiZXhwIjoxNzE1NDE4ODU3fQ.xKGhL6onXSEfzrIvsDBylAdiuA95i-SorAXq2q6_dfM', '1715418857', '2024-05-09 09:14:17', '2024-05-09 09:14:17'),
-(93, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjI1ODU0NywiZXhwIjoxNzE2NDMxMzQ3fQ.4j5Uu9a2E_rsxnI-n3itO5Hetw2qQJA9tUQ7m6gtKvY', '1716431347', '2024-05-21 02:29:07', '2024-05-21 02:29:07');
+(93, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjI1ODU0NywiZXhwIjoxNzE2NDMxMzQ3fQ.4j5Uu9a2E_rsxnI-n3itO5Hetw2qQJA9tUQ7m6gtKvY', '1716431347', '2024-05-21 02:29:07', '2024-05-21 02:29:07'),
+(94, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjI3MzU0MSwiZXhwIjoxNzE2NDQ2MzQxfQ._icBGX9fNkh8XYvYD5SbAQHHpKkfU2hyTaaQr3DWLfQ', '1716446341', '2024-05-21 06:39:01', '2024-05-21 06:39:01'),
+(95, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjI3ODQ2OSwiZXhwIjoxNzE2NDUxMjY5fQ.cYoLwLERO5_Z2p3t49wtWBkv7-b-O-asSI3ZNocOMeg', '1716451269', '2024-05-21 08:01:09', '2024-05-21 08:01:09');
 
 -- --------------------------------------------------------
 
@@ -526,6 +524,15 @@ CREATE TABLE `services` (
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `services`
+--
+
+INSERT INTO `services` (`id`, `name`, `image`, `description`, `price`, `createdAt`, `updatedAt`) VALUES
+(4, 'massage', 'https://pbl6-shoesshop.s3.ap-southeast-1.amazonaws.com/224df7cc044964e582cf5e800.jpg', 'adssadada', 12, '2024-05-21 06:48:50', '2024-05-21 07:04:24'),
+(5, 'dịch vụ massage chó ', 'https://pbl6-shoesshop.s3.ap-southeast-1.amazonaws.com/224df7cc044964e582cf5e801.jpg', 'xóc bình xăng con ', 20, '2024-05-21 07:08:19', '2024-05-21 07:08:19'),
+(6, 'tắm cho chó', 'https://pbl6-shoesshop.s3.ap-southeast-1.amazonaws.com/ec0911b88ac3ba46ef3f51c00.jpg', 'brr brr brr ', 20, '2024-05-21 08:22:50', '2024-05-21 08:22:50');
+
 -- --------------------------------------------------------
 
 --
@@ -574,9 +581,9 @@ ALTER TABLE `addressinfors`
 --
 ALTER TABLE `appointments`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_account` (`id_account`),
-  ADD UNIQUE KEY `id_status` (`id_status`),
-  ADD UNIQUE KEY `id_service` (`id_service`);
+  ADD KEY `id_account` (`id_account`),
+  ADD KEY `id_service` (`id_service`),
+  ADD KEY `id_status` (`id_status`);
 
 --
 -- Indexes for table `breeds`
@@ -626,9 +633,9 @@ ALTER TABLE `messages`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_appointment` (`id_appointment`),
   ADD KEY `id_account` (`id_account`),
-  ADD KEY `id_status` (`id_status`);
+  ADD KEY `id_status` (`id_status`),
+  ADD KEY `id_appointment` (`id_appointment`);
 
 --
 -- Indexes for table `order_items`
@@ -650,9 +657,9 @@ ALTER TABLE `products`
 --
 ALTER TABLE `ratings`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_service` (`id_service`),
   ADD KEY `id_shoes` (`id_product`),
-  ADD KEY `id_account` (`id_account`);
+  ADD KEY `id_account` (`id_account`),
+  ADD KEY `id_service` (`id_service`);
 
 --
 -- Indexes for table `refreshtokens`
@@ -765,13 +772,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `ratings`
 --
 ALTER TABLE `ratings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `refreshtokens`
 --
 ALTER TABLE `refreshtokens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -783,7 +790,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `statuses`
@@ -811,8 +818,9 @@ ALTER TABLE `addressinfors`
 -- Constraints for table `appointments`
 --
 ALTER TABLE `appointments`
-  ADD CONSTRAINT `appointments_ibfk_1` FOREIGN KEY (`id_status`) REFERENCES `statuses` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `appointments_ibfk_2` FOREIGN KEY (`id_account`) REFERENCES `accounts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `appointments_ibfk_1` FOREIGN KEY (`id_account`) REFERENCES `accounts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `appointments_ibfk_2` FOREIGN KEY (`id_service`) REFERENCES `services` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `appointments_ibfk_3` FOREIGN KEY (`id_status`) REFERENCES `statuses` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `carts`
@@ -872,12 +880,6 @@ ALTER TABLE `ratings`
   ADD CONSTRAINT `ratings_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `ratings_ibfk_2` FOREIGN KEY (`id_account`) REFERENCES `accounts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `ratings_ibfk_3` FOREIGN KEY (`id_service`) REFERENCES `services` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `services`
---
-ALTER TABLE `services`
-  ADD CONSTRAINT `services_ibfk_1` FOREIGN KEY (`id`) REFERENCES `appointments` (`id_service`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
