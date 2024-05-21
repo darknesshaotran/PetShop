@@ -10,16 +10,16 @@ module.exports = (sequelize, DataTypes) => {
         static associate(models) {
             // define association here
             Appointment.belongsTo(models.Service, { foreignKey: 'id_service', targetKey: 'id' });
-            Appointment.hasOne(models.Order, { foreignKey: 'id_appointment' });
-            Appointment.belongsTo(models.Account, { foreignKey: 'id_account', targetKey: 'id' });
-            Appointment.belongsTo(models.Status, { foreignKey: 'id_status', targetKey: 'id' });
+            Appointment.belongsTo(models.Order, { foreignKey: 'id_order', targetKey: 'id' });
         }
     }
     Appointment.init(
         {
-            name: DataTypes.STRING,
-            image: DataTypes.STRING,
-            description: DataTypes.STRING,
+            id_service: DataTypes.INTEGER,
+            id_order: DataTypes.INTEGER,
+            appointment_time: DataTypes.DATE,
+            end_time: DataTypes.DATE,
+            notes: DataTypes.STRING,
         },
         {
             sequelize,

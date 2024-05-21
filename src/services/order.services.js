@@ -26,6 +26,7 @@ class OrderServices {
         const order = await db.Order.create({
             id_account: userID,
             id_status: 1,
+            isService: 0,
             order_address: address,
             order_phoneNumber: phoneNumber,
         });
@@ -57,7 +58,7 @@ class OrderServices {
         var order = await db.Order.findOne({
             where: { id: id_order },
         });
-        if (!order.id_appointment) {
+        if (!order.isService) {
             const Order = await db.Order.findOne({
                 where: { id: id_order },
                 attributes: {

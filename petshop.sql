@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2024 at 10:25 AM
+-- Generation Time: May 21, 2024 at 02:38 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -85,11 +85,11 @@ INSERT INTO `addressinfors` (`id`, `id_account`, `address`, `phoneNumber`, `crea
 
 CREATE TABLE `appointments` (
   `id` int(11) NOT NULL,
-  `id_account` int(11) NOT NULL,
   `id_service` int(11) NOT NULL,
+  `id_order` int(11) NOT NULL,
   `appointment_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `end_time` timestamp NOT NULL DEFAULT current_timestamp(),
   `note` text NOT NULL,
-  `id_status` int(11) NOT NULL,
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -255,7 +255,7 @@ CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
   `id_account` int(11) NOT NULL,
   `id_status` int(11) NOT NULL,
-  `id_appointment` int(11) DEFAULT NULL,
+  `isService` int(1) NOT NULL,
   `order_address` varchar(255) DEFAULT NULL,
   `order_phoneNumber` varchar(255) DEFAULT NULL,
   `totalPrice` int(11) DEFAULT NULL,
@@ -267,8 +267,8 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `id_account`, `id_status`, `id_appointment`, `order_address`, `order_phoneNumber`, `totalPrice`, `createdAt`, `updatedAt`) VALUES
-(23, 2, 4, 1, 'Xuan Thieu 14 street', '0962240446', NULL, '2024-05-21 02:35:34', '2024-05-21 03:15:16');
+INSERT INTO `orders` (`id`, `id_account`, `id_status`, `isService`, `order_address`, `order_phoneNumber`, `totalPrice`, `createdAt`, `updatedAt`) VALUES
+(23, 2, 4, 0, 'Xuan Thieu 14 street', '0962240446', NULL, '2024-05-21 02:35:34', '2024-05-21 03:15:16');
 
 -- --------------------------------------------------------
 
@@ -581,9 +581,8 @@ ALTER TABLE `addressinfors`
 --
 ALTER TABLE `appointments`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_account` (`id_account`),
   ADD KEY `id_service` (`id_service`),
-  ADD KEY `id_status` (`id_status`);
+  ADD KEY `id_order` (`id_order`);
 
 --
 -- Indexes for table `breeds`
@@ -634,8 +633,7 @@ ALTER TABLE `messages`
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_account` (`id_account`),
-  ADD KEY `id_status` (`id_status`),
-  ADD KEY `id_appointment` (`id_appointment`);
+  ADD KEY `id_status` (`id_status`);
 
 --
 -- Indexes for table `order_items`
@@ -818,9 +816,8 @@ ALTER TABLE `addressinfors`
 -- Constraints for table `appointments`
 --
 ALTER TABLE `appointments`
-  ADD CONSTRAINT `appointments_ibfk_1` FOREIGN KEY (`id_account`) REFERENCES `accounts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `appointments_ibfk_2` FOREIGN KEY (`id_service`) REFERENCES `services` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `appointments_ibfk_3` FOREIGN KEY (`id_status`) REFERENCES `statuses` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `appointments_ibfk_1` FOREIGN KEY (`id_service`) REFERENCES `services` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `appointments_ibfk_2` FOREIGN KEY (`id_order`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `carts`
