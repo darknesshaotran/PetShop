@@ -7,11 +7,11 @@ const { wrapController } = require('../utils/handle');
 const checkAddProductValidator = async (req, res, next) => {
     const { urls, Fields } = req.formdata;
 
-    const { id_breed, id_brand, name, price, import_price, amount, description, color, size } = Fields;
+    const { id_breed, name, price, import_price, amount, description, color, size } = Fields;
     if (!id_breed) {
         throw {
             status: HTTP_STATUS.UNPROCESSABLE_ENTITY,
-            message: 'category is required',
+            message: 'breed is required',
         };
     }
     const breed = await db.Breed.findOne({ where: { id: id_breed } });

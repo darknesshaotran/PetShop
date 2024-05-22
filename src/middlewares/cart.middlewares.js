@@ -9,7 +9,7 @@ const checkAddToCartValidator = checkSchema(
     {
         id_product: {
             notEmpty: {
-                errorMessage: 'id_size_item is required',
+                errorMessage: 'id product is required',
             },
             custom: {
                 options: async (value) => {
