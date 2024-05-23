@@ -12,6 +12,16 @@ class BreedServices {
             breeds: breeds,
         };
     }
+    async getBreedDetail(id_breed) {
+        const breeds = await db.Breed.findOne({
+            where: { id: id_breed },
+        });
+        return {
+            success: true,
+            breedDetail: breeds,
+        };
+    }
+
     async deleteBreed(id_breed) {
         await db.Breed.destroy({
             where: { id: id_breed },

@@ -4,6 +4,12 @@ class BreedController {
         const result = await BreedServices.getBreedList();
         res.json(result);
     }
+    async getBreedDetail(req, res, next) {
+        const { id_breed } = req.params;
+        const result = await BreedServices.getBreedDetail(id_breed);
+        res.json(result);
+    }
+
     async deleteBreed(req, res, next) {
         const { id_breed } = req.params;
         const result = await BreedServices.deleteBreed(id_breed);

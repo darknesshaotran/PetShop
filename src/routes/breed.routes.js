@@ -12,6 +12,7 @@ router.post(
     wrapController(BreedController.addBreed),
 );
 router.delete('/delete/:id_breed', accessTokenValidator, isAdminValidator, wrapController(BreedController.deleteBreed));
+router.get('/:id_breed', wrapController(BreedController.getBreedDetail));
 router.get('/', wrapController(BreedController.getBreedList));
 
 module.exports = router;
