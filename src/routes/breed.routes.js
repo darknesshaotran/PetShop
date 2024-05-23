@@ -12,6 +12,19 @@ router.post(
     wrapController(BreedController.addBreed),
 );
 router.delete('/delete/:id_breed', accessTokenValidator, isAdminValidator, wrapController(BreedController.deleteBreed));
+router.put(
+    '/updateInfor/:id_breed',
+    accessTokenValidator,
+    isAdminValidator,
+    wrapController(BreedController.updateBreed),
+);
+router.put(
+    '/updateImage/:id_breed',
+    accessTokenValidator,
+    isAdminValidator,
+    FormdataValidator,
+    wrapController(BreedController.updateBreedImage),
+);
 router.get('/:id_breed', wrapController(BreedController.getBreedDetail));
 router.get('/', wrapController(BreedController.getBreedList));
 

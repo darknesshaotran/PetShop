@@ -42,5 +42,34 @@ class BreedServices {
             message: 'add breed successfully',
         };
     }
+    async updateBreed(data, id_breed) {
+        console.log(data);
+        await db.Breed.update(
+            {
+                ...data,
+            },
+            {
+                where: { id: id_breed },
+            },
+        );
+        return {
+            success: true,
+            message: 'update breed successfully',
+        };
+    }
+    async updateImageBreed(image, id_breed) {
+        await db.Breed.update(
+            {
+                image: image.url,
+            },
+            {
+                where: { id: id_breed },
+            },
+        );
+        return {
+            success: true,
+            message: "update breed's image successfully",
+        };
+    }
 }
 module.exports = new BreedServices();

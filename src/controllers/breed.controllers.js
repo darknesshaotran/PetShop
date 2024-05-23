@@ -21,5 +21,17 @@ class BreedController {
         const result = await BreedServices.addBreed(urls, name, description);
         res.json(result);
     }
+    async updateBreed(req, res, next) {
+        const { id_breed } = req.params;
+        const data = req.body;
+        const result = await BreedServices.updateBreed(data, id_breed);
+        res.json(result);
+    }
+    async updateBreedImage(req, res, next) {
+        const { id_breed } = req.params;
+        const { urls, Fields } = req.formdata;
+        const result = await BreedServices.updateImageBreed(urls[0], id_breed);
+        res.json(result);
+    }
 }
 module.exports = new BreedController();
