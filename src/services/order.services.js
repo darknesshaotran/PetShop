@@ -128,27 +128,6 @@ class OrderServices {
     async CancelOrder(id_order) {
         const order = await db.Order.findOne({
             where: { id: id_order },
-            attributes: {
-                exclude: ['createdAt', 'updatedAt'],
-            },
-            include: [
-                {
-                    model: db.Product,
-                    through: {
-                        attributes: ['id', 'quantity', 'fixed_price', 'isRate'],
-                        as: 'order_item_infor',
-                    },
-                    as: 'Products',
-                    attributes: ['id', 'name', 'amount', 'price'],
-                    include: [
-                        {
-                            model: db.Breed,
-                            attributes: ['id', 'name'],
-                        },
-                    ],
-                },
-                { model: db.Status, as: 'Status', attributes: ['status'] },
-            ],
         });
         if (order.id_status > 1)
             throw new ErrorsWithStatus({

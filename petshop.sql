@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2024 at 02:38 PM
+-- Generation Time: May 23, 2024 at 05:59 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -94,6 +94,13 @@ CREATE TABLE `appointments` (
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `appointments`
+--
+
+INSERT INTO `appointments` (`id`, `id_service`, `id_order`, `appointment_time`, `end_time`, `note`, `createdAt`, `updatedAt`) VALUES
+(1, 6, 26, '2023-05-27 05:00:00', '2023-05-27 06:00:00', 'tắm sạch dô ', '2024-05-23 03:32:27', '2024-05-23 03:32:27');
+
 -- --------------------------------------------------------
 
 --
@@ -161,6 +168,13 @@ CREATE TABLE `cart_items` (
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `cart_items`
+--
+
+INSERT INTO `cart_items` (`id`, `id_product`, `id_cart`, `quantity`, `createdAt`, `updatedAt`) VALUES
+(16, 1424, 1, 1, '2024-05-22 08:04:40', '2024-05-22 08:04:40');
+
 -- --------------------------------------------------------
 
 --
@@ -205,7 +219,7 @@ CREATE TABLE `inforusers` (
 --
 
 INSERT INTO `inforusers` (`id`, `id_account`, `lastname`, `firstname`, `phoneNumber`, `avatar`, `createdAt`, `updatedAt`) VALUES
-(1, 2, 'Trần', 'Hào', '3111111111', 'https://pbl6-shoesshop.s3.ap-southeast-1.amazonaws.com/b114dce340224f5d6a6e60601.jpg', '2023-10-27 08:51:32', '2023-11-01 14:49:19'),
+(1, 2, 'Trần', 'Hào', '3111111111', 'https://pbl6-shoesshop.s3.ap-southeast-1.amazonaws.com/d985664e57a047cd1376fb801.jpg', '2023-10-27 08:51:32', '2024-05-22 08:39:56'),
 (4, 5, 'hào thanh hưng', 'trần', '3111111111', NULL, '2023-11-01 07:35:08', '2023-11-01 07:35:08'),
 (5, 6, 'hào thanh hưng', 'trần', '3111111111', NULL, '2023-11-01 07:36:30', '2023-11-01 07:36:30'),
 (6, 7, 'Thanh', 'Hưng gà', '3111111111', 'https://pbl6-shoesshop.s3.ap-southeast-1.amazonaws.com/d5d65b52e1174eaef76b19d01.jpg', '2023-11-03 07:00:41', '2023-11-21 15:37:08'),
@@ -268,7 +282,9 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `id_account`, `id_status`, `isService`, `order_address`, `order_phoneNumber`, `totalPrice`, `createdAt`, `updatedAt`) VALUES
-(23, 2, 4, 0, 'Xuan Thieu 14 street', '0962240446', NULL, '2024-05-21 02:35:34', '2024-05-21 03:15:16');
+(23, 2, 4, 0, 'Xuan Thieu 14 street', '0962240446', NULL, '2024-05-21 02:35:34', '2024-05-21 03:15:16'),
+(25, 2, 1, 1, NULL, '0909', 20, '2024-05-23 03:31:43', '2024-05-23 03:31:43'),
+(26, 2, 5, 1, NULL, '0909', 20, '2024-05-23 03:32:27', '2024-05-23 03:53:29');
 
 -- --------------------------------------------------------
 
@@ -298,6 +314,8 @@ CREATE TABLE `products` (
   `id_breed` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `amount` int(11) NOT NULL,
+  `soldProductNum` int(11) NOT NULL,
+  `proceeds` int(11) NOT NULL,
   `price` int(11) NOT NULL,
   `import_price` int(11) NOT NULL,
   `description` varchar(255) DEFAULT NULL,
@@ -309,8 +327,8 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `id_breed`, `name`, `amount`, `price`, `import_price`, `description`, `createdAt`, `updatedAt`) VALUES
-(1424, 9, 'con chó', 10, 15, 12, 'the sun can\'t shine without darkness', '2024-05-09 05:28:19', '2024-05-21 03:10:09');
+INSERT INTO `products` (`id`, `id_breed`, `name`, `amount`, `soldProductNum`, `proceeds`, `price`, `import_price`, `description`, `createdAt`, `updatedAt`) VALUES
+(1424, 9, 'con chó', 10, 0, 0, 15, 12, 'the sun can\'t shine without darkness', '2024-05-09 05:28:19', '2024-05-21 03:10:09');
 
 -- --------------------------------------------------------
 
@@ -453,7 +471,10 @@ INSERT INTO `refreshtokens` (`id`, `refreshToken`, `exp`, `createdAt`, `updatedA
 (92, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNTI0NjA1NywiZXhwIjoxNzE1NDE4ODU3fQ.xKGhL6onXSEfzrIvsDBylAdiuA95i-SorAXq2q6_dfM', '1715418857', '2024-05-09 09:14:17', '2024-05-09 09:14:17'),
 (93, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjI1ODU0NywiZXhwIjoxNzE2NDMxMzQ3fQ.4j5Uu9a2E_rsxnI-n3itO5Hetw2qQJA9tUQ7m6gtKvY', '1716431347', '2024-05-21 02:29:07', '2024-05-21 02:29:07'),
 (94, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjI3MzU0MSwiZXhwIjoxNzE2NDQ2MzQxfQ._icBGX9fNkh8XYvYD5SbAQHHpKkfU2hyTaaQr3DWLfQ', '1716446341', '2024-05-21 06:39:01', '2024-05-21 06:39:01'),
-(95, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjI3ODQ2OSwiZXhwIjoxNzE2NDUxMjY5fQ.cYoLwLERO5_Z2p3t49wtWBkv7-b-O-asSI3ZNocOMeg', '1716451269', '2024-05-21 08:01:09', '2024-05-21 08:01:09');
+(95, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjI3ODQ2OSwiZXhwIjoxNzE2NDUxMjY5fQ.cYoLwLERO5_Z2p3t49wtWBkv7-b-O-asSI3ZNocOMeg', '1716451269', '2024-05-21 08:01:09', '2024-05-21 08:01:09'),
+(96, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjM2MjQzMCwiZXhwIjoxNzE2NTM1MjMwfQ.3NKgiZ1oT343ZZ2oaoumEGnjH_8KUgdgPV6LhxXDC7Y', '1716535230', '2024-05-22 07:20:30', '2024-05-22 07:20:30'),
+(97, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjQzNDMzNiwiZXhwIjoxNzE2NjA3MTM2fQ.LcmxokA9jaGAVhMPmPQ8fRKeMhes1BBbtLduzCBYZLo', '1716607136', '2024-05-23 03:18:56', '2024-05-23 03:18:56'),
+(98, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjQzNDM2MiwiZXhwIjoxNzE2NjA3MTYyfQ.TlUnNhit4HCrL12AlYlOn_mhHCYOjZ5Gi2utr8SlT_s', '1716607162', '2024-05-23 03:19:22', '2024-05-23 03:19:22');
 
 -- --------------------------------------------------------
 
@@ -710,7 +731,7 @@ ALTER TABLE `addressinfors`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `breeds`
@@ -728,7 +749,7 @@ ALTER TABLE `carts`
 -- AUTO_INCREMENT for table `cart_items`
 --
 ALTER TABLE `cart_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `images`
@@ -752,7 +773,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `order_items`
@@ -776,7 +797,7 @@ ALTER TABLE `ratings`
 -- AUTO_INCREMENT for table `refreshtokens`
 --
 ALTER TABLE `refreshtokens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
 -- AUTO_INCREMENT for table `roles`

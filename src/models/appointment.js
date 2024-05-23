@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
             id_order: DataTypes.INTEGER,
             appointment_time: DataTypes.DATE,
             end_time: DataTypes.DATE,
-            notes: DataTypes.STRING,
+            note: DataTypes.STRING,
         },
         {
             sequelize,

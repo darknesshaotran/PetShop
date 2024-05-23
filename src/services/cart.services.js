@@ -52,7 +52,7 @@ class CartServices {
                         as: 'cart_item_infor',
                     },
                     as: 'Cart_Items',
-                    attributes: ['id', 'amount', 'name', 'price'],
+                    attributes: ['id', 'amount', 'name', 'price', 'soldProductNum'],
                     include: [{ model: db.Breed, as: 'Breed', attributes: ['id', 'name'] }],
                 },
             ],

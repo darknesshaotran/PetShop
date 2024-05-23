@@ -9,6 +9,11 @@ router.post('/create', accessTokenValidator, wrapController(AppointmentControlle
 router.put('/update', accessTokenValidator, wrapController(AppointmentController.updateAppointment));
 router.get('/detail/:id_appointment', accessTokenValidator, wrapController(AppointmentController.detailAppointment));
 router.put('/cancel/:id_appointment', accessTokenValidator, wrapController(AppointmentController.cancelAppointment));
-router.put('/accept/:id_appointment', accessTokenValidator, wrapController(AppointmentController.acceptAppointment));
+router.put(
+    '/accept/:id_appointment',
+    accessTokenValidator,
+    isAdminValidator,
+    wrapController(AppointmentController.acceptAppointment),
+);
 
 module.exports = router;
