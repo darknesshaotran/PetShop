@@ -16,6 +16,8 @@ class OrderServices {
         await db.Product.update(
             {
                 amount: Number(product.amount) - Number(Item.quantity),
+                soldProductNum: Number(product.soldProductNum) + Number(Item.quantity),
+                proceeds: Number(product.proceeds) + Number(Item.price * Item.quantity),
             },
             {
                 where: { id: product.id },
@@ -106,7 +108,35 @@ class OrderServices {
                 order.Products[i].image = image.image ? image.image : '';
             }
         } else {
-            // TO DO SHOW APPOINTMENT DETAIL
+            const appointment = await db.Appointment.findOne({
+                where: { id: id_appointment },
+                include: [
+                    {
+                        model: db.Order,
+                        include: [
+                            { model: db.Status, as: 'Status', attributes: ['status'] },
+                            {
+                                model: db.Account,
+                                attributes: {
+                                    exclude: ['password', 'forgot_password_token', 'id_role'],
+                                },
+                                include: [
+                                    {
+                                        model: db.inforUser,
+                                        as: 'inforUser',
+                                        attributes: ['firstname', 'lastname', 'phoneNumber', 'avatar'],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        model: db.Service,
+                        attributes: ['name', 'price', 'image', 'description'],
+                    },
+                ],
+            });
+            order = JSON.parse(JSON.stringify(appointment));
         }
 
         return {
@@ -128,6 +158,26 @@ class OrderServices {
     async CancelOrder(id_order) {
         const order = await db.Order.findOne({
             where: { id: id_order },
+            attributes: {
+                exclude: ['createdAt', 'updatedAt'],
+            },
+            include: [
+                {
+                    model: db.Product,
+                    through: {
+                        attributes: ['id', 'quantity', 'fixed_price', 'isRate'],
+                        as: 'order_item_infor',
+                    },
+                    as: 'Products',
+                    attributes: ['id', 'name', 'soldProductNum', 'proceeds', 'amount', 'price'],
+                    include: [
+                        {
+                            model: db.Breed,
+                            attributes: ['id', 'name'],
+                        },
+                    ],
+                },
+            ],
         });
         if (order.id_status > 1)
             throw new ErrorsWithStatus({
@@ -136,11 +186,14 @@ class OrderServices {
             });
 
         for (let i = 0; i < order.Products.length; i++) {
-            // khôi phục amount của product ở đây
+            // khôi phục amount,soldProductNum,proceeds của product ở đây
             const product = await db.Product.findOne({ where: { id: order.Products[i].id } });
             await db.Product.update(
                 {
-                    amount: product.amount + order.Products[i].order_item_infor.quantity,
+                    amount: Number(product.amount) + Number(order.Products[i].order_item_infor.quantity),
+                    soldProductNum:
+                        Number(product.soldProductNum) - Number(order.Products[i].order_item_infor.quantity),
+                    proceeds: Number(product.proceeds) - Number(order.Products[i].order_item_infor.fixed_price),
                 },
                 {
                     where: { id: product.id },

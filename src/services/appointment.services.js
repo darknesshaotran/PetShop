@@ -5,6 +5,43 @@ const HTTP_STATUS = require('../constants/httpStatus');
 
 class OrderServices {
     async createAppointment(userID, id_service, note, appointmentTime, endTime) {
+        const conflictAppointments = await db.Appointment.findAll({
+            where: {
+                [Op.or]: [
+                    {
+                        appointment_time: {
+                            [Op.between]: [appointmentTime, endTime],
+                        },
+                    },
+                    {
+                        end_time: {
+                            [Op.between]: [appointmentTime, endTime],
+                        },
+                    },
+                    {
+                        [Op.and]: [
+                            {
+                                appointment_time: {
+                                    [Op.lte]: appointmentTime,
+                                },
+                            },
+                            {
+                                end_time: {
+                                    [Op.gte]: endTime,
+                                },
+                            },
+                        ],
+                    },
+                ],
+            },
+        });
+
+        if (conflictAppointments.length > 0) {
+            throw new ErrorsWithStatus({
+                status: HTTP_STATUS.UNPROCESSABLE_ENTITY,
+                message: 'Appointment time conflicts with existing appointments',
+            });
+        }
         const service = await db.Service.findOne({
             where: { id: id_service },
         });
@@ -17,7 +54,9 @@ class OrderServices {
             totalPrice: totalPrice,
         });
         if (!endTime) {
-            // TODO RESIGN ENDTIME TO APPOINTMENT TIME + 1 HOURS
+            let appointmentDate = new Date(appointmentTime);
+            appointmentDate.setHours(appointmentDate.getHours() + 1);
+            endTime = appointmentDate.toISOString();
         }
         const appointment = await db.Appointment.create({
             id_service: id_service,
@@ -93,7 +132,7 @@ class OrderServices {
                 },
                 {
                     model: db.Service,
-                    attributes: ['name', 'price', 'description'],
+                    attributes: ['name', 'price', 'description', 'image'],
                 },
             ],
         });
@@ -106,6 +145,12 @@ class OrderServices {
         const appointment = await db.Appointment.findOne({
             where: { id: id_appointment },
         });
+        if (appointment.id_status === 6) {
+            throw new ErrorsWithStatus({
+                status: HTTP_STATUS.UNPROCESSABLE_ENTITY,
+                message: 'Can not cancel appointment that has been accepted',
+            });
+        }
         await db.Order.update(
             { id_status: 5 },
             {
@@ -121,6 +166,12 @@ class OrderServices {
         const appointment = await db.Appointment.findOne({
             where: { id: id_appointment },
         });
+        if (appointment.id_status === 5) {
+            throw new ErrorsWithStatus({
+                status: HTTP_STATUS.UNPROCESSABLE_ENTITY,
+                message: 'Can not accept appointment that has been canceled',
+            });
+        }
         await db.Order.update(
             { id_status: 6 },
             {
@@ -131,6 +182,9 @@ class OrderServices {
             success: true,
             message: 'accept appointment successfully',
         };
+    }
+    async getListAppointment(userName, phoneNumber, appointmentTime) {
+        // TO DO GET LIST APPOINTMENT BY USER 'S NAME, ORDER PHONE NUM, APPOINTMENT TIME
     }
 }
 module.exports = new OrderServices();
