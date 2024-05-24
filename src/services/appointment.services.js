@@ -4,7 +4,7 @@ const ErrorsWithStatus = require('../constants/Error');
 const HTTP_STATUS = require('../constants/httpStatus');
 
 class OrderServices {
-    async createAppointment(userID, id_service, note, appointmentTime, endTime) {
+    async createAppointment(userID, id_service, note, appointmentTime, endTime, order_phoneNumber) {
         const conflictAppointments = await db.Appointment.findAll({
             where: {
                 [Op.or]: [
@@ -50,7 +50,7 @@ class OrderServices {
             id_account: userID,
             id_status: 1,
             isService: 1,
-            order_phoneNumber: '0909',
+            order_phoneNumber: order_phoneNumber,
             totalPrice: totalPrice,
         });
         if (!endTime) {

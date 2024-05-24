@@ -4,8 +4,15 @@ class AppointmentController {
     async createAppointment(req, res, next) {
         const { decoded_authorization } = req;
         const userID = decoded_authorization.userID;
-        const { id_service, note, appointmentTime, endTime } = req.body;
-        const result = await appointmentServices.createAppointment(userID, id_service, note, appointmentTime, endTime);
+        const { id_service, note, appointmentTime, endTime, order_phoneNumber } = req.body;
+        const result = await appointmentServices.createAppointment(
+            userID,
+            id_service,
+            note,
+            appointmentTime,
+            endTime,
+            order_phoneNumber,
+        );
         res.json(result);
     }
     async detailAppointment(req, res, next) {
