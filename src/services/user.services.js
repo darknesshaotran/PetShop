@@ -23,21 +23,42 @@ class UserServices {
 
     ////////// MAIN FUNCTION /////////////
     async register(data) {
-        const user = await db.Account.create({ id_role: 2, email: data.email, password: hashPassword(data.password) });
-        const inforUser = await db.inforUser.create({
-            id_account: user.id,
-            lastname: data.lastname,
-            firstname: data.firstname,
-            phoneNumber: data.phoneNumber,
-        });
-        await db.Cart.create({
-            id_account: user.id,
-        });
-        await sendEmail('<h1 style="color:red">😍 register successfully 😍</h1>', 'PBL6_message', data.email);
-        return {
-            success: true,
-            message: USERS_MESSAGES.REGISTER_SUCCESS,
-        };
+        const transaction = await db.sequelize.transaction();
+        try {
+            const user = await db.Account.create(
+                {
+                    id_role: 2,
+                    email: data.email,
+                    password: hashPassword(data.password),
+                    point: 0,
+                },
+                { transaction },
+            );
+            const inforUser = await db.inforUser.create(
+                {
+                    id_account: user.id,
+                    lastname: data.lastname,
+                    firstname: data.firstname,
+                    phoneNumber: data.phoneNumber,
+                },
+                { transaction },
+            );
+            await db.Cart.create(
+                {
+                    id_account: user.id,
+                },
+                { transaction },
+            );
+            await sendEmail('<h1 style="color:red">😍 register successfully 😍</h1>', 'PBL6_message', data.email);
+            await transaction.commit();
+            return {
+                success: true,
+                message: USERS_MESSAGES.REGISTER_SUCCESS,
+            };
+        } catch (error) {
+            await transaction.rollback();
+            throw error;
+        }
     }
     async login(userID, id_role) {
         const role = id_role === 1 ? 'admin' : 'customer';
