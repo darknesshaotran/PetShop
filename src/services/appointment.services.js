@@ -5,72 +5,88 @@ const HTTP_STATUS = require('../constants/httpStatus');
 
 class OrderServices {
     async createAppointment(userID, id_service, note, appointmentTime, endTime, order_phoneNumber) {
-        const conflictAppointments = await db.Appointment.findAll({
-            where: {
-                [Op.or]: [
-                    {
-                        appointment_time: {
-                            [Op.between]: [appointmentTime, endTime],
-                        },
-                    },
-                    {
-                        end_time: {
-                            [Op.between]: [appointmentTime, endTime],
-                        },
-                    },
-                    {
-                        [Op.and]: [
-                            {
-                                appointment_time: {
-                                    [Op.lte]: appointmentTime,
-                                },
+        const transaction = await db.sequelize.transaction();
+        try {
+            const conflictAppointments = await db.Appointment.findAll({
+                where: {
+                    [Op.or]: [
+                        {
+                            appointment_time: {
+                                [Op.between]: [appointmentTime, endTime],
                             },
-                            {
-                                end_time: {
-                                    [Op.gte]: endTime,
-                                },
+                        },
+                        {
+                            end_time: {
+                                [Op.between]: [appointmentTime, endTime],
                             },
-                        ],
-                    },
-                ],
-            },
-        });
-
-        if (conflictAppointments.length > 0) {
-            throw new ErrorsWithStatus({
-                status: HTTP_STATUS.UNPROCESSABLE_ENTITY,
-                message: 'Appointment time conflicts with existing appointments',
+                        },
+                        {
+                            [Op.and]: [
+                                {
+                                    appointment_time: {
+                                        [Op.lte]: appointmentTime,
+                                    },
+                                },
+                                {
+                                    end_time: {
+                                        [Op.gte]: endTime,
+                                    },
+                                },
+                            ],
+                        },
+                    ],
+                },
+                transaction,
             });
+
+            if (conflictAppointments.length > 0) {
+                throw new ErrorsWithStatus({
+                    status: HTTP_STATUS.UNPROCESSABLE_ENTITY,
+                    message: 'Appointment time conflicts with existing appointments',
+                });
+            }
+            const service = await db.Service.findOne({
+                where: { id: id_service },
+                transaction,
+            });
+            var totalPrice = Number(service.price);
+            const order = await db.Order.create(
+                {
+                    id_account: userID,
+                    id_status: 1,
+                    isService: 1,
+                    order_phoneNumber: order_phoneNumber,
+                    totalPrice: totalPrice,
+                },
+                { transaction },
+            );
+            if (!endTime) {
+                let appointmentDate = new Date(appointmentTime);
+                appointmentDate.setHours(appointmentDate.getHours() + 1);
+                endTime = appointmentDate.toISOString();
+            }
+            const appointment = await db.Appointment.create(
+                {
+                    id_service: id_service,
+                    id_order: order.id,
+                    appointment_time: appointmentTime,
+                    end_time: endTime,
+                    note: note,
+                },
+                { transaction },
+            );
+
+            await transaction.commit();
+            return {
+                success: true,
+                message: 'schedule appointment successfully',
+                order: order,
+                appointment: appointment,
+            };
+        } catch (error) {
+            await transaction.rollback();
+            throw error;
         }
-        const service = await db.Service.findOne({
-            where: { id: id_service },
-        });
-        var totalPrice = Number(service.price);
-        const order = await db.Order.create({
-            id_account: userID,
-            id_status: 1,
-            isService: 1,
-            order_phoneNumber: order_phoneNumber,
-            totalPrice: totalPrice,
-        });
-        if (!endTime) {
-            let appointmentDate = new Date(appointmentTime);
-            appointmentDate.setHours(appointmentDate.getHours() + 1);
-            endTime = appointmentDate.toISOString();
-        }
-        const appointment = await db.Appointment.create({
-            id_service: id_service,
-            id_order: order.id,
-            appointment_time: appointmentTime,
-            end_time: endTime,
-            note: note,
-        });
-        return {
-            success: true,
-            message: 'schedule appointment successfully',
-            order: order,
-            appointment: appointment,
-        };
     }
     async updateAppointment(id_appointment, note, appointmentTime, endTime) {
         var updatedData = {};
@@ -142,25 +158,34 @@ class OrderServices {
         };
     }
     async cancelAppointment(id_appointment) {
-        const appointment = await db.Appointment.findOne({
-            where: { id: id_appointment },
-        });
-        if (appointment.id_status === 6) {
-            throw new ErrorsWithStatus({
-                status: HTTP_STATUS.UNPROCESSABLE_ENTITY,
-                message: 'Can not cancel appointment that has been accepted',
+        const transaction = await db.sequelize.transaction();
+        try {
+            const appointment = await db.Appointment.findOne({
+                where: { id: id_appointment },
+                transaction,
             });
+            if (appointment.id_status === 6) {
+                throw new ErrorsWithStatus({
+                    status: HTTP_STATUS.UNPROCESSABLE_ENTITY,
+                    message: 'Can not cancel appointment that has been accepted',
+                });
+            }
+            await db.Order.update(
+                { id_status: 5 },
+                {
+                    where: { id: appointment.id_order },
+                    transaction,
+                },
+            );
+            await transaction.commit();
+            return {
+                success: true,
+                message: 'cancel appointment successfully',
+            };
+        } catch (error) {
+            await transaction.rollback();
+            throw error;
         }
-        await db.Order.update(
-            { id_status: 5 },
-            {
-                where: { id: appointment.id_order },
-            },
-        );
-        return {
-            success: true,
-            message: 'cancel appointment successfully',
-        };
     }
     async acceptAppointment(id_appointment) {
         const appointment = await db.Appointment.findOne({

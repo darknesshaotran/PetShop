@@ -127,24 +127,37 @@ class ProductServices {
         return { success: true, result: productDetails };
     }
     async addProduct(id_breed, name, price, import_price, description, amount, image) {
-        const product = await db.Product.create({
-            id_breed,
-            name,
-            price,
-            import_price,
-            description,
-            amount,
-        });
-        for (let i = 0; i < image.length; i++) {
-            await db.Image.create({
-                image: image[i].url,
-                id_product: product.id,
-            });
+        const transaction = await db.sequelize.transaction();
+        try {
+            const product = await db.Product.create(
+                {
+                    id_breed,
+                    name,
+                    price,
+                    import_price,
+                    description,
+                    amount,
+                },
+                { transaction },
+            );
+            for (let i = 0; i < image.length; i++) {
+                await db.Image.create(
+                    {
+                        image: image[i].url,
+                        id_product: product.id,
+                    },
+                    { transaction },
+                );
+            }
+            await transaction.commit();
+            return {
+                success: true,
+                message: 'add product successfully',
+            };
+        } catch (error) {
+            await transaction.rollback();
+            throw error;
         }
-        return {
-            success: true,
-            message: 'add product successfully',
-        };
     }
     async deleteProduct(id_product) {
         await db.Product.destroy({
@@ -173,21 +186,32 @@ class ProductServices {
         };
     }
     async updateProductImages(id_product, image) {
-        await db.Image.destroy({
-            where: {
-                id_product: id_product,
-            },
-        });
-        for (let i = 0; i < image.length; i++) {
-            await db.Image.create({
-                image: image[i].url,
-                id_product: id_product,
+        const transaction = await db.sequelize.transaction();
+        try {
+            await db.Image.destroy({
+                where: {
+                    id_product: id_product,
+                },
+                transaction,
             });
+            for (let i = 0; i < image.length; i++) {
+                await db.Image.create(
+                    {
+                        image: image[i].url,
+                        id_product: id_product,
+                    },
+                    { transaction },
+                );
+            }
+            await transaction.commit();
+            return {
+                success: true,
+                message: 'update images successfully',
+            };
+        } catch (error) {
+            await transaction.rollback();
+            throw error;
         }
-        return {
-            success: true,
-            message: 'update images successfully',
-        };
     }
 }
 module.exports = new ProductServices();

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2024 at 05:59 AM
+-- Generation Time: May 25, 2024 at 05:50 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -32,6 +32,7 @@ CREATE TABLE `accounts` (
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `id_role` int(11) NOT NULL,
+  `point` int(11) DEFAULT NULL,
   `forgot_password_token` varchar(255) DEFAULT NULL,
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp()
@@ -41,17 +42,17 @@ CREATE TABLE `accounts` (
 -- Dumping data for table `accounts`
 --
 
-INSERT INTO `accounts` (`id`, `email`, `password`, `id_role`, `forgot_password_token`, `createdAt`, `updatedAt`) VALUES
-(2, 'darknessclmm@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 1, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInR5cGUiOiJmb3Jnb3RQYXNzd29yZFRva2VuIiwiaWF0IjoxNjk4ODI0NzM4LCJleHAiOjE2OTg5OTc1Mzh9.pMtZYtph38yr5GJdGBSFMhZ0fFUb5mgwz3EvImB14zs', '2023-10-27 08:51:32', '2023-11-01 07:45:38'),
-(5, 'hothanhhungtran@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjUsInR5cGUiOiJmb3Jnb3RQYXNzd29yZFRva2VuIiwiaWF0IjoxNjk4ODI0NTExLCJleHAiOjE2OTg5OTczMTF9.kvCnD6GMZhhe5qVufCjY0Wri3QljsUYRwEkYF5ZiwSk', '2023-11-01 07:35:08', '2023-11-01 07:41:51'),
-(6, 'hothanhhungtran1@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjYsInR5cGUiOiJmb3Jnb3RQYXNzd29yZFRva2VuIiwiaWF0IjoxNjk4ODI0Mzk3LCJleHAiOjE2OTg5OTcxOTd9.L37kBCUkfexxYwHE1IB9GufnyrJi_lTZW_6hSIH4JvM', '2023-11-01 07:36:30', '2023-11-01 07:39:57'),
-(7, 'darknessclmm1@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, NULL, '2023-11-03 07:00:41', '2023-11-03 07:00:41'),
-(8, 'manhddt2508@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, NULL, '2023-11-30 11:07:40', '2023-11-30 11:07:40'),
-(9, 'manhddt111@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, NULL, '2023-11-30 16:23:49', '2023-11-30 16:23:49'),
-(10, 'manhddt250811@gm1ail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, NULL, '2023-12-01 06:18:18', '2023-12-01 06:18:18'),
-(11, 'manhddt1234@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, NULL, '2023-12-01 06:24:14', '2023-12-01 06:24:14'),
-(12, 'manhddt12345@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, NULL, '2023-12-01 09:20:26', '2023-12-01 09:20:26'),
-(13, 'manhddt250802@gmail.com', '2c91440bfacd977e1a27d76d53e199521669b68a06c6e6e07edd17a952f978ff', 2, NULL, '2023-12-08 09:32:21', '2023-12-08 09:32:21');
+INSERT INTO `accounts` (`id`, `email`, `password`, `id_role`, `point`, `forgot_password_token`, `createdAt`, `updatedAt`) VALUES
+(2, 'darknessclmm@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 1, 1, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInR5cGUiOiJmb3Jnb3RQYXNzd29yZFRva2VuIiwiaWF0IjoxNjk4ODI0NzM4LCJleHAiOjE2OTg5OTc1Mzh9.pMtZYtph38yr5GJdGBSFMhZ0fFUb5mgwz3EvImB14zs', '2023-10-27 08:51:32', '2024-05-25 02:53:09'),
+(5, 'hothanhhungtran@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, NULL, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjUsInR5cGUiOiJmb3Jnb3RQYXNzd29yZFRva2VuIiwiaWF0IjoxNjk4ODI0NTExLCJleHAiOjE2OTg5OTczMTF9.kvCnD6GMZhhe5qVufCjY0Wri3QljsUYRwEkYF5ZiwSk', '2023-11-01 07:35:08', '2023-11-01 07:41:51'),
+(6, 'hothanhhungtran1@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, NULL, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjYsInR5cGUiOiJmb3Jnb3RQYXNzd29yZFRva2VuIiwiaWF0IjoxNjk4ODI0Mzk3LCJleHAiOjE2OTg5OTcxOTd9.L37kBCUkfexxYwHE1IB9GufnyrJi_lTZW_6hSIH4JvM', '2023-11-01 07:36:30', '2023-11-01 07:39:57'),
+(7, 'darknessclmm1@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, NULL, NULL, '2023-11-03 07:00:41', '2023-11-03 07:00:41'),
+(8, 'manhddt2508@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, NULL, NULL, '2023-11-30 11:07:40', '2023-11-30 11:07:40'),
+(9, 'manhddt111@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, NULL, NULL, '2023-11-30 16:23:49', '2023-11-30 16:23:49'),
+(10, 'manhddt250811@gm1ail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, NULL, NULL, '2023-12-01 06:18:18', '2023-12-01 06:18:18'),
+(11, 'manhddt1234@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, NULL, NULL, '2023-12-01 06:24:14', '2023-12-01 06:24:14'),
+(12, 'manhddt12345@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, NULL, NULL, '2023-12-01 09:20:26', '2023-12-01 09:20:26'),
+(13, 'manhddt250802@gmail.com', '2c91440bfacd977e1a27d76d53e199521669b68a06c6e6e07edd17a952f978ff', 2, NULL, NULL, '2023-12-08 09:32:21', '2023-12-08 09:32:21');
 
 -- --------------------------------------------------------
 
@@ -99,7 +100,11 @@ CREATE TABLE `appointments` (
 --
 
 INSERT INTO `appointments` (`id`, `id_service`, `id_order`, `appointment_time`, `end_time`, `note`, `createdAt`, `updatedAt`) VALUES
-(1, 6, 26, '2023-05-27 05:00:00', '2023-05-27 06:00:00', 'tắm sạch dô ', '2024-05-23 03:32:27', '2024-05-23 03:32:27');
+(1, 6, 26, '2023-05-27 05:00:00', '2023-05-27 06:00:00', 'tắm sạch vào nhá', '2024-05-23 03:32:27', '2024-05-24 08:43:48'),
+(2, 6, 27, '2023-05-27 06:30:00', '2023-05-27 07:00:00', 'tắm sạch dô ', '2024-05-23 09:16:14', '2024-05-23 09:16:14'),
+(3, 4, 28, '2023-11-01 01:31:28', '2023-11-01 01:31:28', 'cắt tỉa cẩn thận', '2024-05-24 08:48:41', '2024-05-24 08:48:41'),
+(4, 4, 29, '2023-11-01 01:32:28', '2023-11-01 01:32:28', 'cắt tỉa cẩn thận', '2024-05-24 09:07:48', '2024-05-24 09:07:48'),
+(5, 4, 30, '2023-11-01 01:33:28', '2023-11-01 01:36:28', 'cắt tỉa cẩn thận', '2024-05-24 09:11:50', '2024-05-24 09:11:50');
 
 -- --------------------------------------------------------
 
@@ -122,7 +127,9 @@ CREATE TABLE `breeds` (
 
 INSERT INTO `breeds` (`id`, `name`, `image`, `description`, `createdAt`, `updatedAt`) VALUES
 (9, 'Husky', 'https://pbl6-shoesshop.s3.ap-southeast-1.amazonaws.com/cd959ede4f6701dd9ab301900.jpg', 'a fat dog', '2024-05-09 04:10:12', '2024-05-09 04:10:12'),
-(10, 'cat', 'https://pbl6-shoesshop.s3.ap-southeast-1.amazonaws.com/a73e1cfc45e44bc374d2b7900.jpg', 'lazy cat', '2024-05-09 07:10:12', '2024-05-09 07:10:12');
+(10, 'big cat', 'https://pbl6-shoesshop.s3.ap-southeast-1.amazonaws.com/e6f1f07c28173e77f54901200.jpg', 'cat with big body', '2024-05-09 07:10:12', '2024-05-23 06:46:11'),
+(11, 'chó gay ', 'https://pbl6-shoesshop.s3.ap-southeast-1.amazonaws.com/f9c71a12f5d22bbd085baa600.jpg', 'chó lgbt', '2024-05-24 10:16:22', '2024-05-24 10:16:22'),
+(12, 'chó TFT ', 'https://pbl6-shoesshop.s3.ap-southeast-1.amazonaws.com/f9c71a12f5d22bbd085baa612.jpg', 'sadsadsdsd', '2024-05-24 10:19:31', '2024-05-24 10:19:31');
 
 -- --------------------------------------------------------
 
@@ -284,7 +291,13 @@ CREATE TABLE `orders` (
 INSERT INTO `orders` (`id`, `id_account`, `id_status`, `isService`, `order_address`, `order_phoneNumber`, `totalPrice`, `createdAt`, `updatedAt`) VALUES
 (23, 2, 4, 0, 'Xuan Thieu 14 street', '0962240446', NULL, '2024-05-21 02:35:34', '2024-05-21 03:15:16'),
 (25, 2, 1, 1, NULL, '0909', 20, '2024-05-23 03:31:43', '2024-05-23 03:31:43'),
-(26, 2, 5, 1, NULL, '0909', 20, '2024-05-23 03:32:27', '2024-05-23 03:53:29');
+(26, 2, 5, 1, NULL, '0909', 20, '2024-05-23 03:32:27', '2024-05-23 03:53:29'),
+(27, 2, 1, 1, NULL, '0909', 20, '2024-05-23 09:16:14', '2024-05-23 09:16:14'),
+(28, 2, 1, 1, NULL, '', 12, '2024-05-24 08:48:41', '2024-05-24 08:48:41'),
+(29, 2, 1, 1, NULL, '0962232323', 12, '2024-05-24 09:07:48', '2024-05-24 09:07:48'),
+(30, 2, 1, 1, NULL, '0962232323', 12, '2024-05-24 09:11:50', '2024-05-24 09:11:50'),
+(31, 2, 1, 0, 'Xuan Thieu 14 street', '0962240446', 15, '2024-05-25 02:50:47', '2024-05-25 02:50:47'),
+(32, 2, 1, 0, 'Xuan Thieu 14 street', '0962240446', 15000, '2024-05-25 02:51:56', '2024-05-25 02:53:09');
 
 -- --------------------------------------------------------
 
@@ -302,6 +315,15 @@ CREATE TABLE `order_items` (
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `order_items`
+--
+
+INSERT INTO `order_items` (`id`, `id_product`, `id_order`, `quantity`, `fixed_price`, `isRate`, `createdAt`, `updatedAt`) VALUES
+(23, 1424, 23, 2, 23, 0, '2024-05-23 08:36:22', '2024-05-23 08:36:22'),
+(24, 1424, 31, 1, 15, 0, '2024-05-25 02:50:47', '2024-05-25 02:50:47'),
+(25, 1424, 32, 1, 15000, 0, '2024-05-25 02:51:56', '2024-05-25 02:51:56');
 
 -- --------------------------------------------------------
 
@@ -328,7 +350,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `id_breed`, `name`, `amount`, `soldProductNum`, `proceeds`, `price`, `import_price`, `description`, `createdAt`, `updatedAt`) VALUES
-(1424, 9, 'con chó', 10, 0, 0, 15, 12, 'the sun can\'t shine without darkness', '2024-05-09 05:28:19', '2024-05-21 03:10:09');
+(1424, 9, 'con chó', 12, -2, -44985, 15000, 12, 'the sun can\'t shine without darkness', '2024-05-09 05:28:19', '2024-05-25 03:05:42');
 
 -- --------------------------------------------------------
 
@@ -474,7 +496,13 @@ INSERT INTO `refreshtokens` (`id`, `refreshToken`, `exp`, `createdAt`, `updatedA
 (95, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjI3ODQ2OSwiZXhwIjoxNzE2NDUxMjY5fQ.cYoLwLERO5_Z2p3t49wtWBkv7-b-O-asSI3ZNocOMeg', '1716451269', '2024-05-21 08:01:09', '2024-05-21 08:01:09'),
 (96, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjM2MjQzMCwiZXhwIjoxNzE2NTM1MjMwfQ.3NKgiZ1oT343ZZ2oaoumEGnjH_8KUgdgPV6LhxXDC7Y', '1716535230', '2024-05-22 07:20:30', '2024-05-22 07:20:30'),
 (97, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjQzNDMzNiwiZXhwIjoxNzE2NjA3MTM2fQ.LcmxokA9jaGAVhMPmPQ8fRKeMhes1BBbtLduzCBYZLo', '1716607136', '2024-05-23 03:18:56', '2024-05-23 03:18:56'),
-(98, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjQzNDM2MiwiZXhwIjoxNzE2NjA3MTYyfQ.TlUnNhit4HCrL12AlYlOn_mhHCYOjZ5Gi2utr8SlT_s', '1716607162', '2024-05-23 03:19:22', '2024-05-23 03:19:22');
+(98, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjQzNDM2MiwiZXhwIjoxNzE2NjA3MTYyfQ.TlUnNhit4HCrL12AlYlOn_mhHCYOjZ5Gi2utr8SlT_s', '1716607162', '2024-05-23 03:19:22', '2024-05-23 03:19:22'),
+(99, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjQ0NjM2MSwiZXhwIjoxNzE2NjE5MTYxfQ.2Gkivh_MtQKJHJHRjvxXr4dhBikYDywa9l3-AtPcfas', '1716619161', '2024-05-23 06:39:21', '2024-05-23 06:39:21'),
+(100, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjQ1MzMwOSwiZXhwIjoxNzE2NjI2MTA5fQ.galHpdltcm_CnnZNSUTs2SxEjwxdGl-QkhTte6fczPs', '1716626109', '2024-05-23 08:35:09', '2024-05-23 08:35:09'),
+(101, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjQ1NTczOSwiZXhwIjoxNzE2NjI4NTM5fQ._tjX-4s6LVxgfwmw5MCRuM1HyTvxNWvgaVlpYxf0VV0', '1716628539', '2024-05-23 09:15:39', '2024-05-23 09:15:39'),
+(102, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjU0MDE4MCwiZXhwIjoxNzE2NzEyOTgwfQ.9kBkXpmsc4RlBIUZxy8DyjYQPDwEstPYRTNQu-MC96A', '1716712980', '2024-05-24 08:43:00', '2024-05-24 08:43:00'),
+(103, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjU0NTczMiwiZXhwIjoxNzE2NzE4NTMyfQ.DrY3Q_50n8V8AYS1G5gLFhRW6wY3-Xv8cn9-d4mNwgU', '1716718532', '2024-05-24 10:15:32', '2024-05-24 10:15:32'),
+(104, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjYwMzYzNywiZXhwIjoxNzE2Nzc2NDM3fQ.0LDshBIPMqvShCi5j9ZbIWpZIu8HaM4FpUcS-E6zVSg', '1716776437', '2024-05-25 02:20:37', '2024-05-25 02:20:37');
 
 -- --------------------------------------------------------
 
@@ -731,13 +759,13 @@ ALTER TABLE `addressinfors`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `breeds`
 --
 ALTER TABLE `breeds`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `carts`
@@ -773,13 +801,13 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -797,7 +825,7 @@ ALTER TABLE `ratings`
 -- AUTO_INCREMENT for table `refreshtokens`
 --
 ALTER TABLE `refreshtokens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- AUTO_INCREMENT for table `roles`

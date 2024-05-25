@@ -5,27 +5,38 @@ const HTTP_STATUS = require('../constants/httpStatus');
 
 class RatingServices {
     async addRating(star, comment, userID, id_product, id_service, id_order_item) {
-        await db.Rating.create({
-            star: Number(star),
-            comment: comment,
-            id_account: userID,
-            id_product: id_product,
-            id_service: id_service,
-        });
-        if (id_order_item) {
-            await db.Order_Item.update(
+        const transaction = await db.sequelize.transaction();
+        try {
+            await db.Rating.create(
                 {
-                    isRate: 1,
+                    star: Number(star),
+                    comment: comment,
+                    id_account: userID,
+                    id_product: id_product,
+                    id_service: id_service,
                 },
-                {
-                    where: { id: id_order_item },
-                },
+                { transaction },
             );
+            if (id_order_item) {
+                await db.Order_Item.update(
+                    {
+                        isRate: 1,
+                    },
+                    {
+                        where: { id: id_order_item },
+                        transaction,
+                    },
+                );
+            }
+            await transaction.commit();
+            return {
+                success: true,
+                message: 'Add rating successfully',
+            };
+        } catch (error) {
+            await transaction.rollback();
+            throw error;
         }
-        return {
-            success: true,
-            message: 'Add rating successfully',
-        };
     }
     async deleteRating(id_rating) {
         await db.Rating.destroy({
