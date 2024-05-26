@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const { wrapController } = require('../utils/handle');
+const passport = require('../utils/passport.js');
 const {
     registerValidator,
     loginValidator,
@@ -16,6 +17,33 @@ const { FormdataValidator } = require('../middlewares/Formdata.middlewares');
 const router = Router();
 
 const userControllers = require('../controllers/user.controllers');
+const userServices = require('../services/user.services.js');
+
+router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'], session: false }));
+router.get(
+    '/auth/google/callback',
+    (req, res, next) => {
+        passport.authenticate('google', (err, profile) => {
+            const Profile = JSON.parse(JSON.stringify(profile));
+            req.user = Profile;
+            if (!userServices.isEmailExist(Profile.emails[0].value)) {
+                userServices.register({
+                    email: Profile.emails[0].value,
+                    password: hashPassword(Math.random().toString),
+                    lastname: Profile.name.familyName,
+                    firstname: Profile.name.givenName,
+                    phoneNumber: null,
+                });
+            }
+
+            // TO DO CREATE ACCOUNT AND ASSIGN REQ.USER HERE
+            next();
+        })(req, res, next);
+    },
+    (req, res) => {
+        res.redirect('fb.com');
+    },
+);
 router.post('/register', registerValidator, wrapController(userControllers.register));
 router.post('/login', loginValidator, wrapController(userControllers.login));
 router.post('/logout', accessTokenValidator, refreshTokenValidator, wrapController(userControllers.logout));

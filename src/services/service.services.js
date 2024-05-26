@@ -23,7 +23,7 @@ class ServiceServices {
             limit: Number(limit),
             order: order,
             attributes: {
-                exclude: ['createdAt', 'updatedAt', 'description'],
+                exclude: ['createdAt', 'updatedAt'],
             },
         });
         const totalPages = Math.ceil(Count / limit);
