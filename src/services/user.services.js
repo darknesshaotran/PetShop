@@ -8,8 +8,16 @@ const sendEmail = require('../utils/Email');
 const dotenv = require('dotenv');
 dotenv.config();
 class UserServices {
-    async findUserLogin(email, password) {
-        const user = await db.Account.findOne({ where: { email: email, password: hashPassword(password) } });
+    async findUserLogin(email, password, isAuth = false) {
+        var user = {};
+        if (isAuth) {
+            user = await db.Account.findOne({ where: { email: email } });
+            if (user === null) {
+                return false;
+            }
+            return user;
+        }
+        user = await db.Account.findOne({ where: { email: email, password: hashPassword(password) } });
         if (user === null) {
             return false;
         }
