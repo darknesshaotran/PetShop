@@ -143,7 +143,7 @@ class OrderServices {
             }
         } else {
             const appointment = await db.Appointment.findOne({
-                where: { id: id_appointment },
+                where: { id: id_order },
                 include: [
                     {
                         model: db.Order,

@@ -28,7 +28,11 @@ class ProductServices {
             ...breedCondition,
             ...searchCondition,
         };
-        const order = [['price', isDesc ? 'DESC' : 'ASC']];
+        var order = [];
+        if (isDesc) {
+            order = [['price', Number(isDesc) ? 'DESC' : 'ASC']];
+        }
+
         const Count = await db.Product.count({
             where: {
                 ...options,
@@ -137,6 +141,8 @@ class ProductServices {
                     import_price,
                     description,
                     amount,
+                    soldProductNum: 0,
+                    proceeds: 0,
                 },
                 { transaction },
             );

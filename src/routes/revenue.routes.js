@@ -12,10 +12,9 @@ router.get(
     '/customer',
     accessTokenValidator,
     isAdminValidator,
-    TimeValidator,
     wrapController(revenueControllers.getRevenueOfCustommer),
 );
-router.get('/product', TimeValidator, wrapController(revenueControllers.getRevenueOfProduction));
+router.get('/product', wrapController(revenueControllers.getRevenueOfProduction));
 router.get(
     '/',
     accessTokenValidator,

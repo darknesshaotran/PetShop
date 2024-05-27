@@ -8,15 +8,15 @@ class RevenueController {
         res.json(result);
     }
     async getRevenueOfCustommer(req, res, next) {
-        const { startDate, endDate } = req.query;
+        const { page, limit } = req.query;
 
-        const result = await revenueServices.getRevenueOfCustommer(startDate, endDate);
+        const result = await revenueServices.getRevenueOfCustommer(Number(page), Number(limit));
         res.json(result);
     }
     async getRevenueOfProduction(req, res, next) {
-        const { startDate, endDate } = req.query;
+        const { page, limit } = req.query;
 
-        const result = await revenueServices.getRevenueOfProduction(startDate, endDate);
+        const result = await revenueServices.getRevenueOfProduction(Number(page), Number(limit));
         res.json(result);
     }
 }

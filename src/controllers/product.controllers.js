@@ -10,7 +10,7 @@ class ProductController {
             Number(page),
             id_breed,
             search,
-            Number(isDesc),
+            isDesc,
         );
         res.json(result);
     }
