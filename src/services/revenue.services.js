@@ -168,7 +168,7 @@ class RevenueServices {
             limit = 20;
         }
         const order = [['soldProductNum', 'DESC']];
-        const products = await db.Product.findAll({
+        const Products = await db.Product.findAll({
             where: {
                 soldProductNum: { [Op.gt]: 0 },
             },
@@ -181,7 +181,16 @@ class RevenueServices {
             include: [{ model: db.Breed, as: 'Breed', attributes: ['id', 'name'] }],
         });
         const totalRevenue = products.reduce((acc, product) => acc + Number(product.proceeds), 0);
+        const products = JSON.parse(JSON.stringify(Products));
 
+        for (let i = 0; i < products.length; i++) {
+            const image = await db.Image.findOne({
+                where: { id_product: products[i].id },
+            });
+
+            const Image = JSON.parse(JSON.stringify(image));
+            products[i].image = Image ? Image.image : '';
+        }
         return {
             success: true,
             result: {
