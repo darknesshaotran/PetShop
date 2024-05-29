@@ -38,5 +38,12 @@ class AppointmentController {
         const result = await appointmentServices.acceptAppointment(id_appointment);
         res.json(result);
     }
+    async getListAppointment(req, res, next) {
+        const { decoded_authorization } = req;
+        const { userID, role } = decoded_authorization;
+        const { id_status } = req.params;
+        const result = await appointmentServices.getListAppointment(id_status, userID, role);
+        res.json(result);
+    }
 }
 module.exports = new AppointmentController();

@@ -271,7 +271,7 @@ class OrderServices {
     }
     async StatusOrder(userID, id_status) {
         const order = await db.Order.findAll({
-            where: { id_account: userID, id_status: id_status },
+            where: { id_account: userID, id_status: id_status, isService: 0 },
             order: [['createdAt', 'DESC']],
             include: [{ model: db.Status, as: 'Status', attributes: ['status'] }],
         });
@@ -306,7 +306,7 @@ class OrderServices {
     }
     async getAllStatusOrderList(id_status) {
         const orders = await db.Order.findAll({
-            where: { id_status: id_status },
+            where: { id_status: id_status, isService: 0 },
             order: [['createdAt', 'DESC']],
             include: [
                 { model: db.Status, as: 'Status', attributes: ['status'] },

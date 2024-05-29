@@ -180,7 +180,7 @@ class RevenueServices {
             },
             include: [{ model: db.Breed, as: 'Breed', attributes: ['id', 'name'] }],
         });
-        const totalRevenue = products.reduce((acc, product) => acc + Number(product.proceeds), 0);
+        const totalRevenue = Products.reduce((acc, product) => acc + Number(product.proceeds), 0);
         const products = JSON.parse(JSON.stringify(Products));
 
         for (let i = 0; i < products.length; i++) {

@@ -1,5 +1,5 @@
 const db = require('../models');
-const { Op, Model } = require('sequelize');
+const { Op } = require('sequelize');
 const ErrorsWithStatus = require('../constants/Error');
 const HTTP_STATUS = require('../constants/httpStatus');
 
@@ -208,8 +208,40 @@ class OrderServices {
             message: 'accept appointment successfully',
         };
     }
-    async getListAppointment(userName, phoneNumber, appointmentTime) {
+    async getListAppointment(id_status, userID, role) {
         // TO DO GET LIST APPOINTMENT BY USER 'S NAME, ORDER PHONE NUM, APPOINTMENT TIME
+        const option = role === 'admin' ? { id_status: id_status } : { id_status: id_status, id_account: userID };
+
+        const appointment = await db.Appointment.findAll({
+            include: [
+                {
+                    model: db.Order,
+                    where: {
+                        ...option,
+                    },
+                    include: [
+                        { model: db.Status, as: 'Status', attributes: ['status'] },
+                        {
+                            model: db.Account,
+                            attributes: {
+                                exclude: ['password', 'forgot_password_token', 'id_role'],
+                            },
+                            include: [
+                                {
+                                    model: db.inforUser,
+                                    as: 'inforUser',
+                                    attributes: ['firstname', 'lastname', 'phoneNumber', 'avatar'],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+        });
+        return {
+            success: true,
+            detailAppointment: appointment,
+        };
     }
 }
 module.exports = new OrderServices();

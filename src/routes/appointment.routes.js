@@ -37,5 +37,6 @@ router.put(
     AppointmentExistsValidator,
     wrapController(AppointmentController.acceptAppointment),
 );
+router.get('/:id_status', accessTokenValidator, wrapController(AppointmentController.getListAppointment));
 
 module.exports = router;
