@@ -1,21 +1,23 @@
-async (req, res) => {
-    var accessKey = 'F8BBA842ECF85';
-    var secretKey = 'K951B6PE1waDMi640xX08PD3vg6EkVlz';
-    var orderInfo = 'pay with MoMo';
-    var partnerCode = 'MOMO';
-    var redirectUrl = 'https://www.youtube.com/watch?v=ZlvwqtfCEUM';
-    var ipnUrl = 'https://webhook.site/b3088a6a-2d17-4f8d-a383-71389a6c600b';
-    var requestType = 'payWithMethod';
-    var amount = '50000';
-    var orderId = partnerCode + new Date().getTime();
-    var requestId = orderId;
-    var extraData = '';
-    var orderGroupId = '';
-    var autoCapture = true;
+const dotenv = require('dotenv');
+const crypto = require('crypto');
+const { default: axios } = require('axios');
+dotenv.config();
+const momoPayment = async ({ orderContent, amount, id_order, items, userInfo }) => {
+    var accessKey = process.env.MOMO_ACCESS_KEY;
+    var secretKey = process.env.MOMO_SECRET_KEY;
+    var partnerCode = process.env.MOMO_PARTNER_CODE;
+    var requestType = process.env.MOMO_REQUEST_TYPE;
     var lang = 'vi';
+    var orderInfo = orderContent;
+    var redirectUrl = process.env.CLIENT_URL + '/payment-success';
+    var ipnUrl = process.env.IPN_URL;
 
-    //before sign HMAC SHA256 with format
-    //accessKey=$accessKey&amount=$amount&extraData=$extraData&ipnUrl=$ipnUrl&orderId=$orderId&orderInfo=$orderInfo&partnerCode=$partnerCode&redirectUrl=$redirectUrl&requestId=$requestId&requestType=$requestType
+    var orderId = id_order + 'PETSHOP' + new Date().getTime();
+    var requestId = orderId;
+
+    var extraData = '';
+    var autoCapture = true;
+
     var rawSignature =
         'accessKey=' +
         accessKey +
@@ -37,31 +39,23 @@ async (req, res) => {
         requestId +
         '&requestType=' +
         requestType;
-    //puts raw signature
-    console.log('--------------------RAW SIGNATURE----------------');
-    console.log(rawSignature);
-    //signature
-    const crypto = require('crypto');
     var signature = crypto.createHmac('sha256', secretKey).update(rawSignature).digest('hex');
-    console.log('--------------------SIGNATURE----------------');
-    console.log(signature);
 
     //json object send to MoMo endpoint
     const requestBody = JSON.stringify({
         partnerCode: partnerCode,
-        partnerName: 'Test',
-        storeId: 'MomoTestStore',
         requestId: requestId,
         amount: amount,
         orderId: orderId,
         orderInfo: orderInfo,
+        items: items,
+        userInfo: userInfo,
         redirectUrl: redirectUrl,
         ipnUrl: ipnUrl,
         lang: lang,
         requestType: requestType,
         autoCapture: autoCapture,
         extraData: extraData,
-        orderGroupId: orderGroupId,
         signature: signature,
     });
     //Create the HTTPS objects
@@ -77,8 +71,37 @@ async (req, res) => {
     let result;
     try {
         result = await axios(option);
-        return res.json(result.data);
+        return result.data;
     } catch (err) {
-        res.status(500).json(err);
+        throw err;
     }
-}
+};
+const TransactionStatus = async (id_order) => {
+    var accessKey = process.env.MOMO_ACCESS_KEY;
+    var secretKey = process.env.MOMO_SECRET_KEY;
+    var partnerCode = process.env.MOMO_PARTNER_CODE;
+    const rawSignature = `accessKey=${accessKey}&orderId=${id_order}&partnerCode=${partnerCode}&requestId=${id_order}`;
+    const signature = crypto.createHmac('sha256', secretKey).update(rawSignature).digest('hex');
+
+    const requestBody = JSON.stringify({
+        partnerCode: partnerCode,
+        requestId: id_order,
+        orderId: id_order,
+        signature: signature,
+        lang: 'vi',
+    });
+
+    const options = {
+        method: 'POST',
+        url: 'https://test-payment.momo.vn/v2/gateway/api/query',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        data: requestBody,
+    };
+
+    const result = await axios(options);
+    return result.data;
+};
+exports.momoPayment = momoPayment;
+exports.TransactionStatus = TransactionStatus;
