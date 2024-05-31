@@ -1,7 +1,7 @@
 const db = require('../models');
 const { Op } = require('sequelize');
 const ErrorsWithStatus = require('../constants/Error');
-const { momoPayment, TransactionStatus } = require('../utils/Momo');
+const { createPayment, TransactionStatus } = require('../utils/Momo');
 
 class BreedServices {
     async createPaymentLink(id_order) {
@@ -125,7 +125,7 @@ class BreedServices {
                 currency: 'VND',
             });
         }
-        const result = await momoPayment({ orderContent, amount: amount.toString(), id_order, items, userInfo });
+        const result = await createPayment({ orderContent, amount: amount.toString(), id_order, items, userInfo });
         return result;
     }
     async checkTransactionStatus(id_order) {

@@ -88,10 +88,10 @@ class OrderServices {
             throw error;
         }
     }
-    async updateAppointment(id_appointment, note, appointmentTime, endTime) {
+    async updateAppointment(id_order, note, appointmentTime, endTime) {
         var updatedData = {};
         const appointment = await db.Appointment.findOne({
-            where: { id: id_appointment },
+            where: { id_order: id_order },
         });
         if (note) {
             updatedData.note = note;
@@ -115,7 +115,7 @@ class OrderServices {
                 ...updatedData,
             },
             {
-                where: { id: id_appointment },
+                where: { id_order: id_order },
             },
         );
         return {
@@ -123,9 +123,9 @@ class OrderServices {
             message: 'Appointment updated successfully',
         };
     }
-    async AppointmentDetail(id_appointment) {
+    async AppointmentDetail(id_order) {
         const appointment = await db.Appointment.findOne({
-            where: { id: id_appointment },
+            where: { id_order: id_order },
             include: [
                 {
                     model: db.Order,
@@ -157,11 +157,11 @@ class OrderServices {
             detailAppointment: appointment,
         };
     }
-    async cancelAppointment(id_appointment) {
+    async cancelAppointment(id_order) {
         const transaction = await db.sequelize.transaction();
         try {
             const appointment = await db.Appointment.findOne({
-                where: { id: id_appointment },
+                where: { id_order: id_order },
                 transaction,
             });
             if (appointment.id_status === 6) {
@@ -187,9 +187,9 @@ class OrderServices {
             throw error;
         }
     }
-    async acceptAppointment(id_appointment) {
+    async acceptAppointment(id_order) {
         const appointment = await db.Appointment.findOne({
-            where: { id: id_appointment },
+            where: { id_order: id_order },
         });
         if (appointment.id_status === 5) {
             throw new ErrorsWithStatus({

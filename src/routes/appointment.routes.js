@@ -13,25 +13,25 @@ router.post(
     wrapController(AppointmentController.createAppointment),
 );
 router.put(
-    '/update/:id_appointment',
+    '/update/:id_order',
     accessTokenValidator,
     AppointmentExistsValidator,
     wrapController(AppointmentController.updateAppointment),
 );
 router.get(
-    '/detail/:id_appointment',
+    '/detail/:id_order',
     accessTokenValidator,
     AppointmentExistsValidator,
     wrapController(AppointmentController.detailAppointment),
 );
 router.put(
-    '/cancel/:id_appointment',
+    '/cancel/:id_order',
     accessTokenValidator,
     AppointmentExistsValidator,
     wrapController(AppointmentController.cancelAppointment),
 );
 router.put(
-    '/accept/:id_appointment',
+    '/accept/:id_order',
     accessTokenValidator,
     isAdminValidator,
     AppointmentExistsValidator,

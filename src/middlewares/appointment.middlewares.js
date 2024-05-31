@@ -76,12 +76,12 @@ const checkCreateAppointmentValidator = checkSchema(
 );
 const checkAppointmentExistsValidator = checkSchema(
     {
-        id_appointment: {
+        id_order: {
             custom: {
                 options: async (value, { req }) => {
                     const appointment = await db.Appointment.findOne({
                         where: {
-                            id: value,
+                            id_order: value,
                         },
                     });
                     if (!appointment) {

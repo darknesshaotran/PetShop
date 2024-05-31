@@ -2,7 +2,7 @@ const dotenv = require('dotenv');
 const crypto = require('crypto');
 const { default: axios } = require('axios');
 dotenv.config();
-const momoPayment = async ({ orderContent, amount, id_order, items, userInfo }) => {
+const createPayment = async ({ orderContent, amount, id_order, items, userInfo }) => {
     var accessKey = process.env.MOMO_ACCESS_KEY;
     var secretKey = process.env.MOMO_SECRET_KEY;
     var partnerCode = process.env.MOMO_PARTNER_CODE;
@@ -103,5 +103,39 @@ const TransactionStatus = async (id_order) => {
     const result = await axios(options);
     return result.data;
 };
-exports.momoPayment = momoPayment;
+const refundPayment = async (id_order, id_transaction, amount) => {
+    var accessKey = process.env.MOMO_ACCESS_KEY;
+    var secretKey = process.env.MOMO_SECRET_KEY;
+    var partnerCode = process.env.MOMO_PARTNER_CODE;
+    const rawSignature = `accessKey=${accessKey}&amount=${amount}&description=refund&orderId=${id_order}&partnerCode=${partnerCode}&requestId=${id_order}&transId=${id_transaction}`;
+    const signature = crypto.createHmac('sha256', secretKey).update(rawSignature).digest('hex');
+    const requestBody = JSON.stringify({
+        partnerCode: partnerCode,
+        orderId: id_order,
+        requestId: id_order,
+        amount: Number(amount),
+        transId: Number(id_transaction),
+        lang: 'vi',
+        description: 'refund',
+        signature: signature,
+    });
+    const option = {
+        method: 'POST',
+        url: 'https://test-payment.momo.vn/v2/gateway/api/refund',
+        headers: {
+            'Content-Type': 'application/json',
+            'Content-Length': Buffer.byteLength(requestBody),
+        },
+        data: requestBody,
+    };
+    let result;
+    try {
+        result = await axios(option);
+        return result.data;
+    } catch (err) {
+        throw err;
+    }
+};
+exports.createPayment = createPayment;
 exports.TransactionStatus = TransactionStatus;
+exports.refundPayment = refundPayment;

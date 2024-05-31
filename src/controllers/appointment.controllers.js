@@ -16,26 +16,26 @@ class AppointmentController {
         res.json(result);
     }
     async detailAppointment(req, res, next) {
-        const { id_appointment } = req.params;
-        const result = await appointmentServices.AppointmentDetail(id_appointment);
+        const { id_order } = req.params;
+        const result = await appointmentServices.AppointmentDetail(id_order);
         res.json(result);
     }
     async updateAppointment(req, res, next) {
-        const { id_appointment } = req.params;
+        const { id_order } = req.params;
         const { note, appointmentTime, endTime } = req.body;
-        const result = await appointmentServices.updateAppointment(id_appointment, note, appointmentTime, endTime);
+        const result = await appointmentServices.updateAppointment(id_order, note, appointmentTime, endTime);
         res.json(result);
     }
     async cancelAppointment(req, res, next) {
-        const { id_appointment } = req.params;
-        const result = await appointmentServices.cancelAppointment(id_appointment);
+        const { id_order } = req.params;
+        const result = await appointmentServices.cancelAppointment(id_order);
         res.json(result);
     }
 
     // ADMIN
     async acceptAppointment(req, res, next) {
-        const { id_appointment } = req.params;
-        const result = await appointmentServices.acceptAppointment(id_appointment);
+        const { id_order } = req.params;
+        const result = await appointmentServices.acceptAppointment(id_order);
         res.json(result);
     }
     async getListAppointment(req, res, next) {
