@@ -40,9 +40,6 @@ class RevenueServices {
             });
         }
 
-        // Calculate total revenue and profit for the entire time range
-        // const totalRevenue = resultByDay.reduce((acc, result) => acc + result.totalRevenue, 0);
-        // const profitRevenue = resultByDay.reduce((acc, result) => acc + result.profit, 0);
         return {
             success: true,
             result: {
@@ -52,11 +49,12 @@ class RevenueServices {
             },
         };
     }
-
+    async getServiceRevenueBytime(startTime, endTime) {}
     async getListOrderByTime(startTime, endTime) {
         const Orders = await db.Order.findAll({
             where: {
                 id_status: 4,
+                isService: 0,
                 createdAt: {
                     [Op.between]: [startTime, endTime],
                 },
@@ -121,7 +119,7 @@ class RevenueServices {
         };
     }
 
-    async getRevenueOfCustommer(page, limit) {
+    async getTopOfCustommer(page, limit) {
         var offset = 0;
         if (page && limit) {
             offset = (page - 1) * limit;
@@ -159,7 +157,7 @@ class RevenueServices {
         };
     }
 
-    async getRevenueOfProduction(page, limit) {
+    async getTopOfProduction(page, limit) {
         var offset = 0;
         if (page && limit) {
             offset = (page - 1) * limit;
@@ -200,7 +198,7 @@ class RevenueServices {
         };
     }
 
-    async getRevenueOfYear(revenueData) {
+    async getTopOfService(revenueData) {
         // TODO: Implement code to create a new revenue
     }
 }

@@ -38,6 +38,11 @@ class AppointmentController {
         const result = await appointmentServices.acceptAppointment(id_order);
         res.json(result);
     }
+    async completeAppointment(req, res, next) {
+        const { id_order } = req.params;
+        const result = await appointmentServices.completeAppointment(id_order);
+        res.json(result);
+    }
     async getListAppointment(req, res, next) {
         const { decoded_authorization } = req;
         const { userID, role } = decoded_authorization;

@@ -24,12 +24,15 @@ router.get(
     AppointmentExistsValidator,
     wrapController(AppointmentController.detailAppointment),
 );
+
 router.put(
     '/cancel/:id_order',
     accessTokenValidator,
     AppointmentExistsValidator,
     wrapController(AppointmentController.cancelAppointment),
 );
+
+// ADMIN ONLY ROUTES
 router.put(
     '/accept/:id_order',
     accessTokenValidator,
@@ -37,6 +40,12 @@ router.put(
     AppointmentExistsValidator,
     wrapController(AppointmentController.acceptAppointment),
 );
+router.put(
+    '/complete/:id_order',
+    accessTokenValidator,
+    isAdminValidator,
+    AppointmentExistsValidator,
+    wrapController(AppointmentController.completeAppointment),
+);
 router.get('/:id_status', accessTokenValidator, wrapController(AppointmentController.getListAppointment));
-
 module.exports = router;

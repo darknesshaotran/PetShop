@@ -180,7 +180,7 @@ class OrderServices {
     }
     async HistoryOrder(userID) {
         const order = await db.Order.findAll({
-            where: { id_account: userID },
+            where: { id_account: userID, isService: 0 },
             order: [['createdAt', 'DESC']],
             include: [{ model: db.Status, as: 'Status', attributes: ['status'] }],
         });

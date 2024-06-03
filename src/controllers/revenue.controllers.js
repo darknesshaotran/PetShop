@@ -10,13 +10,13 @@ class RevenueController {
     async getRevenueOfCustommer(req, res, next) {
         const { page, limit } = req.query;
 
-        const result = await revenueServices.getRevenueOfCustommer(Number(page), Number(limit));
+        const result = await revenueServices.getTopOfCustommer(Number(page), Number(limit));
         res.json(result);
     }
     async getRevenueOfProduction(req, res, next) {
         const { page, limit } = req.query;
 
-        const result = await revenueServices.getRevenueOfProduction(Number(page), Number(limit));
+        const result = await revenueServices.getTopOfProduction(Number(page), Number(limit));
         res.json(result);
     }
 }

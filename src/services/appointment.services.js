@@ -208,6 +208,27 @@ class OrderServices {
             message: 'accept appointment successfully',
         };
     }
+    async completeAppointment(id_order) {
+        const appointment = await db.Appointment.findOne({
+            where: { id_order: id_order },
+        });
+        if (appointment.id_status !== 6) {
+            throw new ErrorsWithStatus({
+                status: HTTP_STATUS.UNPROCESSABLE_ENTITY,
+                message: 'Can not complete appointment that has been canceled or has not been accepted',
+            });
+        }
+        await db.Order.update(
+            { id_status: 7 },
+            {
+                where: { id: appointment.id_order },
+            },
+        );
+        return {
+            success: true,
+            message: 'complete appointment successfully',
+        };
+    }
     async getListAppointment(id_status, userID, role) {
         // TO DO GET LIST APPOINTMENT BY USER 'S NAME, ORDER PHONE NUM, APPOINTMENT TIME
         const option = role === 'admin' ? { id_status: id_status } : { id_status: id_status, id_account: userID };
