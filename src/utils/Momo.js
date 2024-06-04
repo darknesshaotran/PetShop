@@ -103,7 +103,7 @@ const TransactionStatus = async (id_order) => {
     const result = await axios(options);
     return result.data;
 };
-const refundPayment = async (id_order, id_transaction, amount) => {
+const refundPayment = async ({ id_order, id_transaction, amount }) => {
     var accessKey = process.env.MOMO_ACCESS_KEY;
     var secretKey = process.env.MOMO_SECRET_KEY;
     var partnerCode = process.env.MOMO_PARTNER_CODE;

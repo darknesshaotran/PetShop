@@ -1,7 +1,7 @@
 const db = require('../models');
 const { Op } = require('sequelize');
 const ErrorsWithStatus = require('../constants/Error');
-const { createPayment, TransactionStatus } = require('../utils/Momo');
+const { createPayment, TransactionStatus, refundPayment } = require('../utils/Momo');
 
 class BreedServices {
     async createPaymentLink(id_order) {
@@ -130,6 +130,13 @@ class BreedServices {
     }
     async checkTransactionStatus(id_order) {
         const result = await TransactionStatus(id_order);
+        return result;
+    }
+    async refundMoney(id_order_MoMo) {
+        const { transId, amount } = await TransactionStatus(id_order_MoMo);
+        const id_order = id_order_MoMo.split('PETSHOP')[0];
+        const { orderId } = await this.createPaymentLink(id_order);
+        const result = await refundPayment({ id_order: orderId, id_transaction: transId, amount: amount });
         return result;
     }
 }

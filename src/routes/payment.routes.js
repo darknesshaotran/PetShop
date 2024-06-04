@@ -6,13 +6,7 @@ const { refundPayment } = require('../utils/Momo');
 
 const router = Router();
 router.post('/check-status-transaction', wrapController(paymentControllers.checkTransactionStatus));
-router.post(
-    '/refund',
-    wrapController(async (req, res, next) => {
-        const result = await refundPayment(req.body.id_order, req.body.id_transaction, req.body.amount);
-        res.json(result);
-    }),
-);
+router.post('/refund', wrapController(paymentControllers.refundPayment));
 router.post(
     '/callback',
     wrapController(async (req, res, next) => {

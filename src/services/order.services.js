@@ -248,7 +248,7 @@ class OrderServices {
                     point: account.point - Math.ceil(order.totalPrice / 1000),
                 },
                 {
-                    where: { id: userID },
+                    where: { id: order.id_account },
                     transaction,
                 },
             );
