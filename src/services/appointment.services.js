@@ -2,7 +2,7 @@ const db = require('../models');
 const { Op } = require('sequelize');
 const ErrorsWithStatus = require('../constants/Error');
 const HTTP_STATUS = require('../constants/httpStatus');
-
+const convertISOToDateTime = require('../utils/convertDate');
 class OrderServices {
     async createAppointment(userID, id_service, note, appointmentTime, endTime, order_phoneNumber) {
         const transaction = await db.sequelize.transaction();
@@ -93,22 +93,82 @@ class OrderServices {
         const appointment = await db.Appointment.findOne({
             where: { id_order: id_order },
         });
+        let appointment_time = convertISOToDateTime(appointment.appointment_time);
+        let end_time = convertISOToDateTime(appointment.end_time);
         if (note) {
             updatedData.note = note;
         }
         if (appointmentTime) {
-            if (appointmentTime > appointment.end_time && !endTime) {
-                // TODO RESIGN ENDTIME TO APPOINTMENT TIME + 1 HOURS
+            appointment_time = appointmentTime;
+            if (new Date(appointmentTime) >= appointment.end_time && !endTime) {
                 throw new ErrorsWithStatus({
                     status: HTTP_STATUS.UNPROCESSABLE_ENTITY,
                     message: 'Appointment time must be before end time',
                 });
             } else if (endTime) {
+                end_time = endTime;
+                if (new Date(appointmentTime) >= new Date(endTime)) {
+                    throw new ErrorsWithStatus({
+                        status: HTTP_STATUS.UNPROCESSABLE_ENTITY,
+                        message: 'Appointment time must be before end time',
+                    });
+                }
                 updatedData.appointment_time = appointmentTime;
                 updatedData.end_time = endTime;
             } else {
                 updatedData.appointment_time = appointmentTime;
             }
+        } else {
+            if (endTime && new Date(endTime) > appointment.appointment_time) {
+                updatedData.end_time = endTime;
+            } else if (endTime && new Date(endTime) <= appointment.appointment_time) {
+                throw new ErrorsWithStatus({
+                    status: HTTP_STATUS.UNPROCESSABLE_ENTITY,
+                    message: 'End time must be after appointment time',
+                });
+            }
+        }
+
+        // check conflict time appointment
+        const conflictAppointments = await db.Appointment.findAll({
+            where: {
+                id: {
+                    [Op.ne]: appointment.id,
+                },
+                [Op.or]: [
+                    {
+                        appointment_time: {
+                            [Op.between]: [appointment_time, end_time],
+                        },
+                    },
+                    {
+                        end_time: {
+                            [Op.between]: [appointment_time, end_time],
+                        },
+                    },
+                    {
+                        [Op.and]: [
+                            {
+                                appointment_time: {
+                                    [Op.lte]: appointment_time,
+                                },
+                            },
+                            {
+                                end_time: {
+                                    [Op.gte]: end_time,
+                                },
+                            },
+                        ],
+                    },
+                ],
+            },
+        });
+
+        if (conflictAppointments.length > 0) {
+            throw new ErrorsWithStatus({
+                status: HTTP_STATUS.UNPROCESSABLE_ENTITY,
+                message: 'Appointment time conflicts with existing appointments',
+            });
         }
         await db.Appointment.update(
             {
