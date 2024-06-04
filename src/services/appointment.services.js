@@ -220,11 +220,11 @@ class OrderServices {
     async cancelAppointment(id_order) {
         const transaction = await db.sequelize.transaction();
         try {
-            const appointment = await db.Appointment.findOne({
+            const order = await db.Order.findOne({
                 where: { id_order: id_order },
                 transaction,
             });
-            if (appointment.id_status === 6) {
+            if (order.id_status === 6) {
                 throw new ErrorsWithStatus({
                     status: HTTP_STATUS.UNPROCESSABLE_ENTITY,
                     message: 'Can not cancel appointment that has been accepted',
@@ -233,7 +233,7 @@ class OrderServices {
             await db.Order.update(
                 { id_status: 5 },
                 {
-                    where: { id: appointment.id_order },
+                    where: { id: id_order },
                     transaction,
                 },
             );
@@ -248,10 +248,10 @@ class OrderServices {
         }
     }
     async acceptAppointment(id_order) {
-        const appointment = await db.Appointment.findOne({
-            where: { id_order: id_order },
+        const order = await db.Order.findOne({
+            where: { id: id_order },
         });
-        if (appointment.id_status === 5) {
+        if (order.id_status === 5) {
             throw new ErrorsWithStatus({
                 status: HTTP_STATUS.UNPROCESSABLE_ENTITY,
                 message: 'Can not accept appointment that has been canceled',
@@ -260,7 +260,7 @@ class OrderServices {
         await db.Order.update(
             { id_status: 6 },
             {
-                where: { id: appointment.id_order },
+                where: { id: id_order },
             },
         );
         return {
@@ -269,10 +269,10 @@ class OrderServices {
         };
     }
     async completeAppointment(id_order) {
-        const appointment = await db.Appointment.findOne({
-            where: { id_order: id_order },
+        const order = await db.Order.findOne({
+            where: { id: id_order },
         });
-        if (appointment.id_status !== 6) {
+        if (order.id_status !== 6) {
             throw new ErrorsWithStatus({
                 status: HTTP_STATUS.UNPROCESSABLE_ENTITY,
                 message: 'Can not complete appointment that has been canceled or has not been accepted',
@@ -281,7 +281,7 @@ class OrderServices {
         await db.Order.update(
             { id_status: 7 },
             {
-                where: { id: appointment.id_order },
+                where: { id: order },
             },
         );
         return {
