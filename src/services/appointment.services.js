@@ -295,6 +295,15 @@ class OrderServices {
                 where: { id: id_order },
             },
         );
+        await db.Payment.update(
+            {
+                isPaid: 1,
+                paymentDate: new Date(),
+            },
+            {
+                where: { id_order: id_order },
+            },
+        );
         return {
             success: true,
             message: 'complete appointment successfully',
