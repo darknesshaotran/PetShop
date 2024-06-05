@@ -3,7 +3,7 @@ const { Op } = require('sequelize');
 const ErrorsWithStatus = require('../constants/Error');
 const { createPayment, TransactionStatus, refundPayment } = require('../utils/Momo');
 
-class BreedServices {
+class PaymentServices {
     async createPaymentLink(id_order) {
         let orderContent = '';
         let amount = 0;
@@ -158,4 +158,4 @@ class BreedServices {
         };
     }
 }
-module.exports = new BreedServices();
+module.exports = new PaymentServices();

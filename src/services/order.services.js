@@ -1,5 +1,4 @@
 const db = require('../models');
-const { Op } = require('sequelize');
 const ErrorsWithStatus = require('../constants/Error');
 const HTTP_STATUS = require('../constants/httpStatus');
 const PAYMENT_METHOD = require('../constants/paymentMethod');
@@ -121,6 +120,14 @@ class OrderServices {
         var order = await db.Order.findOne({
             where: { id: id_order },
         });
+        const Payment = await db.Payment.findOne({
+            where: {
+                id_order: id_order,
+            },
+            attributes: ['paymentDate', 'paymentMethod', 'isPaid', 'id_transaction', 'id_order_momo', 'money'],
+        });
+        const payment = JSON.parse(JSON.stringify(Payment));
+
         if (!order.isService) {
             const Order = await db.Order.findOne({
                 where: { id: id_order },
@@ -160,6 +167,7 @@ class OrderServices {
                 ],
             });
             order = JSON.parse(JSON.stringify(Order));
+            order.payment = payment;
             for (let i = 0; i < order.Products.length; i++) {
                 const Image = await db.Image.findOne({
                     where: { id_product: order.Products[i].id },
@@ -168,36 +176,6 @@ class OrderServices {
                 const image = JSON.parse(JSON.stringify(Image));
                 order.Products[i].image = image.image ? image.image : '';
             }
-        } else {
-            const appointment = await db.Appointment.findOne({
-                where: { id: id_order },
-                include: [
-                    {
-                        model: db.Order,
-                        include: [
-                            { model: db.Status, as: 'Status', attributes: ['status'] },
-                            {
-                                model: db.Account,
-                                attributes: {
-                                    exclude: ['password', 'forgot_password_token', 'id_role'],
-                                },
-                                include: [
-                                    {
-                                        model: db.inforUser,
-                                        as: 'inforUser',
-                                        attributes: ['firstname', 'lastname', 'phoneNumber', 'avatar'],
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        model: db.Service,
-                        attributes: ['name', 'price', 'image', 'description'],
-                    },
-                ],
-            });
-            order = JSON.parse(JSON.stringify(appointment));
         }
 
         return {
@@ -286,6 +264,7 @@ class OrderServices {
                     transaction,
                 },
             );
+            // TO DO REFUND MONEY IF PAYMENT METHOD IS MOMO
             await transaction.commit();
             return {
                 success: true,
@@ -297,11 +276,21 @@ class OrderServices {
         }
     }
     async StatusOrder(userID, id_status) {
-        const order = await db.Order.findAll({
+        const Order = await db.Order.findAll({
             where: { id_account: userID, id_status: id_status, isService: 0 },
             order: [['createdAt', 'DESC']],
             include: [{ model: db.Status, as: 'Status', attributes: ['status'] }],
         });
+        const order = JSON.parse(JSON.stringify(Order));
+        for (let i = 0; i < order.length; i++) {
+            const Payment = await db.Payment.findOne({
+                where: {
+                    id_order: order[i].id,
+                },
+                attributes: ['paymentDate', 'paymentMethod', 'isPaid', 'id_transaction', 'id_order_momo', 'money'],
+            });
+            order[i].payment = JSON.parse(JSON.stringify(Payment));
+        }
         return {
             success: true,
             result: order,
@@ -318,6 +307,14 @@ class OrderServices {
                 message: `can't change order's status anymore`,
             });
         }
+        if (order.id_status === 3) {
+            const payment = await db.Payment.findOne({
+                where: { id_order: id_order },
+            });
+            if (payment.paymentMethod === PAYMENT_METHOD.COD) {
+                await db.Payment.update({ paymentDate: new Date(), isPaid: 1 }, { where: { id_order: id_order } });
+            }
+        }
         await db.Order.update(
             {
                 id_status: order.id_status + 1,
@@ -332,7 +329,7 @@ class OrderServices {
         };
     }
     async getAllStatusOrderList(id_status) {
-        const orders = await db.Order.findAll({
+        const Orders = await db.Order.findAll({
             where: { id_status: id_status, isService: 0 },
             order: [['createdAt', 'DESC']],
             include: [
@@ -352,16 +349,20 @@ class OrderServices {
                 },
             ],
         });
+        const orders = JSON.parse(JSON.stringify(Orders));
+        for (let i = 0; i < orders.length; i++) {
+            const Payment = await db.Payment.findOne({
+                where: {
+                    id_order: orders[i].id,
+                },
+                attributes: ['paymentDate', 'paymentMethod', 'isPaid', 'id_transaction', 'id_order_momo', 'money'],
+            });
+            orders[i].payment = JSON.parse(JSON.stringify(Payment));
+        }
         return {
             success: true,
             result: orders,
         };
-    }
-    // ONLINE PAYMENT
-    async deleteOrder(id_order) {
-        await db.Order.destroy({
-            where: { id: id_order },
-        });
     }
 }
 module.exports = new OrderServices();

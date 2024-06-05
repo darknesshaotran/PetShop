@@ -26,18 +26,6 @@ const route = (app) => {
     app.use('/api/appointment', appointmentRoute);
     app.use('/api/message', messageRoute);
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
-    app.use('/success', (req, res, next) => {
-        return res.send('PAYMENT SUCCESSFUL !!!');
-    });
-    app.use(
-        '/fail',
-        wrapController(async (req, res, next) => {
-            const { orderID } = req.query;
-            console.log(orderID);
-            await orderServices.deleteOrder(orderID);
-            return res.send('PAYMENT FAILED !!!');
-        }),
-    );
     app.use('/', (req, res, next) => {
         return res.send('WELCOME TO SERVER');
     });

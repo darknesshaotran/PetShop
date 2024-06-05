@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2024 at 05:50 AM
+-- Generation Time: Jun 05, 2024 at 11:45 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -43,16 +43,18 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`id`, `email`, `password`, `id_role`, `point`, `forgot_password_token`, `createdAt`, `updatedAt`) VALUES
-(2, 'darknessclmm@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 1, 1, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInR5cGUiOiJmb3Jnb3RQYXNzd29yZFRva2VuIiwiaWF0IjoxNjk4ODI0NzM4LCJleHAiOjE2OTg5OTc1Mzh9.pMtZYtph38yr5GJdGBSFMhZ0fFUb5mgwz3EvImB14zs', '2023-10-27 08:51:32', '2024-05-25 02:53:09'),
+(2, 'darknessclmm@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 1, 666, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInR5cGUiOiJmb3Jnb3RQYXNzd29yZFRva2VuIiwiaWF0IjoxNjk4ODI0NzM4LCJleHAiOjE2OTg5OTc1Mzh9.pMtZYtph38yr5GJdGBSFMhZ0fFUb5mgwz3EvImB14zs', '2023-10-27 08:51:32', '2024-06-05 09:07:25'),
 (5, 'hothanhhungtran@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, NULL, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjUsInR5cGUiOiJmb3Jnb3RQYXNzd29yZFRva2VuIiwiaWF0IjoxNjk4ODI0NTExLCJleHAiOjE2OTg5OTczMTF9.kvCnD6GMZhhe5qVufCjY0Wri3QljsUYRwEkYF5ZiwSk', '2023-11-01 07:35:08', '2023-11-01 07:41:51'),
 (6, 'hothanhhungtran1@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, NULL, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjYsInR5cGUiOiJmb3Jnb3RQYXNzd29yZFRva2VuIiwiaWF0IjoxNjk4ODI0Mzk3LCJleHAiOjE2OTg5OTcxOTd9.L37kBCUkfexxYwHE1IB9GufnyrJi_lTZW_6hSIH4JvM', '2023-11-01 07:36:30', '2023-11-01 07:39:57'),
-(7, 'darknessclmm1@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, NULL, NULL, '2023-11-03 07:00:41', '2023-11-03 07:00:41'),
+(7, 'darknessclmm1@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, 90, NULL, '2023-11-03 07:00:41', '2024-06-02 05:47:12'),
 (8, 'manhddt2508@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, NULL, NULL, '2023-11-30 11:07:40', '2023-11-30 11:07:40'),
 (9, 'manhddt111@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, NULL, NULL, '2023-11-30 16:23:49', '2023-11-30 16:23:49'),
 (10, 'manhddt250811@gm1ail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, NULL, NULL, '2023-12-01 06:18:18', '2023-12-01 06:18:18'),
 (11, 'manhddt1234@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, NULL, NULL, '2023-12-01 06:24:14', '2023-12-01 06:24:14'),
 (12, 'manhddt12345@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, NULL, NULL, '2023-12-01 09:20:26', '2023-12-01 09:20:26'),
-(13, 'manhddt250802@gmail.com', '2c91440bfacd977e1a27d76d53e199521669b68a06c6e6e07edd17a952f978ff', 2, NULL, NULL, '2023-12-08 09:32:21', '2023-12-08 09:32:21');
+(13, 'manhddt250802@gmail.com', '2c91440bfacd977e1a27d76d53e199521669b68a06c6e6e07edd17a952f978ff', 2, NULL, NULL, '2023-12-08 09:32:21', '2023-12-08 09:32:21'),
+(14, 'HoTran@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, NULL, NULL, '2024-05-25 05:02:55', '2024-05-25 05:02:55'),
+(15, 'HoTran1@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, 0, NULL, '2024-05-25 05:04:15', '2024-05-25 05:04:15');
 
 -- --------------------------------------------------------
 
@@ -102,9 +104,11 @@ CREATE TABLE `appointments` (
 INSERT INTO `appointments` (`id`, `id_service`, `id_order`, `appointment_time`, `end_time`, `note`, `createdAt`, `updatedAt`) VALUES
 (1, 6, 26, '2023-05-27 05:00:00', '2023-05-27 06:00:00', 'tắm sạch vào nhá', '2024-05-23 03:32:27', '2024-05-24 08:43:48'),
 (2, 6, 27, '2023-05-27 06:30:00', '2023-05-27 07:00:00', 'tắm sạch dô ', '2024-05-23 09:16:14', '2024-05-23 09:16:14'),
-(3, 4, 28, '2023-11-01 01:31:28', '2023-11-01 01:31:28', 'cắt tỉa cẩn thận', '2024-05-24 08:48:41', '2024-05-24 08:48:41'),
+(3, 4, 28, '2020-11-01 00:38:00', '2020-11-01 01:36:00', 'tắm sạch vào nhá', '2024-05-24 08:48:41', '2024-06-04 10:00:02'),
 (4, 4, 29, '2023-11-01 01:32:28', '2023-11-01 01:32:28', 'cắt tỉa cẩn thận', '2024-05-24 09:07:48', '2024-05-24 09:07:48'),
-(5, 4, 30, '2023-11-01 01:33:28', '2023-11-01 01:36:28', 'cắt tỉa cẩn thận', '2024-05-24 09:11:50', '2024-05-24 09:11:50');
+(5, 4, 30, '2023-11-01 01:33:28', '2023-11-01 01:36:28', 'cắt tỉa cẩn thận', '2024-05-24 09:11:50', '2024-05-24 09:11:50'),
+(6, 4, 35, '2024-11-01 01:35:28', '2024-11-01 01:36:28', 'cắt tỉa cẩn thận', '2024-06-01 04:56:39', '2024-06-01 04:56:39'),
+(7, 4, 49, '2025-11-01 01:35:28', '2025-11-01 01:35:29', 'cắt tỉa cẩn thận', '2024-06-05 06:56:29', '2024-06-05 06:56:29');
 
 -- --------------------------------------------------------
 
@@ -158,7 +162,9 @@ INSERT INTO `carts` (`id`, `id_account`, `createdAt`, `updatedAt`) VALUES
 (9, 10, '2023-12-01 06:18:18', '2023-12-01 06:18:18'),
 (10, 11, '2023-12-01 06:24:14', '2023-12-01 06:24:14'),
 (11, 12, '2023-12-01 09:20:26', '2023-12-01 09:20:26'),
-(12, 13, '2023-12-08 09:32:21', '2023-12-08 09:32:21');
+(12, 13, '2023-12-08 09:32:21', '2023-12-08 09:32:21'),
+(13, 14, '2024-05-25 05:02:55', '2024-05-25 05:02:55'),
+(14, 15, '2024-05-25 05:04:16', '2024-05-25 05:04:16');
 
 -- --------------------------------------------------------
 
@@ -174,13 +180,6 @@ CREATE TABLE `cart_items` (
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `cart_items`
---
-
-INSERT INTO `cart_items` (`id`, `id_product`, `id_cart`, `quantity`, `createdAt`, `updatedAt`) VALUES
-(16, 1424, 1, 1, '2024-05-22 08:04:40', '2024-05-22 08:04:40');
 
 -- --------------------------------------------------------
 
@@ -202,7 +201,8 @@ CREATE TABLE `images` (
 
 INSERT INTO `images` (`id`, `image`, `id_product`, `createdAt`, `updatedAt`) VALUES
 (1426, 'https://pbl6-shoesshop.s3.ap-southeast-1.amazonaws.com/fdec53a622da7f0dd08227b03.jpg', 1424, '2024-05-09 05:39:07', '2024-05-09 05:39:07'),
-(1427, 'https://pbl6-shoesshop.s3.ap-southeast-1.amazonaws.com/fdec53a622da7f0dd08227b04.jpg', 1424, '2024-05-09 05:39:07', '2024-05-09 05:39:07');
+(1427, 'https://pbl6-shoesshop.s3.ap-southeast-1.amazonaws.com/fdec53a622da7f0dd08227b04.jpg', 1424, '2024-05-09 05:39:07', '2024-05-09 05:39:07'),
+(1428, 'https://pbl6-shoesshop.s3.ap-southeast-1.amazonaws.com/efd1194947d17f2d124196900.jpg', 1426, '2024-05-27 02:00:37', '2024-05-27 02:00:37');
 
 -- --------------------------------------------------------
 
@@ -235,7 +235,9 @@ INSERT INTO `inforusers` (`id`, `id_account`, `lastname`, `firstname`, `phoneNum
 (9, 10, 'Duc Manh', 'Nguyen', '3111111111', NULL, '2023-12-01 06:18:18', '2023-12-01 06:18:18'),
 (10, 11, 'Duc Manh', 'Nguyen', '0905897381', NULL, '2023-12-01 06:24:14', '2023-12-01 06:24:14'),
 (11, 12, 'Duc Manh', 'Nguyen', '0905897381', NULL, '2023-12-01 09:20:26', '2023-12-01 09:20:26'),
-(12, 13, 'Mạnh', 'Nguyễn', '0905897381', 'https://pbl6-shoesshop.s3.ap-southeast-1.amazonaws.com/804118f41351568757bf12d01.jpg', '2023-12-08 09:32:21', '2023-12-08 09:55:20');
+(12, 13, 'Mạnh', 'Nguyễn', '0905897381', 'https://pbl6-shoesshop.s3.ap-southeast-1.amazonaws.com/804118f41351568757bf12d01.jpg', '2023-12-08 09:32:21', '2023-12-08 09:55:20'),
+(13, 14, 'hào thanh hưng', 'trần', '3111111111', NULL, '2024-05-25 05:02:55', '2024-05-25 05:02:55'),
+(14, 15, 'hào thanh hưng', 'trần', '3111111111', NULL, '2024-05-25 05:04:15', '2024-05-25 05:04:15');
 
 -- --------------------------------------------------------
 
@@ -289,15 +291,26 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `id_account`, `id_status`, `isService`, `order_address`, `order_phoneNumber`, `totalPrice`, `createdAt`, `updatedAt`) VALUES
-(23, 2, 4, 0, 'Xuan Thieu 14 street', '0962240446', NULL, '2024-05-21 02:35:34', '2024-05-21 03:15:16'),
+(23, 2, 4, 0, 'Xuan Thieu 14 street', '0962240446', 0, '2024-05-21 02:35:34', '2024-05-21 03:15:16'),
 (25, 2, 1, 1, NULL, '0909', 20, '2024-05-23 03:31:43', '2024-05-23 03:31:43'),
-(26, 2, 5, 1, NULL, '0909', 20, '2024-05-23 03:32:27', '2024-05-23 03:53:29'),
-(27, 2, 1, 1, NULL, '0909', 20, '2024-05-23 09:16:14', '2024-05-23 09:16:14'),
-(28, 2, 1, 1, NULL, '', 12, '2024-05-24 08:48:41', '2024-05-24 08:48:41'),
-(29, 2, 1, 1, NULL, '0962232323', 12, '2024-05-24 09:07:48', '2024-05-24 09:07:48'),
-(30, 2, 1, 1, NULL, '0962232323', 12, '2024-05-24 09:11:50', '2024-05-24 09:11:50'),
-(31, 2, 1, 0, 'Xuan Thieu 14 street', '0962240446', 15, '2024-05-25 02:50:47', '2024-05-25 02:50:47'),
-(32, 2, 1, 0, 'Xuan Thieu 14 street', '0962240446', 15000, '2024-05-25 02:51:56', '2024-05-25 02:53:09');
+(26, 2, 5, 1, NULL, '0909', 20, '2024-05-23 03:32:27', '2024-06-02 04:17:46'),
+(27, 2, 6, 1, NULL, '0909', 20, '2024-05-23 09:16:14', '2024-06-02 04:17:56'),
+(28, 2, 1, 1, NULL, '', 12, '2024-05-24 08:48:41', '2024-06-02 04:08:15'),
+(29, 2, 1, 1, NULL, '0962232323', 12000, '2024-05-24 09:07:48', '2024-06-02 04:08:42'),
+(30, 2, 1, 1, NULL, '0962232323', 12, '2024-05-24 09:11:50', '2024-06-02 04:09:29'),
+(31, 2, 4, 0, 'Xuan Thieu 14 street', '0962240446', 15, '2024-05-25 02:50:47', '2024-05-25 02:50:47'),
+(32, 2, 4, 0, 'Xuan Thieu 14 street', '0962240446', 15000, '2024-05-25 02:51:56', '2024-05-25 02:53:09'),
+(33, 2, 1, 0, 'Xuan Thieu 14 street', '0962240446', 15000, '2024-05-30 09:26:34', '2024-05-30 09:26:34'),
+(34, 2, 1, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-05-30 09:27:22', '2024-05-30 09:27:22'),
+(35, 2, 6, 1, NULL, '0962232323', 12, '2024-06-01 04:56:39', '2024-06-02 04:15:48'),
+(36, 7, 1, 0, 'Ân Thi, Hưng Yên', '0969234567', 90000, '2024-06-02 05:47:12', '2024-06-02 05:47:12'),
+(37, 2, 1, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-05 05:35:53', '2024-06-05 05:35:53'),
+(45, 2, 1, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-05 06:38:27', '2024-06-05 06:38:27'),
+(46, 2, 1, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-05 06:39:02', '2024-06-05 06:39:02'),
+(47, 2, 1, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-05 06:39:23', '2024-06-05 06:39:23'),
+(48, 2, 1, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-05 06:45:14', '2024-06-05 06:45:14'),
+(49, 2, 1, 1, NULL, '0962232323', 12, '2024-06-05 06:56:29', '2024-06-05 06:56:29'),
+(50, 2, 4, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-05 09:07:25', '2024-06-05 09:43:40');
 
 -- --------------------------------------------------------
 
@@ -323,7 +336,51 @@ CREATE TABLE `order_items` (
 INSERT INTO `order_items` (`id`, `id_product`, `id_order`, `quantity`, `fixed_price`, `isRate`, `createdAt`, `updatedAt`) VALUES
 (23, 1424, 23, 2, 23, 0, '2024-05-23 08:36:22', '2024-05-23 08:36:22'),
 (24, 1424, 31, 1, 15, 0, '2024-05-25 02:50:47', '2024-05-25 02:50:47'),
-(25, 1424, 32, 1, 15000, 0, '2024-05-25 02:51:56', '2024-05-25 02:51:56');
+(25, 1424, 32, 1, 15000, 0, '2024-05-25 02:51:56', '2024-05-25 02:51:56'),
+(26, 1424, 33, 1, 15000, 0, '2024-05-30 09:26:34', '2024-05-30 09:26:34'),
+(27, 1424, 34, 1, 15000, 0, '2024-05-30 09:27:22', '2024-05-30 09:27:22'),
+(28, 1426, 34, 2, 50000, 0, '2024-05-30 09:27:22', '2024-05-30 09:27:22'),
+(29, 1424, 36, 6, 90000, 0, '2024-06-02 05:47:12', '2024-06-02 05:47:12'),
+(30, 1424, 37, 1, 15000, 0, '2024-06-05 05:35:53', '2024-06-05 05:35:53'),
+(31, 1426, 37, 2, 50000, 0, '2024-06-05 05:35:53', '2024-06-05 05:35:53'),
+(46, 1424, 45, 1, 15000, 0, '2024-06-05 06:38:27', '2024-06-05 06:38:27'),
+(47, 1426, 45, 2, 50000, 0, '2024-06-05 06:38:27', '2024-06-05 06:38:27'),
+(48, 1424, 46, 1, 15000, 0, '2024-06-05 06:39:02', '2024-06-05 06:39:02'),
+(49, 1426, 46, 2, 50000, 0, '2024-06-05 06:39:02', '2024-06-05 06:39:02'),
+(50, 1424, 47, 1, 15000, 0, '2024-06-05 06:39:23', '2024-06-05 06:39:23'),
+(51, 1426, 47, 2, 50000, 0, '2024-06-05 06:39:23', '2024-06-05 06:39:23'),
+(52, 1424, 48, 1, 15000, 0, '2024-06-05 06:45:14', '2024-06-05 06:45:14'),
+(53, 1426, 48, 2, 50000, 0, '2024-06-05 06:45:14', '2024-06-05 06:45:14'),
+(54, 1424, 50, 1, 15000, 0, '2024-06-05 09:07:25', '2024-06-05 09:07:25'),
+(55, 1426, 50, 2, 50000, 0, '2024-06-05 09:07:25', '2024-06-05 09:07:25');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payments`
+--
+
+CREATE TABLE `payments` (
+  `id` int(11) NOT NULL,
+  `id_order` int(11) NOT NULL,
+  `paymentDate` datetime DEFAULT NULL,
+  `paymentMethod` varchar(30) NOT NULL,
+  `isPaid` int(11) NOT NULL,
+  `id_transaction` varchar(15) DEFAULT NULL,
+  `id_order_momo` varchar(30) DEFAULT NULL,
+  `money` int(11) NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT current_timestamp(),
+  `updatedAt` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`id`, `id_order`, `paymentDate`, `paymentMethod`, `isPaid`, `id_transaction`, `id_order_momo`, `money`, `createdAt`, `updatedAt`) VALUES
+(8, 48, '2024-06-05 13:45:57', 'MOMO', 1, '4053832369', '48PETSHOP1717569914875', 65000, '2024-06-05 13:45:14', '2024-06-05 13:45:57'),
+(9, 49, NULL, 'COD', 0, NULL, NULL, 12, '2024-06-05 13:56:29', '2024-06-05 13:56:29'),
+(10, 50, '2024-06-05 16:43:40', 'COD', 1, NULL, NULL, 65000, '2024-06-05 16:07:25', '2024-06-05 16:43:40');
 
 -- --------------------------------------------------------
 
@@ -350,7 +407,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `id_breed`, `name`, `amount`, `soldProductNum`, `proceeds`, `price`, `import_price`, `description`, `createdAt`, `updatedAt`) VALUES
-(1424, 9, 'con chó', 12, -2, -44985, 15000, 12, 'the sun can\'t shine without darkness', '2024-05-09 05:28:19', '2024-05-25 03:05:42');
+(1424, 9, 'con chó', 95, 27, 267111, 15000, 12, 'the sun can\'t shine without darkness', '2024-05-09 05:28:19', '2024-06-05 09:07:25'),
+(1425, 11, 'mèo con ', 12, 40, 12111, 12, 15, NULL, '2024-05-27 01:58:45', '2024-05-27 01:58:45'),
+(1426, 9, 'chó ta', 82, 20, 500000, 25000, 12, 'oke', '2024-05-27 02:00:37', '2024-06-05 09:07:25');
 
 -- --------------------------------------------------------
 
@@ -502,7 +561,51 @@ INSERT INTO `refreshtokens` (`id`, `refreshToken`, `exp`, `createdAt`, `updatedA
 (101, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjQ1NTczOSwiZXhwIjoxNzE2NjI4NTM5fQ._tjX-4s6LVxgfwmw5MCRuM1HyTvxNWvgaVlpYxf0VV0', '1716628539', '2024-05-23 09:15:39', '2024-05-23 09:15:39'),
 (102, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjU0MDE4MCwiZXhwIjoxNzE2NzEyOTgwfQ.9kBkXpmsc4RlBIUZxy8DyjYQPDwEstPYRTNQu-MC96A', '1716712980', '2024-05-24 08:43:00', '2024-05-24 08:43:00'),
 (103, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjU0NTczMiwiZXhwIjoxNzE2NzE4NTMyfQ.DrY3Q_50n8V8AYS1G5gLFhRW6wY3-Xv8cn9-d4mNwgU', '1716718532', '2024-05-24 10:15:32', '2024-05-24 10:15:32'),
-(104, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjYwMzYzNywiZXhwIjoxNzE2Nzc2NDM3fQ.0LDshBIPMqvShCi5j9ZbIWpZIu8HaM4FpUcS-E6zVSg', '1716776437', '2024-05-25 02:20:37', '2024-05-25 02:20:37');
+(104, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjYwMzYzNywiZXhwIjoxNzE2Nzc2NDM3fQ.0LDshBIPMqvShCi5j9ZbIWpZIu8HaM4FpUcS-E6zVSg', '1716776437', '2024-05-25 02:20:37', '2024-05-25 02:20:37'),
+(105, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjczOTE5MiwiZXhwIjoxNzE2OTExOTkyfQ.PTv7-ZHEJ8Ma2YnODeifaP-ZxdFGVyBvd-SqocG7JPA', '1716911992', '2024-05-26 15:59:52', '2024-05-26 15:59:52'),
+(106, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjczOTMyMCwiZXhwIjoxNzE2OTEyMTIwfQ.sc0iAOy2z8xbvVe2AdGjucpVQ63bud9z4kSLXIlswT4', '1716912120', '2024-05-26 16:02:00', '2024-05-26 16:02:00'),
+(107, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI1Iiwicm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNzE2NzQwNjY0LCJleHAiOjE3MTY5MTM0NjR9.ddJr-4FQ3Gi7xJaflT3b9W-UHlRWEH2tdP80huZyOwU', '1716913464', '2024-05-26 16:24:24', '2024-05-26 16:24:24'),
+(108, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOnsidXNlcklEIjoiNSJ9LCJyb2xlIjoiY3VzdG9tZXIiLCJpYXQiOjE3MTY3NDEyODIsImV4cCI6MTcxNjkxNDA4Mn0.ds8Wrjpn5aR6-saiL6OiHekWFL6eIAURjhdbwohcZZg', '1716914082', '2024-05-26 16:34:42', '2024-05-26 16:34:42'),
+(109, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOnsidXNlcklEIjoiNSJ9LCJyb2xlIjoiY3VzdG9tZXIiLCJpYXQiOjE3MTY3NDEzNDgsImV4cCI6MTcxNjkxNDE0OH0.bLj2N_3nOHhHSQs8Pld5ku1FisnB7aspfT372Sm2JLE', '1716914148', '2024-05-26 16:35:48', '2024-05-26 16:35:48'),
+(110, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjc3NDc2MCwiZXhwIjoxNzE2OTQ3NTYwfQ.NdOV48ixtZytgwOx9JMxsebwRQswlDn9ehh5mbz7IFU', '1716947560', '2024-05-27 01:52:40', '2024-05-27 01:52:40'),
+(111, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjgxNDQzMiwiZXhwIjoxNzE2OTg3MjMyfQ.yksxF5PzBrgg4bEoqFvdWRKJW_h5oXQFW6o8OH6aVlI', '1716987232', '2024-05-27 12:53:52', '2024-05-27 12:53:52'),
+(112, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjgyODM4MSwiZXhwIjoxNzE3MDAxMTgxfQ.rdx5BoLTcc_Xl2FDyzo0fWv1k-f0ttUwyd2M6lASHsc', '1717001181', '2024-05-27 16:46:21', '2024-05-27 16:46:21'),
+(113, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjg5MzUxNiwiZXhwIjoxNzE3MDY2MzE2fQ.7UhBu0cRdQfmjOA662ZbvVZTiQ0GjdSy4_jvP0A0Ehw', '1717066316', '2024-05-28 10:51:56', '2024-05-28 10:51:56'),
+(114, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjk5OTI0MSwiZXhwIjoxNzE3MTcyMDQxfQ.iDU_9NUM0X2DTByYqRYSfMN-xDs8XF2rSb5DU1I3-Qs', '1717172041', '2024-05-29 16:14:01', '2024-05-29 16:14:01'),
+(115, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjcsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTcxNzAwMDAyOCwiZXhwIjoxNzE3MTcyODI4fQ.vlH-agnuwPCyj5BPi3Fjg96MLgo7iJMyisnOVLB1_RQ', '1717172828', '2024-05-29 16:27:08', '2024-05-29 16:27:08'),
+(116, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzAwMDA4OSwiZXhwIjoxNzE3MTcyODg5fQ.SYK3dZ_Hr_MY48PjwLCz2Qv5cc4Vbk89QQ-lAUK_mB4', '1717172889', '2024-05-29 16:28:09', '2024-05-29 16:28:09'),
+(117, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzAzNjUyNCwiZXhwIjoxNzE3MjA5MzI0fQ._jyj5AymdldDwtpAaXnW1FVPUxVq5HtchUqx9RaNl-4', '1717209324', '2024-05-30 02:35:24', '2024-05-30 02:35:24'),
+(118, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzA1OTY5NCwiZXhwIjoxNzE3MjMyNDk0fQ.N-w7D_PprimLRebEemNmuhzEb8ljQi5GDGcl_L0Mcig', '1717232494', '2024-05-30 09:01:34', '2024-05-30 09:01:34'),
+(119, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzA2NTYwMSwiZXhwIjoxNzE3MjM4NDAxfQ.3oEIQQOq1SMs6kP-r54riBxXHut50zu8g1a2h7GplYU', '1717238401', '2024-05-30 10:40:01', '2024-05-30 10:40:01'),
+(120, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzA4NDI3MCwiZXhwIjoxNzE3MjU3MDcwfQ.a0bmHaDabQQguuGTU8-IRRKBObEjfnkL5HAX8H77Nqw', '1717257070', '2024-05-30 15:51:10', '2024-05-30 15:51:10'),
+(121, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzEyMjI1NSwiZXhwIjoxNzE3Mjk1MDU1fQ.3z_51Z6QNSrgLQxGzaXUjS1TqVqiKhiRXg4fGyiHdHs', '1717295055', '2024-05-31 02:24:15', '2024-05-31 02:24:15'),
+(122, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjcsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTcxNzEyMjI5NiwiZXhwIjoxNzE3Mjk1MDk2fQ.ciiZqD3kqquGtpFuGPatQcGgQaaL4fRvd_xvlbUxQzw', '1717295096', '2024-05-31 02:24:56', '2024-05-31 02:24:56'),
+(123, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzEyMjYxMiwiZXhwIjoxNzE3Mjk1NDEyfQ.wSgE0aPboLePIJH-mn_ksOW0LqrX4w4AsBR7IbHd7yQ', '1717295412', '2024-05-31 02:30:12', '2024-05-31 02:30:12'),
+(124, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzEyNjI2NSwiZXhwIjoxNzE3Mjk5MDY1fQ.OmrzSrsNv95zUMcLHpeBkOGz8WkXi_YrTXpwLPZlR0I', '1717299065', '2024-05-31 03:31:05', '2024-05-31 03:31:05'),
+(125, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzE3MjE2OSwiZXhwIjoxNzE3MzQ0OTY5fQ.uJigou1QeMx4ViPJ07XP25T7lzJXG1VhIXDxI1rlNZM', '1717344969', '2024-05-31 16:16:09', '2024-05-31 16:16:09'),
+(126, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzE3NDg1OSwiZXhwIjoxNzE3MzQ3NjU5fQ.eL6eqT6q1GE9wzCwMrS6St0IcQcRAWEsOO3zg-AZRHw', '1717347659', '2024-05-31 17:00:59', '2024-05-31 17:00:59'),
+(127, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzIxNzY2MSwiZXhwIjoxNzE3MzkwNDYxfQ.8_kAgmx83CIXUW8trs71pmyqyT4f6LZAoNdSU_na-hk', '1717390461', '2024-06-01 04:54:21', '2024-06-01 04:54:21'),
+(128, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzIyOTA5MSwiZXhwIjoxNzE3NDAxODkxfQ.tYsRmvha-tIPUUBOUjpcNGmVbOiACS7BfGIf2kSv9N4', '1717401891', '2024-06-01 08:04:51', '2024-06-01 08:04:51'),
+(129, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzIyOTI1MCwiZXhwIjoxNzE3NDAyMDUwfQ.y7fBULiQHlvALPP2wKNTmyhjOOXm3_KzBu_qwZ09Ae4', '1717402050', '2024-06-01 08:07:30', '2024-06-01 08:07:30'),
+(130, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzIzMDQyMywiZXhwIjoxNzE3NDAzMjIzfQ.hUR2TdOsIVbNtz0_q9kOj_cNDHX8ChphAV9TnztoUJc', '1717403223', '2024-06-01 08:27:03', '2024-06-01 08:27:03'),
+(131, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzIzMDQ2NSwiZXhwIjoxNzE3NDAzMjY1fQ.zfrkwQ8KWZQqa_fXsU81MEk5piie75OW3u8Dsbr4PNo', '1717403265', '2024-06-01 08:27:45', '2024-06-01 08:27:45'),
+(132, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzMwMDg3MiwiZXhwIjoxNzE3NDczNjcyfQ.nTXTQeHQS13YdFKYwPUEJgRmAeI_iQ7lcASL9Q08gXk', '1717473672', '2024-06-02 04:01:12', '2024-06-02 04:01:12'),
+(133, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzMwMDg5OSwiZXhwIjoxNzE3NDczNjk5fQ.PmgmuzWAJzN4YzoTi3P-RXM90qTJbX4AdO1LSiOGdzw', '1717473699', '2024-06-02 04:01:39', '2024-06-02 04:01:39'),
+(134, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzMwMDk1MCwiZXhwIjoxNzE3NDczNzUwfQ.VNKDBLyZj6wnjSlp58Gaivw0dPw8_vncDFtT-X8KRqU', '1717473750', '2024-06-02 04:02:30', '2024-06-02 04:02:30'),
+(135, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzMwMDk3MSwiZXhwIjoxNzE3NDczNzcxfQ.POT_JHksfunbSholsBM5POp7xCGpz88BB1R8xhWVRgU', '1717473771', '2024-06-02 04:02:51', '2024-06-02 04:02:51'),
+(136, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjcsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTcxNzMwNjkwNiwiZXhwIjoxNzE3NDc5NzA2fQ.hgrPzDIUnsXhVdP6PgmIRyytmJpEacSnXeHdc1Kfsxw', '1717479706', '2024-06-02 05:41:46', '2024-06-02 05:41:46'),
+(137, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjcsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTcxNzQyNjc3MSwiZXhwIjoxNzE3NTk5NTcxfQ.J6oevEmmg_2kMWZLWYFkiQofFj6KLaNei_PDWEglynE', '1717599571', '2024-06-03 14:59:31', '2024-06-03 14:59:31'),
+(138, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjUsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTcxNzQyNjg0OCwiZXhwIjoxNzE3NTk5NjQ4fQ.bOZhmq99U6hCHuxaN6YrzNbkLye2iXk9K3xvsURnF1U', '1717599648', '2024-06-03 15:00:48', '2024-06-03 15:00:48'),
+(139, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzQyNjg2NiwiZXhwIjoxNzE3NTk5NjY2fQ.Cj8APBHfxNgxWwrDo1FfalDeZmPQLk1WbsbPtX330c4', '1717599666', '2024-06-03 15:01:06', '2024-06-03 15:01:06'),
+(140, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzQ2ODU5OSwiZXhwIjoxNzE3NjQxMzk5fQ.o728h-W46oIjCmvYTnJxMbMH1eljb6yqou-nrcVi7IQ', '1717641399', '2024-06-04 02:36:39', '2024-06-04 02:36:39'),
+(141, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzQ3NTIzNCwiZXhwIjoxNzE3NjQ4MDM0fQ.mrjbzDmLXoJdrx_iEm7ntIPrxsmT8YlTBa5E1LiQywI', '1717648034', '2024-06-04 04:27:14', '2024-06-04 04:27:14'),
+(142, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzQ3ODkwNSwiZXhwIjoxNzE3NjUxNzA1fQ.aeqjcLeblWWXI2AYQ8C9qdeknDRpYbbFIwOsvSYQQfg', '1717651705', '2024-06-04 05:28:25', '2024-06-04 05:28:25'),
+(143, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzQ4ODUxMSwiZXhwIjoxNzE3NjYxMzExfQ.S1h-c8-vhf6kkbhXTDbdVve6aYGgneKAB35CRY3wBXU', '1717661311', '2024-06-04 08:08:31', '2024-06-04 08:08:31'),
+(144, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzQ5MjM4MSwiZXhwIjoxNzE3NjY1MTgxfQ.3WJKIe-Q85AqrI7oLMiAAgGLWJKHgJCl6wIjh3qLEss', '1717665181', '2024-06-04 09:13:01', '2024-06-04 09:13:01'),
+(145, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzU0MTUxNSwiZXhwIjoxNzE3NzE0MzE1fQ.zfsoPwPYvYuTZBMSvMe5XxmoGUOE0t6wVYjM8CPdnMI', '1717714315', '2024-06-04 22:51:55', '2024-06-04 22:51:55'),
+(146, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzU2NTcxMCwiZXhwIjoxNzE3NzM4NTEwfQ.eDdIFPeKuiUNkCeWOgSAiphIp1VJVW2tzVZ89P19As8', '1717738510', '2024-06-05 05:35:10', '2024-06-05 05:35:10'),
+(147, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzU2OTQxNywiZXhwIjoxNzE3NzQyMjE3fQ.-zyj8N2YXe-1Vtb4RMbPUDcFelxDMj1-S4F510QM93k', '1717742217', '2024-06-05 06:36:57', '2024-06-05 06:36:57'),
+(148, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzU3ODQzMiwiZXhwIjoxNzE3NzUxMjMyfQ.g46Ir1H3N1-_5385GDEZObGsDooa4ojlKrJo5EToEiU', '1717751232', '2024-06-05 09:07:12', '2024-06-05 09:07:12');
 
 -- --------------------------------------------------------
 
@@ -605,7 +708,8 @@ INSERT INTO `statuses` (`id`, `status`, `createdAt`, `updatedAt`) VALUES
 (3, 'đang giao', '2023-10-27 09:03:17', '2023-10-27 09:03:17'),
 (4, 'giao thành công', '2023-10-27 09:03:17', '2023-10-27 09:03:17'),
 (5, 'đã hủy', '2023-10-27 09:03:17', '2023-10-27 09:03:17'),
-(6, 'đã duyệt ', '2024-05-20 02:11:20', '2024-05-20 02:11:20');
+(6, 'đã duyệt ', '2024-05-20 02:11:20', '2024-05-20 02:11:20'),
+(7, 'đã hoàn thành ', '2024-06-03 16:08:41', '2024-06-03 16:08:41');
 
 --
 -- Indexes for dumped tables
@@ -693,6 +797,13 @@ ALTER TABLE `order_items`
   ADD KEY `id_size_item` (`id_product`);
 
 --
+-- Indexes for table `payments`
+--
+ALTER TABLE `payments`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id_order` (`id_order`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -747,7 +858,7 @@ ALTER TABLE `statuses`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `addressinfors`
@@ -759,7 +870,7 @@ ALTER TABLE `addressinfors`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `breeds`
@@ -771,25 +882,25 @@ ALTER TABLE `breeds`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `cart_items`
 --
 ALTER TABLE `cart_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1428;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1429;
 
 --
 -- AUTO_INCREMENT for table `inforusers`
 --
 ALTER TABLE `inforusers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `messages`
@@ -801,19 +912,25 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+
+--
+-- AUTO_INCREMENT for table `payments`
+--
+ALTER TABLE `payments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1425;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1427;
 
 --
 -- AUTO_INCREMENT for table `ratings`
@@ -825,7 +942,7 @@ ALTER TABLE `ratings`
 -- AUTO_INCREMENT for table `refreshtokens`
 --
 ALTER TABLE `refreshtokens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -843,7 +960,7 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `statuses`
 --
 ALTER TABLE `statuses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
@@ -912,6 +1029,12 @@ ALTER TABLE `orders`
 ALTER TABLE `order_items`
   ADD CONSTRAINT `order_items_ibfk_2` FOREIGN KEY (`id_order`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `order_items_ibfk_3` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `payments`
+--
+ALTER TABLE `payments`
+  ADD CONSTRAINT `payments_ibfk_1` FOREIGN KEY (`id_order`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `products`
