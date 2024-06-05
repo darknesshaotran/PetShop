@@ -3,10 +3,10 @@ const orderServices = require('../services/order.services');
 class OrderController {
     async createOrder(req, res, next) {
         // Items: [ { id_product, quantity, id_cartItem, price }]
-        const { Items, address, phoneNumber } = req.body;
+        const { Items, address, phoneNumber, paymentMethod } = req.body;
         const { decoded_authorization } = req;
         const userID = decoded_authorization.userID;
-        const result = await orderServices.createOrder(Items, userID, address, phoneNumber);
+        const result = await orderServices.createOrder(Items, userID, address, phoneNumber, paymentMethod);
         res.json(result);
     }
     async OrderDetails(req, res, next) {

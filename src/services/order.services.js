@@ -2,7 +2,8 @@ const db = require('../models');
 const { Op } = require('sequelize');
 const ErrorsWithStatus = require('../constants/Error');
 const HTTP_STATUS = require('../constants/httpStatus');
-
+const PAYMENT_METHOD = require('../constants/paymentMethod');
+const paymentServices = require('./payment.services');
 class OrderServices {
     async createOrderItem(Item, order, transaction) {
         await db.Order_Item.create(
@@ -28,7 +29,7 @@ class OrderServices {
             },
         );
     }
-    async createOrder(Items, userID, address, phoneNumber) {
+    async createOrder(Items, userID, address, phoneNumber, paymentMethod) {
         const transaction = await db.sequelize.transaction();
         try {
             const order = await db.Order.create(
@@ -79,14 +80,40 @@ class OrderServices {
                 },
             );
 
+            await db.Payment.create(
+                {
+                    id_order: order.id,
+                    paymentMethod: paymentMethod,
+                    isPaid: 0,
+                    money: totalPrice,
+                },
+                { transaction },
+            );
+
             await transaction.commit();
+            let payURL = '';
+            if (paymentMethod === PAYMENT_METHOD.MOMO) {
+                const { orderId, payUrl } = await paymentServices.createPaymentLink(order.id);
+
+                payURL = payUrl;
+                await db.Payment.update(
+                    {
+                        id_order_momo: orderId,
+                    },
+                    {
+                        where: { id_order: order.id },
+                    },
+                );
+            }
+
             return {
                 success: true,
                 message: 'create Order successfully',
                 order: order,
+                payURL: payURL,
             };
         } catch (error) {
-            await transaction.rollback();
+            // await transaction.rollback();
             throw error;
         }
     }

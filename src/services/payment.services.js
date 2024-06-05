@@ -139,5 +139,23 @@ class BreedServices {
         const result = await refundPayment({ id_order: orderId, id_transaction: transId, amount: amount });
         return result;
     }
+    async handlePaymentSuccess(id_order_momo, id_transaction) {
+        await db.Payment.update(
+            {
+                isPaid: 1,
+                paymentDate: new Date(),
+                id_transaction: id_transaction,
+            },
+            {
+                where: {
+                    id_order_momo: id_order_momo,
+                },
+            },
+        );
+        return {
+            success: true,
+            message: 'payment successfully',
+        };
+    }
 }
 module.exports = new BreedServices();

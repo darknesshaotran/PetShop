@@ -16,5 +16,11 @@ class PaymentController {
         const result = await paymentServices.refundMoney(id_order_MoMo);
         return res.json(result);
     }
+    async handlePaymentSuccess(req, res, next) {
+        const { orderId, transId } = req.body;
+        const result = await paymentServices.handlePaymentSuccess(orderId, transId);
+        console.log(result);
+        res.json(result);
+    }
 }
 module.exports = new PaymentController();

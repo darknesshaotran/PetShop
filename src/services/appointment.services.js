@@ -2,6 +2,7 @@ const db = require('../models');
 const { Op } = require('sequelize');
 const ErrorsWithStatus = require('../constants/Error');
 const HTTP_STATUS = require('../constants/httpStatus');
+const PAYMENT_METHOD = require('../constants/paymentMethod');
 const convertISOToDateTime = require('../utils/convertDate');
 class OrderServices {
     async createAppointment(userID, id_service, note, appointmentTime, endTime, order_phoneNumber) {
@@ -60,6 +61,16 @@ class OrderServices {
                 },
                 { transaction },
             );
+            await db.Payment.create(
+                {
+                    id_order: order.id,
+                    paymentMethod: PAYMENT_METHOD.COD,
+                    isPaid: 0,
+                    money: totalPrice,
+                },
+                { transaction },
+            );
+
             if (!endTime) {
                 let appointmentDate = new Date(appointmentTime);
                 appointmentDate.setHours(appointmentDate.getHours() + 1);
@@ -281,7 +292,7 @@ class OrderServices {
         await db.Order.update(
             { id_status: 7 },
             {
-                where: { id: order },
+                where: { id: id_order },
             },
         );
         return {
