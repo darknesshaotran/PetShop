@@ -313,7 +313,6 @@ class OrderServices {
     async getListAppointment(id_status, userID, role) {
         // TO DO GET LIST APPOINTMENT BY USER 'S NAME, ORDER PHONE NUM, APPOINTMENT TIME
         const option = role === 'admin' ? { id_status: id_status } : { id_status: id_status, id_account: userID };
-
         const appointment = await db.Appointment.findAll({
             include: [
                 {
@@ -321,6 +320,7 @@ class OrderServices {
                     where: {
                         ...option,
                     },
+                    order: [['createdAt', 'DESC']],
                     include: [
                         { model: db.Status, as: 'Status', attributes: ['status'] },
                         {

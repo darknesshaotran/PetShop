@@ -42,6 +42,7 @@ class ServiceServices {
         });
         const rating = await db.Rating.findAll({
             where: { id_service: id_service },
+            order: [['createdAt', 'DESC']],
             attributes: { exclude: ['id_product', 'id_service'] },
             include: [
                 {

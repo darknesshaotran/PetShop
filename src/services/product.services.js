@@ -28,7 +28,7 @@ class ProductServices {
             ...breedCondition,
             ...searchCondition,
         };
-        var order = [];
+        var order = [['createdAt', 'DESC']];
         if (isDesc) {
             order = [['price', Number(isDesc) ? 'DESC' : 'ASC']];
         }
@@ -98,6 +98,7 @@ class ProductServices {
         const Image = JSON.parse(JSON.stringify(image));
         const rating = await db.Rating.findAll({
             where: { id_product: id_product },
+            order: [['createdAt', 'DESC']],
             attributes: { exclude: ['id_product'] },
             include: [
                 {

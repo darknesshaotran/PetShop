@@ -10,6 +10,7 @@ class NotificationServices {
                 id_account: userID,
             },
             limit: limit,
+            order: [['createdAt', 'DESC']],
         });
         return {
             success: true,
