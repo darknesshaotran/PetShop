@@ -264,7 +264,23 @@ class OrderServices {
                     transaction,
                 },
             );
-            // TO DO REFUND MONEY IF PAYMENT METHOD IS MOMO
+            const payment = await db.Payment.findOne({
+                where: { id_order: id_order },
+                transaction,
+            });
+            if (payment.isPaid && payment.paymentMethod === PAYMENT_METHOD.MOMO) {
+                const { id_order_momo } = payment;
+                const result = await paymentServices.refundMoney(id_order_momo);
+                await db.Payment.update(
+                    {
+                        isPaid: 0,
+                    },
+                    {
+                        where: { id_order: id_order },
+                        transaction,
+                    },
+                );
+            }
             await transaction.commit();
             return {
                 success: true,
