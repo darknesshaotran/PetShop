@@ -28,6 +28,7 @@ class RatingServices {
                     },
                 );
             }
+            //  TO DO check if appointment update isRate here
             await transaction.commit();
             return {
                 success: true,

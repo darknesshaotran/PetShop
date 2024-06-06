@@ -83,6 +83,7 @@ class OrderServices {
                     appointment_time: appointmentTime,
                     end_time: endTime,
                     note: note,
+                    isRate: 0,
                 },
                 { transaction },
             );
