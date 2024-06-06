@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2024 at 03:33 AM
+-- Generation Time: Jun 06, 2024 at 02:21 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -43,7 +43,7 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`id`, `email`, `password`, `id_role`, `point`, `forgot_password_token`, `createdAt`, `updatedAt`) VALUES
-(2, 'darknessclmm@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 1, 666, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInR5cGUiOiJmb3Jnb3RQYXNzd29yZFRva2VuIiwiaWF0IjoxNjk4ODI0NzM4LCJleHAiOjE2OTg5OTc1Mzh9.pMtZYtph38yr5GJdGBSFMhZ0fFUb5mgwz3EvImB14zs', '2023-10-27 08:51:32', '2024-06-05 09:07:25'),
+(2, 'darknessclmm@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 1, 861, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInR5cGUiOiJmb3Jnb3RQYXNzd29yZFRva2VuIiwiaWF0IjoxNjk4ODI0NzM4LCJleHAiOjE2OTg5OTc1Mzh9.pMtZYtph38yr5GJdGBSFMhZ0fFUb5mgwz3EvImB14zs', '2023-10-27 08:51:32', '2024-06-06 12:15:04'),
 (5, 'hothanhhungtran@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, NULL, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjUsInR5cGUiOiJmb3Jnb3RQYXNzd29yZFRva2VuIiwiaWF0IjoxNjk4ODI0NTExLCJleHAiOjE2OTg5OTczMTF9.kvCnD6GMZhhe5qVufCjY0Wri3QljsUYRwEkYF5ZiwSk', '2023-11-01 07:35:08', '2023-11-01 07:41:51'),
 (6, 'hothanhhungtran1@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, NULL, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjYsInR5cGUiOiJmb3Jnb3RQYXNzd29yZFRva2VuIiwiaWF0IjoxNjk4ODI0Mzk3LCJleHAiOjE2OTg5OTcxOTd9.L37kBCUkfexxYwHE1IB9GufnyrJi_lTZW_6hSIH4JvM', '2023-11-01 07:36:30', '2023-11-01 07:39:57'),
 (7, 'darknessclmm1@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, 90, NULL, '2023-11-03 07:00:41', '2024-06-02 05:47:12'),
@@ -267,7 +267,52 @@ INSERT INTO `messages` (`id`, `id_reciever`, `id_sender`, `content`, `createdAt`
 (9, 7, 2, 'oke cu ', '2023-11-03 16:12:07', '2023-11-03 16:12:07'),
 (10, 2, 5, 'hello hưng đây ', '2023-11-04 03:01:12', '2023-11-04 03:01:12'),
 (11, 5, 2, 'alo alo', '2023-11-04 04:30:08', '2023-11-04 04:30:08'),
-(12, 5, 2, 'alo alo', '2023-11-04 04:30:12', '2023-11-04 04:30:12');
+(12, 5, 2, 'alo alo', '2023-11-04 04:30:12', '2023-11-04 04:30:12'),
+(13, 2, 8, 'hello', '2024-06-06 08:23:35', '2024-06-06 08:23:35'),
+(14, 2, 8, 'ako', '2024-06-06 08:24:14', '2024-06-06 08:24:14'),
+(15, 2, 8, 'dádad', '2024-06-06 08:24:48', '2024-06-06 08:24:48'),
+(16, 2, 8, ':v ', '2024-06-06 08:24:49', '2024-06-06 08:24:49'),
+(17, 2, 8, 'giề ', '2024-06-06 08:24:51', '2024-06-06 08:24:51'),
+(18, 2, 8, ';v ', '2024-06-06 08:24:52', '2024-06-06 08:24:52'),
+(19, 2, 8, ';v ', '2024-06-06 08:24:53', '2024-06-06 08:24:53'),
+(20, 2, 8, ';v', '2024-06-06 08:24:53', '2024-06-06 08:24:53'),
+(21, 2, 8, ';v', '2024-06-06 08:24:54', '2024-06-06 08:24:54'),
+(22, 8, 2, 'a', '2024-06-06 08:37:07', '2024-06-06 08:37:07'),
+(23, 2, 8, 'giề ', '2024-06-06 08:37:11', '2024-06-06 08:37:11'),
+(24, 8, 2, ';v', '2024-06-06 08:37:13', '2024-06-06 08:37:13'),
+(25, 2, 8, 'đasdadsa', '2024-06-06 08:37:15', '2024-06-06 08:37:15'),
+(26, 2, 8, 'dsadsda', '2024-06-06 08:44:37', '2024-06-06 08:44:37'),
+(27, 8, 2, '......', '2024-06-06 08:44:40', '2024-06-06 08:44:40'),
+(28, 2, 8, 'alo ', '2024-06-06 08:52:46', '2024-06-06 08:52:46'),
+(29, 8, 2, 'adsdadads', '2024-06-06 08:52:50', '2024-06-06 08:52:50'),
+(30, 8, 2, 'dsadsada', '2024-06-06 08:52:51', '2024-06-06 08:52:51'),
+(31, 8, 2, 'f', '2024-06-06 08:52:57', '2024-06-06 08:52:57'),
+(32, 2, 8, 'f', '2024-06-06 08:53:00', '2024-06-06 08:53:00'),
+(33, 8, 2, '', '2024-06-06 08:53:12', '2024-06-06 08:53:12');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notifications`
+--
+
+CREATE TABLE `notifications` (
+  `id` int(11) NOT NULL,
+  `id_account` int(11) NOT NULL,
+  `notify` text NOT NULL,
+  `isRead` int(11) NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT current_timestamp(),
+  `updatedAt` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `notifications`
+--
+
+INSERT INTO `notifications` (`id`, `id_account`, `notify`, `isRead`, `createdAt`, `updatedAt`) VALUES
+(1, 2, 'đơn hàng 65000 đồng với mã số 55 đang được chuẩn bị', 0, '2024-06-06 19:15:20', '2024-06-06 19:15:20'),
+(2, 2, 'đơn hàng 65000 đồng với mã số 55 đang được giao', 0, '2024-06-06 19:15:39', '2024-06-06 19:15:39'),
+(3, 2, 'đơn hàng 65000 đồng với mã số 55 đã được giao thành công', 0, '2024-06-06 19:15:47', '2024-06-06 19:15:47');
 
 -- --------------------------------------------------------
 
@@ -311,7 +356,12 @@ INSERT INTO `orders` (`id`, `id_account`, `id_status`, `isService`, `order_addre
 (47, 2, 1, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-05 06:39:23', '2024-06-05 06:39:23'),
 (48, 2, 1, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-05 06:45:14', '2024-06-05 06:45:14'),
 (49, 2, 1, 1, NULL, '0962232323', 12, '2024-06-05 06:56:29', '2024-06-05 06:56:29'),
-(50, 2, 4, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-05 09:07:25', '2024-06-05 09:43:40');
+(50, 2, 4, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-05 09:07:25', '2024-06-05 09:43:40'),
+(51, 2, 5, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-06 02:12:05', '2024-06-06 02:13:36'),
+(52, 2, 1, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-06 02:14:18', '2024-06-06 02:14:18'),
+(53, 2, 5, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-06 02:16:43', '2024-06-06 02:17:41'),
+(54, 2, 1, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-06 07:49:12', '2024-06-06 07:49:12'),
+(55, 2, 4, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-06 12:15:04', '2024-06-06 12:15:47');
 
 -- --------------------------------------------------------
 
@@ -353,7 +403,17 @@ INSERT INTO `order_items` (`id`, `id_product`, `id_order`, `quantity`, `fixed_pr
 (52, 1424, 48, 1, 15000, 0, '2024-06-05 06:45:14', '2024-06-05 06:45:14'),
 (53, 1426, 48, 2, 50000, 0, '2024-06-05 06:45:14', '2024-06-05 06:45:14'),
 (54, 1424, 50, 1, 15000, 0, '2024-06-05 09:07:25', '2024-06-05 09:07:25'),
-(55, 1426, 50, 2, 50000, 0, '2024-06-05 09:07:25', '2024-06-05 09:07:25');
+(55, 1426, 50, 2, 50000, 0, '2024-06-05 09:07:25', '2024-06-05 09:07:25'),
+(56, 1424, 51, 1, 15000, 0, '2024-06-06 02:12:05', '2024-06-06 02:12:05'),
+(57, 1426, 51, 2, 50000, 0, '2024-06-06 02:12:05', '2024-06-06 02:12:05'),
+(58, 1424, 52, 1, 15000, 0, '2024-06-06 02:14:18', '2024-06-06 02:14:18'),
+(59, 1426, 52, 2, 50000, 0, '2024-06-06 02:14:18', '2024-06-06 02:14:18'),
+(60, 1424, 53, 1, 15000, 0, '2024-06-06 02:16:43', '2024-06-06 02:16:43'),
+(61, 1426, 53, 2, 50000, 0, '2024-06-06 02:16:43', '2024-06-06 02:16:43'),
+(62, 1424, 54, 1, 15000, 0, '2024-06-06 07:49:12', '2024-06-06 07:49:12'),
+(63, 1426, 54, 2, 50000, 0, '2024-06-06 07:49:12', '2024-06-06 07:49:12'),
+(64, 1424, 55, 1, 15000, 0, '2024-06-06 12:15:04', '2024-06-06 12:15:04'),
+(65, 1426, 55, 2, 50000, 0, '2024-06-06 12:15:04', '2024-06-06 12:15:04');
 
 -- --------------------------------------------------------
 
@@ -381,7 +441,12 @@ CREATE TABLE `payments` (
 INSERT INTO `payments` (`id`, `id_order`, `paymentDate`, `paymentMethod`, `isPaid`, `id_transaction`, `id_order_momo`, `money`, `createdAt`, `updatedAt`) VALUES
 (8, 48, '2024-06-05 13:45:57', 'MOMO', 1, '4053832369', '48PETSHOP1717569914875', 65000, '2024-06-05 13:45:14', '2024-06-05 13:45:57'),
 (9, 49, NULL, 'COD', 0, NULL, NULL, 12, '2024-06-05 13:56:29', '2024-06-05 13:56:29'),
-(10, 50, '2024-06-05 16:43:40', 'COD', 1, NULL, NULL, 65000, '2024-06-05 16:07:25', '2024-06-05 16:43:40');
+(10, 50, '2024-06-05 16:43:40', 'COD', 1, NULL, NULL, 65000, '2024-06-05 16:07:25', '2024-06-05 16:43:40'),
+(11, 51, NULL, 'MOMO', 0, NULL, '51PETSHOP1717639925402', 65000, '2024-06-06 09:12:05', '2024-06-06 09:12:05'),
+(12, 52, NULL, 'MOMO', 0, NULL, '52PETSHOP1717640058743', 65000, '2024-06-06 09:14:18', '2024-06-06 09:14:19'),
+(13, 53, '2024-06-06 09:17:08', 'MOMO', 0, '4054683199', '53PETSHOP1717640203294', 65000, '2024-06-06 09:16:43', '2024-06-06 09:17:42'),
+(14, 54, NULL, 'MOMO', 0, NULL, '54PETSHOP1717660152967', 65000, '2024-06-06 14:49:12', '2024-06-06 14:49:13'),
+(15, 55, '2024-06-06 19:15:47', 'COD', 1, NULL, NULL, 65000, '2024-06-06 19:15:04', '2024-06-06 19:15:47');
 
 -- --------------------------------------------------------
 
@@ -408,9 +473,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `id_breed`, `name`, `amount`, `soldProductNum`, `proceeds`, `price`, `import_price`, `description`, `createdAt`, `updatedAt`) VALUES
-(1424, 9, 'con chó', 95, 27, 267111, 15000, 12, 'the sun can\'t shine without darkness', '2024-05-09 05:28:19', '2024-06-05 09:07:25'),
+(1424, 9, 'con chó', 92, 30, 312111, 15000, 12, 'the sun can\'t shine without darkness', '2024-05-09 05:28:19', '2024-06-06 12:15:04'),
 (1425, 11, 'mèo con ', 12, 40, 12111, 12, 15, NULL, '2024-05-27 01:58:45', '2024-05-27 01:58:45'),
-(1426, 9, 'chó ta', 82, 20, 500000, 25000, 12, 'oke', '2024-05-27 02:00:37', '2024-06-05 09:07:25');
+(1426, 9, 'chó ta', 76, 26, 650000, 25000, 12, 'oke', '2024-05-27 02:00:37', '2024-06-06 12:15:04');
 
 -- --------------------------------------------------------
 
@@ -606,7 +671,13 @@ INSERT INTO `refreshtokens` (`id`, `refreshToken`, `exp`, `createdAt`, `updatedA
 (145, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzU0MTUxNSwiZXhwIjoxNzE3NzE0MzE1fQ.zfsoPwPYvYuTZBMSvMe5XxmoGUOE0t6wVYjM8CPdnMI', '1717714315', '2024-06-04 22:51:55', '2024-06-04 22:51:55'),
 (146, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzU2NTcxMCwiZXhwIjoxNzE3NzM4NTEwfQ.eDdIFPeKuiUNkCeWOgSAiphIp1VJVW2tzVZ89P19As8', '1717738510', '2024-06-05 05:35:10', '2024-06-05 05:35:10'),
 (147, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzU2OTQxNywiZXhwIjoxNzE3NzQyMjE3fQ.-zyj8N2YXe-1Vtb4RMbPUDcFelxDMj1-S4F510QM93k', '1717742217', '2024-06-05 06:36:57', '2024-06-05 06:36:57'),
-(148, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzU3ODQzMiwiZXhwIjoxNzE3NzUxMjMyfQ.g46Ir1H3N1-_5385GDEZObGsDooa4ojlKrJo5EToEiU', '1717751232', '2024-06-05 09:07:12', '2024-06-05 09:07:12');
+(148, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzU3ODQzMiwiZXhwIjoxNzE3NzUxMjMyfQ.g46Ir1H3N1-_5385GDEZObGsDooa4ojlKrJo5EToEiU', '1717751232', '2024-06-05 09:07:12', '2024-06-05 09:07:12'),
+(149, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzYzOTUzNCwiZXhwIjoxNzE3ODEyMzM0fQ.Pd6BA-Ng-C7Y_SxymjenRX5-QSFYEbF8WdVYumWTzwk', '1717812334', '2024-06-06 02:05:34', '2024-06-06 02:05:34'),
+(150, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzY2MDE0NiwiZXhwIjoxNzE3ODMyOTQ2fQ.UOKFID0U1CQPrdpTnt8XDhibDt6qlm8jfKnImnYm-2U', '1717832946', '2024-06-06 07:49:06', '2024-06-06 07:49:06'),
+(151, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzY2MTczOCwiZXhwIjoxNzE3ODM0NTM4fQ.wjnIBint8S4aE8psg8rrCz9b8zXt1_4LEhabauknuRM', '1717834538', '2024-06-06 08:15:38', '2024-06-06 08:15:38'),
+(152, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjcsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTcxNzY2MjA3MiwiZXhwIjoxNzE3ODM0ODcyfQ.Uu3j2WpXnPp40qt2ifa55yKZssO4tex4znZyC85BaIw', '1717834872', '2024-06-06 08:21:12', '2024-06-06 08:21:12'),
+(153, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjgsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTcxNzY2MjE0NCwiZXhwIjoxNzE3ODM0OTQ0fQ.-ueOOeiP-LhkMj47s2VWYjgpqqzAmZxwG5OhdTvubN8', '1717834944', '2024-06-06 08:22:24', '2024-06-06 08:22:24'),
+(154, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzY3NjA2MSwiZXhwIjoxNzE3ODQ4ODYxfQ.98rFtIaLKOHlDfoli90cxoqflrMeF4z7T0McwO4nyLs', '1717848861', '2024-06-06 12:14:21', '2024-06-06 12:14:21');
 
 -- --------------------------------------------------------
 
@@ -782,6 +853,13 @@ ALTER TABLE `messages`
   ADD KEY `id_sender` (`id_sender`);
 
 --
+-- Indexes for table `notifications`
+--
+ALTER TABLE `notifications`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_account` (`id_account`);
+
+--
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
@@ -907,25 +985,31 @@ ALTER TABLE `inforusers`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+
+--
+-- AUTO_INCREMENT for table `notifications`
+--
+ALTER TABLE `notifications`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -943,7 +1027,7 @@ ALTER TABLE `ratings`
 -- AUTO_INCREMENT for table `refreshtokens`
 --
 ALTER TABLE `refreshtokens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -1016,6 +1100,12 @@ ALTER TABLE `inforusers`
 ALTER TABLE `messages`
   ADD CONSTRAINT `messages_ibfk_1` FOREIGN KEY (`id_reciever`) REFERENCES `accounts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `messages_ibfk_2` FOREIGN KEY (`id_sender`) REFERENCES `accounts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `notifications`
+--
+ALTER TABLE `notifications`
+  ADD CONSTRAINT `notifications_ibfk_1` FOREIGN KEY (`id_account`) REFERENCES `accounts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `orders`

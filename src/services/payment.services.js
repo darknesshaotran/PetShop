@@ -2,7 +2,7 @@ const db = require('../models');
 const { Op } = require('sequelize');
 const ErrorsWithStatus = require('../constants/Error');
 const { createPayment, TransactionStatus, refundPayment } = require('../utils/Momo');
-
+const notifyServices = require('./notify.services');
 class PaymentServices {
     async createPaymentLink(id_order) {
         let orderContent = '';
@@ -151,6 +151,14 @@ class PaymentServices {
                     id_order_momo: id_order_momo,
                 },
             },
+        );
+        const id_order = id_order_momo.split('PETSHOP')[0];
+        const order = await db.Order.findOne({
+            where: { id: id_order },
+        });
+        await notifyServices.sendNotify(
+            order.id_account,
+            `đã thanh toán đơn hàng ${order.totalPrice} đồng với mã số ${order.id} thành công`,
         );
         return {
             success: true,

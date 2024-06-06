@@ -1,5 +1,6 @@
 const userServices = require('../services/user.services');
 const USERS_MESSAGES = require('../constants/messages');
+const notifyServices = require('../services/notify.services');
 
 class AccountController {
     async register(req, res, next) {
@@ -77,6 +78,12 @@ class AccountController {
         const userID = decoded_authorization.userID;
         const { urls, Fields } = req.formdata;
         const result = await userServices.changeAvatar(userID, urls[0]);
+        res.json(result);
+    }
+    async getNotifications(req, res, next) {
+        const { decoded_authorization } = req;
+        const userID = decoded_authorization.userID;
+        const result = await notifyServices.getListNotify(userID, 10);
         res.json(result);
     }
 }

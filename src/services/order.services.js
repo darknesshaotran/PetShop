@@ -3,6 +3,7 @@ const ErrorsWithStatus = require('../constants/Error');
 const HTTP_STATUS = require('../constants/httpStatus');
 const PAYMENT_METHOD = require('../constants/paymentMethod');
 const paymentServices = require('./payment.services');
+const notifyServices = require('./notify.services');
 class OrderServices {
     async createOrderItem(Item, order, transaction) {
         await db.Order_Item.create(
@@ -264,6 +265,7 @@ class OrderServices {
                     transaction,
                 },
             );
+
             const payment = await db.Payment.findOne({
                 where: { id_order: id_order },
                 transaction,
@@ -280,7 +282,15 @@ class OrderServices {
                         transaction,
                     },
                 );
+                await notifyServices.sendNotify(
+                    order.id_account,
+                    `đã hoàn trả số tiền ${order.totalPrice} đồng về ví của bạn`,
+                );
             }
+            await notifyServices.sendNotify(
+                order.id_account,
+                `đơn hàng ${order.totalPrice} đồng với mã số ${order.id} đã bị hủy`,
+            );
             await transaction.commit();
             return {
                 success: true,
@@ -323,7 +333,21 @@ class OrderServices {
                 message: `can't change order's status anymore`,
             });
         }
-        if (order.id_status === 3) {
+        if (order.id_status === 1) {
+            await notifyServices.sendNotify(
+                order.id_account,
+                `đơn hàng ${order.totalPrice} đồng với mã số ${order.id} đang được chuẩn bị`,
+            );
+        } else if (order.id_status === 2) {
+            await notifyServices.sendNotify(
+                order.id_account,
+                `đơn hàng ${order.totalPrice} đồng với mã số ${order.id} đang được giao`,
+            );
+        } else if (order.id_status === 3) {
+            await notifyServices.sendNotify(
+                order.id_account,
+                `đơn hàng ${order.totalPrice} đồng với mã số ${order.id} đã được giao thành công`,
+            );
             const payment = await db.Payment.findOne({
                 where: { id_order: id_order },
             });
