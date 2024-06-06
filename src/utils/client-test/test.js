@@ -20,7 +20,7 @@ function readTokenFromCookie() {
 }
 const token = readTokenFromCookie();
 
-fetch('http://localhost:4000/api/user/profile/me', {
+fetch('http://localhost:8000/api/user/profile/me', {
     headers: new Headers({
         Authorization: token,
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -29,7 +29,7 @@ fetch('http://localhost:4000/api/user/profile/me', {
     .then((response) => response.json())
     .then((response) => {
         console.log(response);
-        const socket = io('http://localhost:4000');
+        const socket = io('http://localhost:8000');
 
         // lắng nghe sự kiện kêt nối socket thất bại
         socket.on('connect_error', (error) => console.log(error.data));
@@ -50,7 +50,7 @@ fetch('http://localhost:4000/api/user/profile/me', {
         const send_message = () => {
             socket.emit('send_message', {
                 content: input.value,
-                id_receiver: response.user.id == 2 ? 7 : 2,
+                id_receiver: response.user.id == 8 ? 2 : 8,
             });
             var message = list.innerHTML;
             message += `<li style="color:white;padding:10px;margin-bottom:5px;background:blue;border-radius:10px"> (${response.user.id}): ${input.value}</li>`;

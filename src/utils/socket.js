@@ -23,11 +23,15 @@ const initSocket = (httpServer) => {
             };
             // server lắng nghe sự kiện send_message của socket A, gửi đến socket B sự kiện receive_message
             socket.on('send_message', async (data) => {
-                const socket_id_receiver = users[data.id_receiver].socket_id;
-                if (socket_id_receiver) {
-                    io.to(socket_id_receiver).emit('receive_message', { content: data.content, id_sender: userID });
+                try {
+                    const socket_id_receiver = users[data.id_receiver]?.socket_id;
+                    if (socket_id_receiver) {
+                        io.to(socket_id_receiver).emit('receive_message', { content: data.content, id_sender: userID });
+                    }
+                    await messageServices.addMessage(data.id_receiver, userID, data.content);
+                } catch (error) {
+                    console.error('Error sending message:', error);
                 }
-                await messageServices.addMessage(data.id_receiver, userID, data.content);
             });
         }
 
