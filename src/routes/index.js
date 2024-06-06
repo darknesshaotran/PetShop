@@ -10,8 +10,7 @@ const messageRoute = require('./message.routes.js');
 const paymentRoute = require('./payment.routes.js');
 const serviceRoute = require('./service.routes.js');
 const appointmentRoute = require('./appointment.routes.js');
-const orderServices = require('../services/order.services.js');
-const { wrapController } = require('../utils/handle.js');
+const postRoute = require('./post.routes.js');
 const route = (app) => {
     app.use('/api/payment', paymentRoute);
     app.use('/api/user', accountRoute);
@@ -25,6 +24,7 @@ const route = (app) => {
     app.use('/api/revenue', revenueRoute);
     app.use('/api/appointment', appointmentRoute);
     app.use('/api/message', messageRoute);
+    app.use('/api/post', postRoute);
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     app.use('/', (req, res, next) => {
         return res.send('WELCOME TO SERVER');
