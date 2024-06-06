@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2024 at 11:45 AM
+-- Generation Time: Jun 06, 2024 at 03:33 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -93,6 +93,7 @@ CREATE TABLE `appointments` (
   `appointment_time` timestamp NOT NULL DEFAULT current_timestamp(),
   `end_time` timestamp NOT NULL DEFAULT current_timestamp(),
   `note` text NOT NULL,
+  `isRate` int(11) DEFAULT NULL,
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -101,14 +102,14 @@ CREATE TABLE `appointments` (
 -- Dumping data for table `appointments`
 --
 
-INSERT INTO `appointments` (`id`, `id_service`, `id_order`, `appointment_time`, `end_time`, `note`, `createdAt`, `updatedAt`) VALUES
-(1, 6, 26, '2023-05-27 05:00:00', '2023-05-27 06:00:00', 'tắm sạch vào nhá', '2024-05-23 03:32:27', '2024-05-24 08:43:48'),
-(2, 6, 27, '2023-05-27 06:30:00', '2023-05-27 07:00:00', 'tắm sạch dô ', '2024-05-23 09:16:14', '2024-05-23 09:16:14'),
-(3, 4, 28, '2020-11-01 00:38:00', '2020-11-01 01:36:00', 'tắm sạch vào nhá', '2024-05-24 08:48:41', '2024-06-04 10:00:02'),
-(4, 4, 29, '2023-11-01 01:32:28', '2023-11-01 01:32:28', 'cắt tỉa cẩn thận', '2024-05-24 09:07:48', '2024-05-24 09:07:48'),
-(5, 4, 30, '2023-11-01 01:33:28', '2023-11-01 01:36:28', 'cắt tỉa cẩn thận', '2024-05-24 09:11:50', '2024-05-24 09:11:50'),
-(6, 4, 35, '2024-11-01 01:35:28', '2024-11-01 01:36:28', 'cắt tỉa cẩn thận', '2024-06-01 04:56:39', '2024-06-01 04:56:39'),
-(7, 4, 49, '2025-11-01 01:35:28', '2025-11-01 01:35:29', 'cắt tỉa cẩn thận', '2024-06-05 06:56:29', '2024-06-05 06:56:29');
+INSERT INTO `appointments` (`id`, `id_service`, `id_order`, `appointment_time`, `end_time`, `note`, `isRate`, `createdAt`, `updatedAt`) VALUES
+(1, 6, 26, '2023-05-27 05:00:00', '2023-05-27 06:00:00', 'tắm sạch vào nhá', 0, '2024-05-23 03:32:27', '2024-05-24 08:43:48'),
+(2, 6, 27, '2023-05-27 06:30:00', '2023-05-27 07:00:00', 'tắm sạch dô ', 0, '2024-05-23 09:16:14', '2024-05-23 09:16:14'),
+(3, 4, 28, '2020-11-01 00:38:00', '2020-11-01 01:36:00', 'tắm sạch vào nhá', 0, '2024-05-24 08:48:41', '2024-06-04 10:00:02'),
+(4, 4, 29, '2023-11-01 01:32:28', '2023-11-01 01:32:28', 'cắt tỉa cẩn thận', 0, '2024-05-24 09:07:48', '2024-05-24 09:07:48'),
+(5, 4, 30, '2023-11-01 01:33:28', '2023-11-01 01:36:28', 'cắt tỉa cẩn thận', 0, '2024-05-24 09:11:50', '2024-05-24 09:11:50'),
+(6, 4, 35, '2024-11-01 01:35:28', '2024-11-01 01:36:28', 'cắt tỉa cẩn thận', 0, '2024-06-01 04:56:39', '2024-06-01 04:56:39'),
+(7, 4, 49, '2025-11-01 01:35:28', '2025-11-01 01:35:29', 'cắt tỉa cẩn thận', 0, '2024-06-05 06:56:29', '2024-06-05 06:56:29');
 
 -- --------------------------------------------------------
 
