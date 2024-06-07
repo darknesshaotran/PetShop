@@ -83,7 +83,7 @@ class AccountController {
     async getNotifications(req, res, next) {
         const { decoded_authorization } = req;
         const userID = decoded_authorization.userID;
-        const result = await notifyServices.getListNotify(userID, 10);
+        const result = await notifyServices.getListNotify(userID, 6);
         res.json(result);
     }
 }

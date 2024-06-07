@@ -17,7 +17,7 @@ class PostServices {
         };
     }
     async deletePost(id_post) {
-        await db.Post.delete({
+        await db.Post.destroy({
             where: { id: id_post },
         });
         return {
@@ -27,7 +27,6 @@ class PostServices {
     }
     async getPosts() {
         const posts = await db.Post.findAll({
-            attributes: ['id', 'title', 'thumbnail', 'createdAt'],
             limit: 20,
             order: [['createdAt', 'DESC']],
         });

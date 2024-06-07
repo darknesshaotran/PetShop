@@ -2,7 +2,8 @@ const postServices = require('../services/post.services');
 
 class PostController {
     async addPost(req, res, next) {
-        const result = await postServices.addPost();
+        const { title, thumbnail, content } = req.body;
+        const result = await postServices.addPost(title, thumbnail, content);
         res.json(result);
     }
     async deletePost(req, res, next) {
