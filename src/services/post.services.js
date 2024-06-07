@@ -3,18 +3,47 @@ const { Op } = require('sequelize');
 const ErrorsWithStatus = require('../constants/Error');
 const HTTP_STATUS = require('../constants/httpStatus');
 
-class RatingServices {
+class PostServices {
     async addPost(title, thumbnail, content) {
-        return;
+        await db.Post.create({
+            title: title,
+            thumbnail: thumbnail,
+            content: content,
+        });
+
+        return {
+            success: true,
+            message: 'add post successfully',
+        };
     }
     async deletePost(id_post) {
-        return;
+        await db.Post.delete({
+            where: { id: id_post },
+        });
+        return {
+            success: true,
+            message: 'delete post successfully',
+        };
     }
-    async getPosts(id_post) {
-        return;
+    async getPosts() {
+        const posts = await db.Post.findAll({
+            attributes: ['id', 'title', 'thumbnail', 'createdAt'],
+            limit: 20,
+            order: [['createdAt', 'DESC']],
+        });
+        return {
+            success: true,
+            result: posts,
+        };
     }
-    async getPostDetails() {
-        return;
+    async getPostDetails(id_post) {
+        const post = await db.Post.findOne({
+            where: { id: id_post },
+        });
+        return {
+            success: true,
+            result: post,
+        };
     }
 }
-module.exports = new RatingServices();
+module.exports = new PostServices();
