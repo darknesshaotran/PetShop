@@ -4,7 +4,8 @@ const ErrorsWithStatus = require('../constants/Error');
 const HTTP_STATUS = require('../constants/httpStatus');
 const PAYMENT_METHOD = require('../constants/paymentMethod');
 const convertISOToDateTime = require('../utils/convertDate');
-class OrderServices {
+const notifyServices = require('./notify.services');
+class AppointmentServices {
     async createAppointment(userID, id_service, note, appointmentTime, endTime, order_phoneNumber) {
         const transaction = await db.sequelize.transaction();
         try {
@@ -233,7 +234,7 @@ class OrderServices {
         const transaction = await db.sequelize.transaction();
         try {
             const order = await db.Order.findOne({
-                where: { id_order: id_order },
+                where: { id: id_order },
                 transaction,
             });
             if (order.id_status === 6) {
@@ -249,6 +250,7 @@ class OrderServices {
                     transaction,
                 },
             );
+            await notifyServices.sendNotify(order.id_account, `lịch hẹn của bạn đã bị hủy`, transaction);
             await transaction.commit();
             return {
                 success: true,
@@ -274,6 +276,10 @@ class OrderServices {
             {
                 where: { id: id_order },
             },
+        );
+        await notifyServices.sendNotify(
+            order.id_account,
+            `lịch hẹn của bạn đã được chấp thuận, hãy chuẩn bị cho buổi hẹn của bạn!`,
         );
         return {
             success: true,
@@ -304,6 +310,10 @@ class OrderServices {
             {
                 where: { id_order: id_order },
             },
+        );
+        await notifyServices.sendNotify(
+            order.id_account,
+            `lịch hẹn của bạn đã hoàn thành, cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!, hãy đánh giá dịch vụ để chúng tôi phục vụ bạn tốt hơn!`,
         );
         return {
             success: true,
@@ -346,4 +356,4 @@ class OrderServices {
         };
     }
 }
-module.exports = new OrderServices();
+module.exports = new AppointmentServices();

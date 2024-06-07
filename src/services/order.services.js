@@ -285,13 +285,16 @@ class OrderServices {
                 await notifyServices.sendNotify(
                     order.id_account,
                     `đã hoàn trả số tiền ${order.totalPrice} đồng về ví của bạn`,
+                    transaction,
                 );
             }
             await notifyServices.sendNotify(
                 order.id_account,
                 `đơn hàng ${order.totalPrice} đồng với mã số ${order.id} đã bị hủy`,
+                transaction,
             );
             await transaction.commit();
+
             return {
                 success: true,
                 message: 'cancel order successfully',

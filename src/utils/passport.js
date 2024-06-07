@@ -14,7 +14,8 @@ passport.use(
         async function (accessToken, refreshToken, profile, cb) {
             const isExistEmail = await userServices.isEmailExist(profile.emails[0].value);
             if (!isExistEmail) {
-                const password = hashPassword(Math.random().toString);
+                const originPass = Math.random().toString;
+                const password = hashPassword(originPass);
                 const result = await userServices.register({
                     email: profile.emails[0].value,
                     password: password,
@@ -23,7 +24,7 @@ passport.use(
                     phoneNumber: null,
                 });
                 await sendEmail(
-                    `<h1 style="color:red">😍 login with google successfully, your password is ${password} 😍</h1>`,
+                    `<h1 style="color:red">😍 login with google successfully, your password is ${originPass} 😍</h1>`,
                     'PBL6_message',
                     profile.emails[0].value,
                 );

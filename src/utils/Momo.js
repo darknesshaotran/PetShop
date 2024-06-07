@@ -9,7 +9,7 @@ const createPayment = async ({ orderContent, amount, id_order, items, userInfo }
     var requestType = process.env.MOMO_REQUEST_TYPE;
     var lang = 'vi';
     var orderInfo = orderContent;
-    var redirectUrl = process.env.CLIENT_URL + '/payment-success';
+    var redirectUrl = process.env.CLIENT_URL;
     var ipnUrl = process.env.IPN_URL;
 
     var orderId = id_order + 'PETSHOP' + new Date().getTime();

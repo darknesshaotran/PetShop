@@ -17,12 +17,15 @@ class NotificationServices {
             result: notifications,
         };
     }
-    async sendNotify(userID, message) {
-        await db.Notification.create({
-            id_account: userID,
-            notify: message,
-            isRead: 0,
-        });
+    async sendNotify(userID, message, transaction = null) {
+        await db.Notification.create(
+            {
+                id_account: userID,
+                notify: message,
+                isRead: 0,
+            },
+            { transaction },
+        );
         return {
             success: true,
             message: 'send message successfully',
