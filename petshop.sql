@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2024 at 04:28 PM
+-- Generation Time: Jun 09, 2024 at 10:57 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -43,8 +43,8 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`id`, `email`, `password`, `id_role`, `point`, `forgot_password_token`, `createdAt`, `updatedAt`) VALUES
-(2, 'darknessclmm@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 1, 861, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInR5cGUiOiJmb3Jnb3RQYXNzd29yZFRva2VuIiwiaWF0IjoxNjk4ODI0NzM4LCJleHAiOjE2OTg5OTc1Mzh9.pMtZYtph38yr5GJdGBSFMhZ0fFUb5mgwz3EvImB14zs', '2023-10-27 08:51:32', '2024-06-06 12:15:04'),
-(5, 'hothanhhungtran@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, NULL, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjUsInR5cGUiOiJmb3Jnb3RQYXNzd29yZFRva2VuIiwiaWF0IjoxNjk4ODI0NTExLCJleHAiOjE2OTg5OTczMTF9.kvCnD6GMZhhe5qVufCjY0Wri3QljsUYRwEkYF5ZiwSk', '2023-11-01 07:35:08', '2023-11-01 07:41:51'),
+(2, 'darknessclmm@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 1, 991, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInR5cGUiOiJmb3Jnb3RQYXNzd29yZFRva2VuIiwiaWF0IjoxNjk4ODI0NzM4LCJleHAiOjE2OTg5OTc1Mzh9.pMtZYtph38yr5GJdGBSFMhZ0fFUb5mgwz3EvImB14zs', '2023-10-27 08:51:32', '2024-06-07 00:35:15'),
+(5, 'hothanhhungtran@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, 110, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjUsInR5cGUiOiJmb3Jnb3RQYXNzd29yZFRva2VuIiwiaWF0IjoxNjk4ODI0NTExLCJleHAiOjE2OTg5OTczMTF9.kvCnD6GMZhhe5qVufCjY0Wri3QljsUYRwEkYF5ZiwSk', '2023-11-01 07:35:08', '2024-06-07 03:19:43'),
 (6, 'hothanhhungtran1@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, NULL, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjYsInR5cGUiOiJmb3Jnb3RQYXNzd29yZFRva2VuIiwiaWF0IjoxNjk4ODI0Mzk3LCJleHAiOjE2OTg5OTcxOTd9.L37kBCUkfexxYwHE1IB9GufnyrJi_lTZW_6hSIH4JvM', '2023-11-01 07:36:30', '2023-11-01 07:39:57'),
 (7, 'darknessclmm1@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, 90, NULL, '2023-11-03 07:00:41', '2024-06-02 05:47:12'),
 (8, 'manhddt2508@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, NULL, NULL, '2023-11-30 11:07:40', '2023-11-30 11:07:40'),
@@ -103,13 +103,8 @@ CREATE TABLE `appointments` (
 --
 
 INSERT INTO `appointments` (`id`, `id_service`, `id_order`, `appointment_time`, `end_time`, `note`, `isRate`, `createdAt`, `updatedAt`) VALUES
-(1, 6, 26, '2023-05-27 05:00:00', '2023-05-27 06:00:00', 'tắm sạch vào nhá', 0, '2024-05-23 03:32:27', '2024-05-24 08:43:48'),
-(2, 6, 27, '2023-05-27 06:30:00', '2023-05-27 07:00:00', 'tắm sạch dô ', 0, '2024-05-23 09:16:14', '2024-05-23 09:16:14'),
-(3, 4, 28, '2020-11-01 00:38:00', '2020-11-01 01:36:00', 'tắm sạch vào nhá', 0, '2024-05-24 08:48:41', '2024-06-04 10:00:02'),
-(4, 4, 29, '2023-11-01 01:32:28', '2023-11-01 01:32:28', 'cắt tỉa cẩn thận', 0, '2024-05-24 09:07:48', '2024-05-24 09:07:48'),
-(5, 4, 30, '2023-11-01 01:33:28', '2023-11-01 01:36:28', 'cắt tỉa cẩn thận', 0, '2024-05-24 09:11:50', '2024-05-24 09:11:50'),
-(6, 4, 35, '2024-11-01 01:35:28', '2024-11-01 01:36:28', 'cắt tỉa cẩn thận', 0, '2024-06-01 04:56:39', '2024-06-01 04:56:39'),
-(7, 4, 49, '2025-11-01 01:35:28', '2025-11-01 01:35:29', 'cắt tỉa cẩn thận', 0, '2024-06-05 06:56:29', '2024-06-05 06:56:29');
+(7, 4, 49, '2025-11-01 01:35:28', '2025-11-01 01:35:29', 'cắt tỉa cẩn thận', 0, '2024-06-05 06:56:29', '2024-06-05 06:56:29'),
+(8, 5, 56, '2024-06-15 00:03:00', '2024-06-15 01:08:00', 'ok', 0, '2024-06-07 00:03:21', '2024-06-07 00:03:21');
 
 -- --------------------------------------------------------
 
@@ -185,6 +180,28 @@ CREATE TABLE `cart_items` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `id_post` int(11) NOT NULL,
+  `id_account` int(11) NOT NULL,
+  `content` text NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT current_timestamp(),
+  `updatedAt` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `id_post`, `id_account`, `content`, `createdAt`, `updatedAt`) VALUES
+(1, 4, 2, 'bạn nên cho chó ăn bả ;v ', '2024-06-09 15:54:11', '2024-06-09 15:54:11');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `images`
 --
 
@@ -228,7 +245,7 @@ CREATE TABLE `inforusers` (
 
 INSERT INTO `inforusers` (`id`, `id_account`, `lastname`, `firstname`, `phoneNumber`, `avatar`, `createdAt`, `updatedAt`) VALUES
 (1, 2, 'Trần', 'Hào', '3111111111', 'https://pbl6-shoesshop.s3.ap-southeast-1.amazonaws.com/d985664e57a047cd1376fb801.jpg', '2023-10-27 08:51:32', '2024-05-22 08:39:56'),
-(4, 5, 'hào thanh hưng', 'trần', '3111111111', NULL, '2023-11-01 07:35:08', '2023-11-01 07:35:08'),
+(4, 5, 'hào thanh hưng', 'trần', '3111111111', 'https://pbl6-shoesshop.s3.ap-southeast-1.amazonaws.com/c5c0504f416ef2b22eba39600.jpg', '2023-11-01 07:35:08', '2024-06-07 03:21:16'),
 (5, 6, 'hào thanh hưng', 'trần', '3111111111', NULL, '2023-11-01 07:36:30', '2023-11-01 07:36:30'),
 (6, 7, 'Thanh', 'Hưng gà', '3111111111', 'https://pbl6-shoesshop.s3.ap-southeast-1.amazonaws.com/d5d65b52e1174eaef76b19d01.jpg', '2023-11-03 07:00:41', '2023-11-21 15:37:08'),
 (7, 8, 'Duc Manh', 'Nguyen', '3111111111', NULL, '2023-11-30 11:07:41', '2023-11-30 11:07:41'),
@@ -312,7 +329,26 @@ CREATE TABLE `notifications` (
 INSERT INTO `notifications` (`id`, `id_account`, `notify`, `isRead`, `createdAt`, `updatedAt`) VALUES
 (1, 2, 'đơn hàng 65000 đồng với mã số 55 đang được chuẩn bị', 0, '2024-06-06 19:15:20', '2024-06-06 19:15:20'),
 (2, 2, 'đơn hàng 65000 đồng với mã số 55 đang được giao', 0, '2024-06-06 19:15:39', '2024-06-06 19:15:39'),
-(3, 2, 'đơn hàng 65000 đồng với mã số 55 đã được giao thành công', 0, '2024-06-06 19:15:47', '2024-06-06 19:15:47');
+(3, 2, 'đơn hàng 65000 đồng với mã số 55 đã được giao thành công', 0, '2024-06-06 19:15:47', '2024-06-06 19:15:47'),
+(8, 5, 'đơn hàng 60000 đồng với mã số 57 đang được chuẩn bị', 0, '2024-06-07 07:14:45', '2024-06-07 07:14:45'),
+(9, 2, 'đơn hàng 65000 đồng với mã số 54 đang được chuẩn bị', 0, '2024-06-07 07:14:49', '2024-06-07 07:14:49'),
+(10, 2, 'đơn hàng 65000 đồng với mã số 52 đang được chuẩn bị', 0, '2024-06-07 07:14:53', '2024-06-07 07:14:53'),
+(11, 5, 'đơn hàng 60000 đồng với mã số 57 đang được giao', 0, '2024-06-07 07:14:59', '2024-06-07 07:14:59'),
+(12, 5, 'đơn hàng 60000 đồng với mã số 57 đã được giao thành công', 0, '2024-06-07 07:15:04', '2024-06-07 07:15:04'),
+(13, 2, 'đơn hàng 65000 đồng với mã số 58 đã bị hủy', 0, '2024-06-07 07:20:38', '2024-06-07 07:20:38'),
+(14, 2, 'đơn hàng 65000 đồng với mã số 58 đã bị hủy', 0, '2024-06-07 07:21:11', '2024-06-07 07:21:11'),
+(16, 2, 'đơn hàng 65000 đồng với mã số 58 đã bị hủy', 0, '2024-06-07 07:26:08', '2024-06-07 07:26:08'),
+(17, 2, 'đã thanh toán đơn hàng 65000 đồng với mã số 59 thành công', 0, '2024-06-07 07:29:23', '2024-06-07 07:29:23'),
+(18, 2, 'đã hoàn trả số tiền 65000 đồng về ví của bạn', 0, '2024-06-07 07:29:45', '2024-06-07 07:29:45'),
+(19, 2, 'đã thanh toán đơn hàng 65000 đồng với mã số 60 thành công', 0, '2024-06-07 07:34:31', '2024-06-07 07:34:31'),
+(20, 2, 'đã hoàn trả số tiền 65000 đồng về ví của bạn', 0, '2024-06-07 07:34:58', '2024-06-07 07:34:58'),
+(21, 2, 'đơn hàng 65000 đồng với mã số 60 đã bị hủy', 0, '2024-06-07 07:34:58', '2024-06-07 07:34:58'),
+(22, 2, 'đơn hàng 65000 đồng với mã số 61 đang được chuẩn bị', 0, '2024-06-07 07:35:27', '2024-06-07 07:35:27'),
+(23, 2, 'đơn hàng 65000 đồng với mã số 61 đang được giao', 0, '2024-06-07 07:35:34', '2024-06-07 07:35:34'),
+(24, 2, 'lịch hẹn của bạn đã được chấp thuận, hãy chuẩn bị cho buổi hẹn của bạn!', 0, '2024-06-07 07:44:00', '2024-06-07 07:44:00'),
+(25, 2, 'lịch hẹn của bạn đã bị hủy', 0, '2024-06-07 07:45:11', '2024-06-07 07:45:11'),
+(26, 2, 'lịch hẹn của bạn đã hoàn thành, cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!, hãy đánh giá dịch vụ để chúng tôi phục vụ bạn tốt hơn!', 0, '2024-06-07 07:45:49', '2024-06-07 07:45:49'),
+(27, 5, 'đã thanh toán đơn hàng 25000 đồng với mã số 62 thành công', 0, '2024-06-07 07:57:30', '2024-06-07 07:57:30');
 
 -- --------------------------------------------------------
 
@@ -337,31 +373,22 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `id_account`, `id_status`, `isService`, `order_address`, `order_phoneNumber`, `totalPrice`, `createdAt`, `updatedAt`) VALUES
-(23, 2, 4, 0, 'Xuan Thieu 14 street', '0962240446', 0, '2024-05-21 02:35:34', '2024-05-21 03:15:16'),
-(25, 2, 1, 1, NULL, '0909', 20, '2024-05-23 03:31:43', '2024-05-23 03:31:43'),
-(26, 2, 5, 1, NULL, '0909', 20, '2024-05-23 03:32:27', '2024-06-02 04:17:46'),
-(27, 2, 6, 1, NULL, '0909', 20, '2024-05-23 09:16:14', '2024-06-02 04:17:56'),
-(28, 2, 1, 1, NULL, '', 12, '2024-05-24 08:48:41', '2024-06-02 04:08:15'),
-(29, 2, 1, 1, NULL, '0962232323', 12000, '2024-05-24 09:07:48', '2024-06-02 04:08:42'),
-(30, 2, 1, 1, NULL, '0962232323', 12, '2024-05-24 09:11:50', '2024-06-02 04:09:29'),
-(31, 2, 4, 0, 'Xuan Thieu 14 street', '0962240446', 15, '2024-05-25 02:50:47', '2024-05-25 02:50:47'),
-(32, 2, 4, 0, 'Xuan Thieu 14 street', '0962240446', 15000, '2024-05-25 02:51:56', '2024-05-25 02:53:09'),
-(33, 2, 1, 0, 'Xuan Thieu 14 street', '0962240446', 15000, '2024-05-30 09:26:34', '2024-05-30 09:26:34'),
-(34, 2, 1, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-05-30 09:27:22', '2024-05-30 09:27:22'),
-(35, 2, 6, 1, NULL, '0962232323', 12, '2024-06-01 04:56:39', '2024-06-02 04:15:48'),
-(36, 7, 1, 0, 'Ân Thi, Hưng Yên', '0969234567', 90000, '2024-06-02 05:47:12', '2024-06-02 05:47:12'),
-(37, 2, 1, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-05 05:35:53', '2024-06-05 05:35:53'),
-(45, 2, 1, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-05 06:38:27', '2024-06-05 06:38:27'),
-(46, 2, 1, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-05 06:39:02', '2024-06-05 06:39:02'),
-(47, 2, 1, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-05 06:39:23', '2024-06-05 06:39:23'),
 (48, 2, 1, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-05 06:45:14', '2024-06-05 06:45:14'),
 (49, 2, 1, 1, NULL, '0962232323', 12, '2024-06-05 06:56:29', '2024-06-05 06:56:29'),
 (50, 2, 4, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-05 09:07:25', '2024-06-05 09:43:40'),
 (51, 2, 5, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-06 02:12:05', '2024-06-06 02:13:36'),
-(52, 2, 1, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-06 02:14:18', '2024-06-06 02:14:18'),
+(52, 2, 2, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-06 02:14:18', '2024-06-07 00:14:53'),
 (53, 2, 5, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-06 02:16:43', '2024-06-06 02:17:41'),
-(54, 2, 1, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-06 07:49:12', '2024-06-06 07:49:12'),
-(55, 2, 4, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-06 12:15:04', '2024-06-06 12:15:47');
+(54, 2, 2, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-06 07:49:12', '2024-06-07 00:14:49'),
+(55, 2, 4, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-06 12:15:04', '2024-06-06 12:15:47'),
+(56, 5, 1, 1, NULL, '0357139594', 20, '2024-06-07 00:03:21', '2024-06-07 00:03:21'),
+(57, 5, 4, 0, 'Thạch Sơn 7, Khu Tái định cư Hòa Hiệp 4, Xã Hòa Liên, Huyện Hòa Vang, Thành phố Đà Nẵng', '0375118027', 60000, '2024-06-07 00:04:11', '2024-06-07 00:15:04'),
+(58, 2, 5, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-07 00:20:31', '2024-06-07 00:26:08'),
+(59, 2, 1, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-07 00:28:27', '2024-06-07 00:28:27'),
+(60, 2, 5, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-07 00:34:10', '2024-06-07 00:34:57'),
+(61, 2, 3, 0, 'Xuan Thieu 14 street', '0962240446', 65000, '2024-06-07 00:35:15', '2024-06-07 00:35:35'),
+(62, 5, 1, 0, 'Đà Nẵng', '0962240446', 25000, '2024-06-07 00:56:48', '2024-06-07 00:56:48'),
+(63, 5, 1, 0, 'Đà Nẵng', '0969234567', 25000, '2024-06-07 03:19:43', '2024-06-07 03:19:43');
 
 -- --------------------------------------------------------
 
@@ -385,21 +412,6 @@ CREATE TABLE `order_items` (
 --
 
 INSERT INTO `order_items` (`id`, `id_product`, `id_order`, `quantity`, `fixed_price`, `isRate`, `createdAt`, `updatedAt`) VALUES
-(23, 1424, 23, 2, 23, 0, '2024-05-23 08:36:22', '2024-05-23 08:36:22'),
-(24, 1424, 31, 1, 15, 0, '2024-05-25 02:50:47', '2024-05-25 02:50:47'),
-(25, 1424, 32, 1, 15000, 0, '2024-05-25 02:51:56', '2024-05-25 02:51:56'),
-(26, 1424, 33, 1, 15000, 0, '2024-05-30 09:26:34', '2024-05-30 09:26:34'),
-(27, 1424, 34, 1, 15000, 0, '2024-05-30 09:27:22', '2024-05-30 09:27:22'),
-(28, 1426, 34, 2, 50000, 0, '2024-05-30 09:27:22', '2024-05-30 09:27:22'),
-(29, 1424, 36, 6, 90000, 0, '2024-06-02 05:47:12', '2024-06-02 05:47:12'),
-(30, 1424, 37, 1, 15000, 0, '2024-06-05 05:35:53', '2024-06-05 05:35:53'),
-(31, 1426, 37, 2, 50000, 0, '2024-06-05 05:35:53', '2024-06-05 05:35:53'),
-(46, 1424, 45, 1, 15000, 0, '2024-06-05 06:38:27', '2024-06-05 06:38:27'),
-(47, 1426, 45, 2, 50000, 0, '2024-06-05 06:38:27', '2024-06-05 06:38:27'),
-(48, 1424, 46, 1, 15000, 0, '2024-06-05 06:39:02', '2024-06-05 06:39:02'),
-(49, 1426, 46, 2, 50000, 0, '2024-06-05 06:39:02', '2024-06-05 06:39:02'),
-(50, 1424, 47, 1, 15000, 0, '2024-06-05 06:39:23', '2024-06-05 06:39:23'),
-(51, 1426, 47, 2, 50000, 0, '2024-06-05 06:39:23', '2024-06-05 06:39:23'),
 (52, 1424, 48, 1, 15000, 0, '2024-06-05 06:45:14', '2024-06-05 06:45:14'),
 (53, 1426, 48, 2, 50000, 0, '2024-06-05 06:45:14', '2024-06-05 06:45:14'),
 (54, 1424, 50, 1, 15000, 0, '2024-06-05 09:07:25', '2024-06-05 09:07:25'),
@@ -413,7 +425,18 @@ INSERT INTO `order_items` (`id`, `id_product`, `id_order`, `quantity`, `fixed_pr
 (62, 1424, 54, 1, 15000, 0, '2024-06-06 07:49:12', '2024-06-06 07:49:12'),
 (63, 1426, 54, 2, 50000, 0, '2024-06-06 07:49:12', '2024-06-06 07:49:12'),
 (64, 1424, 55, 1, 15000, 0, '2024-06-06 12:15:04', '2024-06-06 12:15:04'),
-(65, 1426, 55, 2, 50000, 0, '2024-06-06 12:15:04', '2024-06-06 12:15:04');
+(65, 1426, 55, 2, 50000, 0, '2024-06-06 12:15:04', '2024-06-06 12:15:04'),
+(66, 1424, 57, 4, 60000, 0, '2024-06-07 00:04:11', '2024-06-07 00:04:11'),
+(67, 1424, 58, 1, 15000, 0, '2024-06-07 00:20:31', '2024-06-07 00:20:31'),
+(68, 1426, 58, 2, 50000, 0, '2024-06-07 00:20:31', '2024-06-07 00:20:31'),
+(69, 1424, 59, 1, 15000, 0, '2024-06-07 00:28:27', '2024-06-07 00:28:27'),
+(70, 1426, 59, 2, 50000, 0, '2024-06-07 00:28:27', '2024-06-07 00:28:27'),
+(71, 1424, 60, 1, 15000, 0, '2024-06-07 00:34:10', '2024-06-07 00:34:10'),
+(72, 1426, 60, 2, 50000, 0, '2024-06-07 00:34:10', '2024-06-07 00:34:10'),
+(73, 1424, 61, 1, 15000, 0, '2024-06-07 00:35:15', '2024-06-07 00:35:15'),
+(74, 1426, 61, 2, 50000, 0, '2024-06-07 00:35:15', '2024-06-07 00:35:15'),
+(75, 1426, 62, 1, 25000, 0, '2024-06-07 00:56:48', '2024-06-07 00:56:48'),
+(76, 1426, 63, 1, 25000, 0, '2024-06-07 03:19:43', '2024-06-07 03:19:43');
 
 -- --------------------------------------------------------
 
@@ -446,7 +469,15 @@ INSERT INTO `payments` (`id`, `id_order`, `paymentDate`, `paymentMethod`, `isPai
 (12, 52, NULL, 'MOMO', 0, NULL, '52PETSHOP1717640058743', 65000, '2024-06-06 09:14:18', '2024-06-06 09:14:19'),
 (13, 53, '2024-06-06 09:17:08', 'MOMO', 0, '4054683199', '53PETSHOP1717640203294', 65000, '2024-06-06 09:16:43', '2024-06-06 09:17:42'),
 (14, 54, NULL, 'MOMO', 0, NULL, '54PETSHOP1717660152967', 65000, '2024-06-06 14:49:12', '2024-06-06 14:49:13'),
-(15, 55, '2024-06-06 19:15:47', 'COD', 1, NULL, NULL, 65000, '2024-06-06 19:15:04', '2024-06-06 19:15:47');
+(15, 55, '2024-06-06 19:15:47', 'COD', 1, NULL, NULL, 65000, '2024-06-06 19:15:04', '2024-06-06 19:15:47'),
+(16, 56, NULL, 'COD', 0, NULL, NULL, 20, '2024-06-07 07:03:21', '2024-06-07 07:03:21'),
+(17, 57, NULL, 'MOMO', 0, NULL, '57PETSHOP1717718651065', 60000, '2024-06-07 07:04:11', '2024-06-07 07:04:11'),
+(18, 58, NULL, 'COD', 0, NULL, NULL, 65000, '2024-06-07 07:20:31', '2024-06-07 07:20:31'),
+(19, 59, '2024-06-07 07:29:23', 'MOMO', 1, '4055053637', '59PETSHOP1717720107576', 65000, '2024-06-07 07:28:27', '2024-06-07 07:29:23'),
+(20, 60, '2024-06-07 07:34:31', 'MOMO', 0, '4055063188', '60PETSHOP1717720450446', 65000, '2024-06-07 07:34:10', '2024-06-07 07:34:58'),
+(21, 61, NULL, 'MOMO', 0, NULL, '61PETSHOP1717720515242', 65000, '2024-06-07 07:35:15', '2024-06-07 07:35:15'),
+(22, 62, '2024-06-07 07:57:30', 'MOMO', 1, '4055057378', '62PETSHOP1717721808222', 25000, '2024-06-07 07:56:48', '2024-06-07 07:57:30'),
+(23, 63, NULL, 'MOMO', 0, NULL, '63PETSHOP1717730383198', 25000, '2024-06-07 10:19:43', '2024-06-07 10:19:43');
 
 -- --------------------------------------------------------
 
@@ -456,12 +487,24 @@ INSERT INTO `payments` (`id`, `id_order`, `paymentDate`, `paymentMethod`, `isPai
 
 CREATE TABLE `posts` (
   `id` int(11) NOT NULL,
+  `postType` int(11) NOT NULL,
+  `id_account` int(11) NOT NULL,
   `title` varchar(100) NOT NULL,
   `thumbnail` varchar(300) DEFAULT NULL,
   `content` text NOT NULL,
   `createdAt` datetime NOT NULL DEFAULT current_timestamp(),
   `updatedAt` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`id`, `postType`, `id_account`, `title`, `thumbnail`, `content`, `createdAt`, `updatedAt`) VALUES
+(1, 0, 0, 'Bài báo công bố quốc tế: Khởi sắc nhờ thưởng \'khủng\'', 'https://cdn.tuoitre.vn/thumb_w/730/2019/12/30/nghiencuukhoahoc-sv-sgu36-3read-only-1577713101885209928085.jpg', '<h2>TTO - Số lượng bài báo khoa học của nhiều trường đại học nước ta công bố trên tạp chí quốc tế uy tín tăng lên trong thời gian qua phần lớn là nhờ chính sách thưởng từ các trường.</h2><p><a href=\"https://cdn.tuoitre.vn/2019/12/30/nghiencuukhoahoc-sv-sgu36-3read-only-1577713101885209928085.jpg\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: transparent;\"><img src=\"https://cdn.tuoitre.vn/thumb_w/730/2019/12/30/nghiencuukhoahoc-sv-sgu36-3read-only-1577713101885209928085.jpg\" alt=\"Bài báo công bố quốc tế: Khởi sắc nhờ thưởng khủng - Ảnh 1.\" height=\"1331\" width=\"2000\"></a></p><p><br></p><p>Nhiều trường thưởng cả trăm triệu đồng cho một bài báo công bố quốc tế - Ảnh: TỰ TRUNG</p><p>Tuy vậy, việc&nbsp;<a href=\"https://tuoitre.vn/thuong.html\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(34, 106, 197);\">thưởng</a>&nbsp;lớn cũng để lại những mặt trái như giảng viên trường này lại \"âm thầm\" đứng tên bài báo trường khác để&nbsp;nhận thưởng.</p><p><strong>200 triệu đồng/bài</strong></p><p>Cách đây ba năm, Trường ĐH Kinh tế TP.HCM đưa ra chính sách khen thưởng cho giảng viên có&nbsp;<a href=\"https://tuoitre.vn/bai-bao-cong-bo-quoc-te.html\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(34, 106, 197);\">bài báo công bố quốc tế</a>. Mức thưởng cao nhất 200 triệu đồng/bài. Số lượng bài báo công bố quốc tế của trường cũng tăng dần đều trong những năm gần đây. Trong đó, năm 2016 có 44 bài, 2017 là 57 bài, 2018 là 60 bài và năm 2019 có 82 bài.</p><p>GS.TS Nguyễn Trọng Hoài - phó hiệu trưởng Trường ĐH Kinh tế TP.HCM - cho biết chính sách khuyến khích cũng phần nào giúp gia tăng&nbsp;<a href=\"https://tuoitre.vn/bai-bao-quoc-te.html\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(34, 106, 197);\">bài báo quốc tế</a>&nbsp;của trường bên cạnh các quy định về nghiên cứu khoa học bắt buộc đối với giảng viên, số tiến sĩ tăng, thành lập các nhóm nghiên cứu mạnh. Kinh phí thưởng tối đa mỗi năm khoảng 2 tỉ đồng.</p><p>Trong khi đó, số bài báo công bố quốc tế của Trường ĐH Mở TP.HCM tăng từ 16 bài năm 2017 lên 62 bài năm 2018. PGS.TS Nguyễn Minh Hà, hiệu trưởng nhà trường, cho biết trường bắt đầu chính sách thưởng công bố quốc tế từ năm 2017 và có điều chỉnh mức thưởng theo hướng tăng lên. Mức thưởng dao động từ 40-100 triệu đồng/bài&nbsp;tùy loại tạp chí.</p><p>Theo ông Hà, số bài báo quốc tế tăng lên có tác động rất lớn từ chính sách khuyến khích của trường.</p><p>\"Nếu không tự chủ, trường sẽ khó có thể đưa ra chính sách khuyến khích với mức thưởng như vậy do tài chính và các quy định liên quan. Việc thưởng tuy chưa nhiều nhưng đã tạo động lực cho giảng viên, nghiên cứu sinh chú ý hơn đến việc công bố. Giảng viên cũng chú ý kết nối với các giáo sư ở các trường nước ngoài\".</p><p><a href=\"https://cdn.tuoitre.vn/2019/12/31/logo-td-3012-so-bai-bao-quoc-te-scopus-tto-15777560457801705810811.jpg\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: transparent;\"><img src=\"https://cdn.tuoitre.vn/thumb_w/730/2019/12/31/logo-td-3012-so-bai-bao-quoc-te-scopus-tto-15777560457801705810811.jpg\" alt=\"Bài báo công bố quốc tế: Khởi sắc nhờ thưởng khủng - Ảnh 2.\" height=\"662\" width=\"1189\"></a></p><p>Trường ĐH Sư phạm kỹ thuật TP.HCM cũng áp dụng chính sách thưởng công bố quốc tế cách đây 5 năm. Tuy nhiên lúc đầu chỉ ở mức 10, 20 triệu đồng và hiện nay mức cao nhất là 100 triệu đồng cho tác giả đứng đầu bài báo ISI.</p><p>PGS.TS Đỗ Văn Dũng, hiệu trưởng, cho biết chính sách khuyến khích này đã có tác động tích cực khi số lượng công bố quốc tế của trường tăng theo từng năm. Năm 2018 trường chỉ có 50 bài, năm 2019 tăng lên 92 bài.</p><p>Với các trường công lập, mức thưởng tuy thấp hơn nhưng cũng có tác động tích cực. Tại Trường ĐH Ngân hàng TP.HCM, mức cao nhất 40 triệu đồng, thấp nhất 6 triệu đồng. Số bài công bố quốc tế ISI, Scopus của trường cũng tăng mạnh từ 16 bài năm 2017 lên 62 bài năm 2019.</p><p>Đại diện một trường ĐH công lập khác cho biết hai năm nay trường mới tiến hành thưởng công bố quốc tế với giá trị 10 triệu đồng/bài ISI, Scopus. Đó cũng là nỗ lực của trường nhằm khuyến khích giảng viên tham gia công bố quốc tế vì tác động đến uy tín và xếp hạng của trường trong các bảng đánh giá quốc tế.</p><p><br></p><p><a href=\"https://cdn.tuoitre.vn/2019/12/30/nguyen-duc-trung-1-1read-only-15777132132292106162391.jpeg\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: transparent;\"><img src=\"https://cdn.tuoitre.vn/thumb_w/730/2019/12/30/nguyen-duc-trung-1-1read-only-15777132132292106162391.jpeg\" alt=\"Bài báo công bố quốc tế: Khởi sắc nhờ thưởng khủng - Ảnh 3.\" height=\"1134\" width=\"1701\"></a></p><p><em>Tôi biết có trường ký hợp đồng với giảng viên cơ hữu trường khác, trả phí và khi công bố chỉ đứng tên trường mình. Đó là hình thức mua bài báo khoa học.</em></p><p class=\"ql-align-right\"><strong><em>PGS.TS NGUYỄN ĐỨC TRUNG (phó hiệu trưởng Trường ĐH Ngân hàng TP.HCM)</em></strong></p><p><strong>Những mặt trái...</strong></p><p>Với chính sách thưởng tiền lớn, bên cạnh yếu tố thúc đẩy giảng viên nghiên cứu khoa học còn để lại những mặt trái.</p><p>Theo ông Nguyễn Đức Trung - phó hiệu trưởng ĐH Ngân hàng TP.HCM, mức thưởng của trường chưa cao khiến một số giảng viên trong trường khi công bố quốc tế đã đứng tên trường ĐH khác.</p><p>\"Tôi biết mức thưởng trường ấy chi cho một bài báo như vậy là 100 triệu đồng. Tôi biết có trường ký hợp đồng với giảng viên cơ hữu trường khác, trả phí và khi công bố chỉ đứng tên trường mình. Đó là hình thức mua bài báo khoa học\".</p><p>Ông Trung đánh giá việc giảng viên trường này kết hợp với giảng viên trường khác trong và ngoài nước nghiên cứu, công bố là điều bình thường bởi nghiên cứu khoa học đòi hỏi một nhóm người mới có thể thực hiện được.</p><p>\"Tuy nhiên, làm giảng viên cơ hữu trường này nhưng nhận tiền và đứng tên công bố ở trường khác là hành vi gian dối. Chúng tôi đã cảnh báo giảng viên của trường về vấn đề này\" - ông Trung nói.</p><p><a href=\"https://cdn.tuoitre.vn/2019/12/31/logo-td-3012-muc-thuong-bai-bao-quoc-te-scopus-tto-15777560696931176642303.jpg\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: transparent;\"><img src=\"https://cdn.tuoitre.vn/thumb_w/730/2019/12/31/logo-td-3012-muc-thuong-bai-bao-quoc-te-scopus-tto-15777560696931176642303.jpg\" alt=\"Bài báo công bố quốc tế: Khởi sắc nhờ thưởng khủng - Ảnh 5.\" height=\"768\" width=\"1189\"></a></p><p>Theo PGS.TS Nguyễn Minh Hà, ở các nước, trường ĐH cũng có quỹ nghiên cứu nhưng giáo sư đóng vai trò rất quan trọng trong việc tự tìm các dự án của doanh nghiệp, nhà nước đem về trường nghiên cứu.</p><p>Ngoài đem kinh phí về cho trường, giáo sư sẽ tìm người cùng thực hiện dự án với mình, mua sắm máy móc phục vụ việc nghiên cứu. Sau khi hoàn thành, công bố, số máy móc này trở thành tài sản của trường.</p><p>Đó là cách nghiên cứu và chuyển giao mà chúng ta cần học hỏi, vừa đem lại kinh phí, máy móc thí nghiệm hiện đại cho trường, vừa thúc đẩy hoạt động nghiên cứu cũng như chuyển giao công nghệ.</p><p>\"Trước mắt trường thưởng để tạo động lực giảng viên nghiên cứu. Khi đội ngũ đủ mạnh, trường khuyến khích giảng viên tìm dự án bên ngoài để triển khai nghiên cứu trong trường\" - ông Hà nói thêm.</p><p><strong>Buộc thôi việc giảng viên&nbsp;đứng tên công bố ở trường khác</strong></p><p>PGS.TS Đỗ Văn Dũng cho biết đã buộc thôi việc một giảng viên cơ hữu đứng tên công bố quốc tế ở trường khác.</p><p>GS.TS Nguyễn Trọng Hoài cũng cho hay chính sách khuyến khích của trường chỉ áp dụng đối với giảng viên, người của trường, không áp dụng cho người bên ngoài. Nếu học giả bên ngoài có hợp tác nghiên cứu với giảng viên của trường phải có hợp đồng, đăng ký với trường.</p>', '2024-06-08 08:19:38', '2024-06-08 08:19:38'),
+(2, 0, 0, 'Một ngày của tôi', 'https://blogradio.vn/uploads/cms/source/2023/17/motngay.jpg', '<h3 class=\"ql-align-justify\"><strong>blogradio.vn - Dù những ngôi nhà luôn cao tầng, dù những ánh đèn cứ lấp lánh xa xa, cao cao, nhưng tôi vẫn tận hưởng được những mùi vị của thiên nhiên của đất trời một cách vô tư và trong lành nhất.</strong></h3><h3 class=\"ql-align-center\"><strong>***</strong></h3><h3 class=\"ql-align-justify\">Tôi chưa bao giờ viết nhật ký và càng không có sở thích thói quen đó. Tôi chỉ viết khi có ý tưởng và những cảm xúc rất thật ùa về, những khi ấy tôi gần như bắt buộc phải ngồi vào bàn và mở máy lên, rồi cứ thế hai bàn tay lúc nhanh lúc chậm cứ liên hồi trên bàn phím, và kết quả là những dòng chữ liên tiếp hiện ra.</h3><h3 class=\"ql-align-justify\">Một ngày bình thường của tôi chắc cũng giống mọi người, cũng những giờ giấc những công việc của một người phụ nữ, hơn nữa là một phụ nữ đã có gia đình, nên tôi tin mọi hoạt động thường ngày của tôi cũng chẳng khác là bao so với nhiều người, chỉ là khác ở chính tôi, là ở những thời gian tôi còn đi làm nơi công sở và những thời gian tôi nghỉ việc ở nhà.</h3><h3 class=\"ql-align-justify\">Lúc tôi còn đi làm.</h3><h3 class=\"ql-align-justify\">Tôi đi làm khi vừa tốt nghiệp đại học xong, năm đó tôi mới hai mươi mấy tuổi, còn sống cùng với ba mẹ và anh chị em tôi, rồi đến mấy năm sau tôi lập gia đình, ra ở riêng và nghiễm nhiên tôi có một gia đình nhỏ thật sự của riêng tôi.</h3><h3 class=\"ql-align-justify\">Tôi muốn viết về khoảng thời gian tôi đã lập gia đình.</h3><h3 class=\"ql-align-justify\">Buổi sáng tôi hay thức giấc đầu tiên, trước ông xã tôi, để lo cho xong những công việc nhỏ nhất, ví như đi chợ cho cả ngày, rồi ăn sáng, rồi nấu sẵn thức ăn để trưa nhóc của tôi về ăn trưa, là những lúc con tôi đã lớn, đã học cấp hai rồi, mà lên cấp hai thì trường không tổ chức bán trú cho học sinh nữa.</h3><h3 class=\"ql-align-justify\">Những lúc ấy tôi vội vã và hối hả hơn nhiều.</h3><h3 class=\"ql-align-center\"><img src=\"https://blogradio.vn/uploads/cms/source/2023/17/motngay.jpg\" height=\"387\" width=\"564\"></h3><h3 class=\"ql-align-justify\">Vì lúc chỉ có hai vợ chồng son thì tôi thong thả hơn, đến khi có con mọn thì như mọi người hay nói là đầu bù tóc rối. Tôi cố gắng quán xuyến mọi việc vào buổi sáng được nhanh nhất để không bị trễ giờ làm, nhưng cũng giống như những bà mẹ nuôi con nhỏ, tôi luôn cảm giác bị thiếu thời gian, và vì những lúc con tôi còn nhỏ, áp lực về giờ giấc của công việc của tôi khá nặng, cũng may là có ông xã tôi phụ giúp một tay.</h3><h3 class=\"ql-align-justify\">Một ngày của tôi có chu trình bình thường.</h3><h3 class=\"ql-align-justify\">Khoảng sáu giờ sáng tôi thức dậy, lo vệ sinh cá nhân xong là lại quay ngược vào phòng ngủ, ở đó có một cái giường bề bộn chăn gối mùng mền cần được tôi xếp gọn, còn ông xã yêu quý của tôi thì đã phóng xuống nhà bếp pha cà phê rồi. Cả hai chúng tôi đều ăn sáng bên ngoài, hiếm hoi lắm mới ăn sáng tại nhà vào những ngày đi làm trong tuần, mà ông xã tôi cũng rất dễ tính nên thật sự tôi rất khỏe.</h3><h3 class=\"ql-align-justify\">Tôi lo nấu thức ăn cho cả ngày, rồi lại đi chợ cho ngày tiếp theo, và thức ăn được làm sạch sẽ rồi bảo quản trong tủ lạnh, mai lại lấy ra nấu, cứ vậy đó.</h3><h3 class=\"ql-align-justify\">Tôi thường ở lại công sở và ăn trưa nghỉ trưa tại đó chứ không về nhà, vì đường khá xa và bất tiện về thời tiết nắng mưa, nên những hoạt động chính của tôi tại nhà chủ yếu là buổi sáng sớm khoảng hơn một tiếng đồng hồ, và sau khi tôi quay về nhà lúc chiều tối.</h3><h3 class=\"ql-align-justify\">Chỉ cần thoát ra khỏi bộ đồng phục công sở, tôi sẽ là người phụ nữ của gia đình ngay lập tức. Tôi vo gạo và bấm nồi cơm điện trước, sau đó mới đến công việc lau dọn nhà cửa, đây gần như là việc chính nhất trong buổi chiều đang len lỏi những ánh sáng của bóng tối đang kéo đến, và luôn luôn tôi vừa làm vừa trò chuyện cùng con trai. Tôi hỏi con những việc diễn ra trong lớp trong trường của con trong ngày hôm ấy ra sao, nếu con tôi có mặt ở nhà, vì có những hôm nhóc phải đi học thêm, và tôi là một người mẹ may mắn, vì con tôi luôn ý thức rất cao trong việc học và những việc khác mà tôi đã hướng dẫn, nên thật sự tôi rất khỏe.</h3><h3 class=\"ql-align-justify\">Buổi tối là thời gian tôi hạnh phúc nhất, vì cả nhà được ngồi ăn cùng nhau, được trò chuyện cùng nhau, sau đó là mỗi người cứ lặng lẽ về góc nhỏ quen thuộc của mình rồi lại chìm vào những công việc tiếp theo cho ngày tiếp theo. Ông xã tôi thì ôm lap, con tôi thì lo bài vở còn tôi đứng sát bên những chén bát vừa ăn xong. Nhiệm vụ của tôi luôn như thế, rửa chén xong là đến công việc phơi áo quần trong cái máy giặt đang chờ tôi.</h3><h3 class=\"ql-align-justify\">Khi nhìn căn bếp đã gọn gàng đâu vào đó, lúc đó tôi mới yên tâm thở phào rằng một ngày nữa sắp sửa qua đi, và tôi đã tạm xong thiên chức của một người vợ và một người mẹ.</h3><h3 class=\"ql-align-justify\">Tôi dành thời gian còn lại cho tôi, bằng cách đi bộ trước nhà. Tôi sống trong một khu phố khá yên tĩnh và có con đường nhỏ phía trước rất thuận tiện cho sở thích đi bộ của tôi. Những lúc ấy tôi tha hồ được nhìn ngắm đất trời và cảm giác thật thoải mái sung sướng vì những hương vị của gió, của trăng, của những vì sao, của cả những mùi vị thức ăn của các ngôi nhà trong khu phố cứ tỏa lên quanh tôi, cả những mùi hôi khó chịu nhất của mấy con chuột chuyên đi ăn đêm cứ đâu đó thoắt ẩn thoắt hiện ngay dưới những bước đi của tôi.</h3><h3 class=\"ql-align-justify\">Tôi thích và vô cùng thích khoảng thời gian đó trong ngày.</h3><h3 class=\"ql-align-justify\">Dù những ngôi nhà luôn cao tầng, dù những ánh đèn cứ lấp lánh xa xa, cao cao, nhưng tôi vẫn tận hưởng được những mùi vị của thiên nhiên của đất trời một cách vô tư và trong lành nhất.</h3><h3 class=\"ql-align-justify\">Tôi đi bộ như thế, khoảng ít hơn hay nhiều hơn một tiếng, rồi vào nhà, lúc đó cái mệt của cả ngày như đã thấm sâu vào tôi, tôi bắt đầu ngáp và gần như có những khoảng thời gian rất lâu, phải đến mấy năm như thế, tôi không biết đến ti vi là gì, dù cái ti vi luôn nhìn tôi như gọi mời ngay trong phòng ngủ của vợ chồng tôi.</h3><h3 class=\"ql-align-center\"><img src=\"https://blogradio.vn/uploads/cms/source/2023/17/motngay_(2).jpg\" height=\"564\" width=\"564\"></h3><h3 class=\"ql-align-justify\">Tôi thích đứng sau lưng con tôi, nói thêm với con, nhắc nhở con thêm vài câu nữa, những câu nhắc quen thuộc mà tôi tin con tôi chắc đã phát ớn phát ngán lâu rồi, nhưng thật kỳ lạ là nếu tôi không nói ra cùng con thì tôi sẽ không yên tâm.</h3><h3 class=\"ql-align-justify\">Tôi lên giường và chờ giấc ngủ tới.</h3><h3 class=\"ql-align-justify\">Chỉ khi tôi nhắm mắt, cho dù là giấc ngủ có đến liền hay không, cho dù là đêm đó tôi có mơ hay không, vì tôi hay thường mơ lắm, thì tôi vẫn hay trằn trọc suốt. Tôi thuộc diện khó ngủ, nên có những đêm tôi ngủ thật say, rồi có những đêm tôi gần như thức trắng, mà điều này thì tôi cũng chẳng giải thích nổi.</h3><h3 class=\"ql-align-justify\">Bóng đêm trùm lên tôi cùng một cảm giác dễ chịu của gối, của mền, cúa chiếc giường quen thuộc và của căn phòng tôi yêu.</h3><h3 class=\"ql-align-justify\">Một ngày bình thường của tôi đã trôi qua như thế, với luôn luôn những sắp xếp bật lên trong đầu cho ngày mai của tôi, sẽ như nào, sẽ làm gì, sẽ đi những đâu, mà lúc ấy, bộ não của tôi như đã có kỹ năng tự động hóa vậy, tự ghi nhớ và khắc sâu sẵn cho tôi, để tôi chìm vào giấc ngủ được ngon nhất, được yên tâm nhất, cho ngày mai.</h3><h3 class=\"ql-align-justify\">Chắc chắn là không phải lúc nào cũng thế, có xê xích giống giống và khác khác một chút, nhưng đa phần là vậy, gần như tất cả các ngày đều vậy.</h3><h3 class=\"ql-align-justify\">Lúc tôi nghỉ việc ở nhà.</h3><h3 class=\"ql-align-justify\">Tôi hoàn toàn là một người phụ nữ nội trợ, không vướng bận không lật đật như lúc còn đi làm, và thời gian rảnh của tôi được nhiều lên vô kể, đến nỗi có nhiều lúc tôi cảm giác tôi là người thừa vậy, vì thời gian tôi có nhiều quá, thời gian ở bên tôi nhiều quá, sau khi tôi đã xong tất tần tật mọi việc trong nhà.</h3><h3 class=\"ql-align-justify\">Rồi có lẽ nhờ vậy mà tôi có thêm hai người bạn thân mới, nói là mới nhưng là rất cũ, vì chúng hiện hữu trong chính ngôi nhà của tôi bao năm rồi, là cái lap và cái ti vi.</h3><h3 class=\"ql-align-justify\">Tôi bắt đầu viết, viết nhiều, viết nhiều nhiều mỗi ngày.</h3><h3 class=\"ql-align-justify\">Tôi bắt đầu xem, xem nhiều, xem nhiều nhiều mỗi ngày.</h3><h3 class=\"ql-align-justify\">Và tôi bắt đầu yêu, yêu tất cả những gì tôi viết, yêu tất cả những gì tôi xem.</h3><h3 class=\"ql-align-justify\">Lúc tôi nghỉ việc ở nhà chỉ khác có vậy thôi so với lúc tôi còn đi làm, cũng buổi sáng buổi trưa buổi chiều buổi tối, và tôi cũng gần như chỉ có một mình, gần như suốt ngày quanh quẩn trong nhà, với dọn dẹp lau chùi nấu nướng, và với hai công việc rất mới rất cũ là viết và xem.</h3><h3 class=\"ql-align-justify\">Mọi người nhìn tôi rồi đó, một phụ nữ hết sức bình thường với những khoảng thời gian những công việc cũng hết sức bình thường, tôi chỉ cảm nhận mỗi ngày trôi qua với tôi đều có những ý nghĩa mà tôi không nhìn thấy được, không sờ thấy được, chỉ thấy cuộc sống của tôi lúc ở nhà không đi làm nữa không còn nhiều niềm vui như trước, không còn giao tiếp không còn nói cười nhiều như trước, nhưng bù lại tôi được sống thật là chính tôi, với những trải lòng trong những dòng viết mà theo tôi có chất lượng không đến nỗi quá tệ.</h3><h3 class=\"ql-align-justify\">Tôi viết rồi cất đó, rồi gởi đi, chẳng biết ai đọc ai không và cảm nhận của họ ra sao, nhưng tôi cứ viết, vì đó là chính tôi.</h3><h3 class=\"ql-align-justify\">Còn khi tôi xem nghĩa là tôi đang giao tiếp cùng mọi người, những lúc ấy trước mắt tôi là một thế giới rộng lớn với bao điều bổ ích và kỳ thú cần thiết cho tôi, để tôi biết cuộc sống này thật đáng sống.</h3><h3 class=\"ql-align-justify\">Đã lâu rồi, từ khi tôi nghỉ việc, cho dù thich hay không tôi vẫn phải chấp nhận một cuộc sống như vậy, vì với mỗi người có mỗi lý do khác nhau, nhưng tôi tin cho dù có ở nhà thì ai cũng thích được làm việc.</h3><h3 class=\"ql-align-justify\">Một ngày bình thường của tôi, chỉ là như thế.</h3><h3 class=\"ql-align-justify\">Có thể tôi viết chưa đầy đủ, có thể tôi còn quên điều gì đó, nhưng điều đó thật sự không quan trọng lắm, vì tôi đã viết, đã viết được, và viết thật nhất.</h3><h3 class=\"ql-align-justify\">Tôi yêu một ngày của tôi.</h3><p><br></p>', '2024-06-08 09:44:36', '2024-06-08 09:44:36'),
+(3, 0, 0, 'Nuôi Chó hay nuôi Mèo ??? Sen chọn đi', 'https://blogchomeo.com/wp-content/uploads/2021/08/nuoichohaymeo.jpeg', '<p><em>Nếu là một người chỉ thích&nbsp;</em><a href=\"https://blogchomeo.com/cho/\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(52, 152, 219);\"><strong><em>CHÓ</em></strong></a><em>&nbsp;hoặc thích&nbsp;</em><a href=\"https://blogchomeo.com/meo/\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(52, 152, 219);\"><strong><em>MÈO</em></strong></a><em>&nbsp;thì việc chọn nuôi thú cưng thực sự quá đơn giản. Nhưng bạn lại là một người yêu thú cưng, bạn không biết phải chọn nuôi chó hay mèo khi gia đình hoặc bản thân chỉ có điều kiện nuôi một trong hai?</em></p><p>Nếu bạn củng đang phân vân “ở giữa hai lựa chọn này”, đừng lo. Hãy đọc hết bài viết dưới đây.&nbsp;<a href=\"https://blogchomeo.com/\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(52, 152, 219);\"><strong>Blog chó mèo</strong></a>&nbsp;sẽ tổng hợp từng ưu điểm, nhược điểm, lí do, nguyên nhân xem bạn sẽ phù hợp với mèo hay chó hơn, từ đó hãy đưa ra quyết định cuối cùng của mình nhé. Lest go!!</p><p><strong>Lưu ý</strong></p><p><strong><em>–&nbsp;</em></strong><em>Bài viết được tổng hợp hoàn toàn dựa trên ý kiến và quan điểm cá nhân của mình, nó có thể đúng với người này và không đúng với người khác. Hãy chọn lọc những ý kiến mà bạn cho là đúng ra tìm ra hướng đi phù hợp cá nhân, điều kiện cụ thể của bạn</em></p><p class=\"ql-align-center\"><br></p><p class=\"ql-align-center\"><img src=\"https://blogchomeo.com/wp-content/uploads/2021/08/nuoichohaymeo.jpeg\" height=\"359\" width=\"359\">Nuôi Chó hay nuôi Mèo ??? Sen chọn đi</p><h2>Không gian sống phù hợp không?</h2><p>Trong hầu hết mọi yếu tố cần xem xét thì có lẽ đây chính là yếu tố quan trọng nhất mà mình nghĩ sẽ đưa nó lên đầu tiên, bởi vì sao?</p><p>Không gian sống và sinh hoạt thực sự đóng một vai trò rất quan trọng trong việc phát triển nhân cách và sinh hoạt của thú cưng. Chó là một loại động vật khá năng động, chúng cần một không gian đủ thoải mái để có thể vận động và tiêu hao bớt năng lượng, đặc biệt là với các giống chó lớn như&nbsp;<a href=\"https://blogchomeo.com/tag/alaska/\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(52, 152, 219);\"><strong><em>Alaska</em></strong></a><strong><em>,&nbsp;</em></strong><a href=\"https://blogchomeo.com/tag/husky/\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(52, 152, 219);\"><strong><em>Husky</em></strong></a><strong><em>,&nbsp;</em></strong><a href=\"https://blogchomeo.com/tag/golden/\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(52, 152, 219);\"><strong><em>Golden</em></strong></a>&nbsp;chẳng hạn.</p><p>Nếu bạn đang ở trọ hoặc ở căn hộ, chẳng may diện tích phòng không đủ thoải mái cho chó vận động thì sao? Chúng sẽ chạy loạn lên và căn phòng nhỏ của bạn sẽ trở thành một đống lộn xộn đấy. Chưa kể ở những khu vực tập thể, việc chó sũa ầm ĩ khi cô đơn củng là một vấn đề thực sự nên xem xét, vì tiếng ồn sẽ ảnh hưởng nhiều đến hàng xóm xung quanh</p><p>Còn đối với mèo thì khác, chúng thường ít vận động hơn, giành khá nhiều thời gian để ngủ. Nếu có chơi đùa với bạn thì mèo củng chỉ nằm một chỗ thôi nên khá lí tưởng để nuôi ngay cả trong điều kiện bạn không có quá nhiều không gian nhưng vẫn thích nuôi thú cưng</p><p>Như vậy sau khi xem xét về không gian sống, ta sẽ rút ra kết luận sơ bộ như sau</p><p><strong>Nuôi chó khi</strong>: Bạn sống ở một khu vực riêng biệt hoặc ít nhất nơi bạn sinh sống phải đủ không gian cho chó vận động. Nếu không bạn có thể cân nhắc nuôi một số giống chó nhỏ như&nbsp;<a href=\"https://blogchomeo.com/tag/poodle/\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(52, 152, 219);\"><em>Poodle</em></a><em>, Chihuahua,&nbsp;</em><a href=\"https://blogchomeo.com/tag/pug/\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(52, 152, 219);\"><em>Pug</em></a><em>, Phóc-sóc…</em></p><p><strong>Nuôi mèo khi</strong>: Mèo ít vận động nên bạn có thể nuôi mèo bất kể không gian sinh hoạt như thế nào nhưng để chắc ăn hơn xem bạn có phù hợp với nuôi mèo hay không? Hãy tham khảo thêm một số thông tin bên dưới nhé</p><p class=\"ql-align-center\"><img src=\"https://blogchomeo.com/wp-content/uploads/2021/08/nuoi-cho-va-meo.jpg\" height=\"315\" width=\"600\"></p><p>&nbsp;</p><h2>Những người xung quanh</h2><p>Một yếu tố khác quan trọng không kém mà bạn nên cân nhắc khi phân vân giữa việc nuôi chó hay mèo chính là môi trường sống. Bạn có đang sống chung với gia đình hoặc bạn bè hay không? Tại sao lại cần phải quan tâm đến vấn đề này?</p><p>Hầu hết chúng ta đều công nhận, chó là một giống động vật tình cảm và rất “sợ sự cô đơn”. Nếu bạn chỉ ở một mình, chó có thể sẽ không chịu được cô đơn khi không ai chơi với chúng. Khi chó ở một mình, chúng thường sẽ tự hoạt động để giải tỏa sự cô đơn củng như buồn chán bằng cách phá phách hoặc gặm nhấm các đồ vật trong nhà, trong một số trường hợp nó sẽ trở thành bệnh tâm lý và khiến chó có những hành động khác thường</p><p>Một lời khuyên chân thành tiếp theo dành cho bạn, nếu như ngoài bạn ra trong nhà không có ai và bạn lại là một người thường xuyên đi làm và gặp gỡ bạn bè. Hãy thực sự cân nhắc về việc nuôi mèo thay vì chó, mèo có thể chịu được cô đơn tốt hơn chó rất nhiều</p><p><strong>Lưu ý nhỏ</strong></p><p>À mình quên mất, nếu bạn không sống chung với gia đình hoặc bạn bè nhưng nếu bạn làm việc tại nhà hoặc có thể giành nhiều thời gian cho chó thì vẫn nuôi chó tốt nhé ^^</p><p>Trong thường hợp bạn ở chung với gia đình “<strong>hãy cân nhắc, hỏi ý kiến của phụ huynh khi chọn nuôi</strong>“, ý kiến của người thân củng thực sự quan trọng đấy vì khi bạn đi làm, người thân chính là người sẽ trông chúng dùm bạn mà</p>', '2024-06-08 09:50:47', '2024-06-08 09:50:47'),
+(4, 1, 2, 'ngyaf đầu nuôi chó nên cho nó ăn gì ? ', 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQgByBT5IiAT_a2x9pUVb4VMoOrlzHH7Jrzj-HB5jzHlR4lNLMS', 'daaaaaaaaaaaaa', '2024-06-09 15:51:25', '2024-06-09 15:51:25');
 
 -- --------------------------------------------------------
 
@@ -488,9 +531,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `id_breed`, `name`, `amount`, `soldProductNum`, `proceeds`, `price`, `import_price`, `description`, `createdAt`, `updatedAt`) VALUES
-(1424, 9, 'con chó', 92, 30, 312111, 15000, 12, 'the sun can\'t shine without darkness', '2024-05-09 05:28:19', '2024-06-06 12:15:04'),
+(1424, 9, 'con chó', 86, 36, 402111, 15000, 12, 'the sun can\'t shine without darkness', '2024-05-09 05:28:19', '2024-06-07 00:35:15'),
 (1425, 11, 'mèo con ', 12, 40, 12111, 12, 15, NULL, '2024-05-27 01:58:45', '2024-05-27 01:58:45'),
-(1426, 9, 'chó ta', 76, 26, 650000, 25000, 12, 'oke', '2024-05-27 02:00:37', '2024-06-06 12:15:04');
+(1426, 9, 'chó ta', 70, 32, 800000, 25000, 12, 'oke', '2024-05-27 02:00:37', '2024-06-07 03:19:43');
 
 -- --------------------------------------------------------
 
@@ -692,7 +735,20 @@ INSERT INTO `refreshtokens` (`id`, `refreshToken`, `exp`, `createdAt`, `updatedA
 (151, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzY2MTczOCwiZXhwIjoxNzE3ODM0NTM4fQ.wjnIBint8S4aE8psg8rrCz9b8zXt1_4LEhabauknuRM', '1717834538', '2024-06-06 08:15:38', '2024-06-06 08:15:38'),
 (152, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjcsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTcxNzY2MjA3MiwiZXhwIjoxNzE3ODM0ODcyfQ.Uu3j2WpXnPp40qt2ifa55yKZssO4tex4znZyC85BaIw', '1717834872', '2024-06-06 08:21:12', '2024-06-06 08:21:12'),
 (153, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjgsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTcxNzY2MjE0NCwiZXhwIjoxNzE3ODM0OTQ0fQ.-ueOOeiP-LhkMj47s2VWYjgpqqzAmZxwG5OhdTvubN8', '1717834944', '2024-06-06 08:22:24', '2024-06-06 08:22:24'),
-(154, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzY3NjA2MSwiZXhwIjoxNzE3ODQ4ODYxfQ.98rFtIaLKOHlDfoli90cxoqflrMeF4z7T0McwO4nyLs', '1717848861', '2024-06-06 12:14:21', '2024-06-06 12:14:21');
+(154, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzY3NjA2MSwiZXhwIjoxNzE3ODQ4ODYxfQ.98rFtIaLKOHlDfoli90cxoqflrMeF4z7T0McwO4nyLs', '1717848861', '2024-06-06 12:14:21', '2024-06-06 12:14:21'),
+(155, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjUsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTcxNzcxODU2OCwiZXhwIjoxNzE3ODkxMzY4fQ.hLsvSB1VFn2lZ1XBvJJjiHzDtq6AQw19A0UB6jWvmLA', '1717891368', '2024-06-07 00:02:48', '2024-06-07 00:02:48'),
+(156, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjUsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTcxNzcxODg5MCwiZXhwIjoxNzE3ODkxNjkwfQ.L3q4JfVAEVFhmCA7hLc5B591FXlW_HAwj_XAQxEGTAc', '1717891690', '2024-06-07 00:08:10', '2024-06-07 00:08:10'),
+(157, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzcxOTI3OSwiZXhwIjoxNzE3ODkyMDc5fQ.gkQnUYRIkUseUt6ieYjhhb_7AI8qmhSRdSMHf7qFcnk', '1717892079', '2024-06-07 00:14:39', '2024-06-07 00:14:39'),
+(158, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzcxOTU0MywiZXhwIjoxNzE3ODkyMzQzfQ.vgVS0OLVlxGFG8SVl_3dk-EjDscLpZlyKJF_LJorGjo', '1717892343', '2024-06-07 00:19:03', '2024-06-07 00:19:03'),
+(159, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjUsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTcxNzcyMTc4MiwiZXhwIjoxNzE3ODk0NTgyfQ.lkuXEQxzgI5vVD-HMjN4i5Dk_vnuyCjBHerKeaD5VFs', '1717894582', '2024-06-07 00:56:22', '2024-06-07 00:56:22'),
+(160, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjUsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTcxNzczMDI2MywiZXhwIjoxNzE3OTAzMDYzfQ.rPXbhbCfxxZOYcmPtc5p33X1RR1JJ2jlpYRtfCkgn6w', '1717903063', '2024-06-07 03:17:43', '2024-06-07 03:17:43'),
+(161, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzc3NDkyMywiZXhwIjoxNzE3OTQ3NzIzfQ.KD8GYs_QLRJmvdnwVtHxHsu-OPuZJyIcDJ3akZRR_H4', '1717947723', '2024-06-07 15:42:03', '2024-06-07 15:42:03'),
+(162, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzc3NDk0NiwiZXhwIjoxNzE3OTQ3NzQ2fQ.5Uoc6gjc-iBsLLIekr-W5I5GytFLaxZ6CA4kseNjy00', '1717947746', '2024-06-07 15:42:26', '2024-06-07 15:42:26'),
+(163, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzc3NDk5OSwiZXhwIjoxNzE3OTQ3Nzk5fQ.h3ChbALST59V5DzgX9bir5fv4GU4HI6m5vl6t-KjJYI', '1717947799', '2024-06-07 15:43:19', '2024-06-07 15:43:19'),
+(164, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzgwOTUyOCwiZXhwIjoxNzE3OTgyMzI4fQ.uYV2BWZvwG-hzDJ0Nud9pll1VDANr14qcv57ArTZQRk', '1717982328', '2024-06-08 01:18:48', '2024-06-08 01:18:48'),
+(165, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzgxNDU4NSwiZXhwIjoxNzE3OTg3Mzg1fQ.ZoJbtQbb6M50k5y6mmf2H74PHyZN9nMwgVlZrjN4oYY', '1717987385', '2024-06-08 02:43:05', '2024-06-08 02:43:05'),
+(166, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzkyMzA4MiwiZXhwIjoxNzE4MDk1ODgyfQ.ZRDGzuHPAa-ax6VMdIy5h-O6xG9l2KezBfDEdT-mWKY', '1718095882', '2024-06-09 08:51:22', '2024-06-09 08:51:22'),
+(167, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNzkyMzI0NywiZXhwIjoxNzE4MDk2MDQ3fQ.5GSZ4FZhvanfrKk6FVm5c-zJkpc63jii4ah_RgZRqdI', '1718096047', '2024-06-09 08:54:07', '2024-06-09 08:54:07');
 
 -- --------------------------------------------------------
 
@@ -846,6 +902,14 @@ ALTER TABLE `cart_items`
   ADD KEY `id_size_item` (`id_product`);
 
 --
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_post` (`id_post`),
+  ADD KEY `id_account` (`id_account`);
+
+--
 -- Indexes for table `images`
 --
 ALTER TABLE `images`
@@ -901,7 +965,9 @@ ALTER TABLE `payments`
 -- Indexes for table `posts`
 --
 ALTER TABLE `posts`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `postType` (`postType`),
+  ADD KEY `id_account` (`id_account`);
 
 --
 -- Indexes for table `products`
@@ -970,7 +1036,7 @@ ALTER TABLE `addressinfors`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `breeds`
@@ -988,7 +1054,13 @@ ALTER TABLE `carts`
 -- AUTO_INCREMENT for table `cart_items`
 --
 ALTER TABLE `cart_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `images`
@@ -1012,31 +1084,31 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -1054,7 +1126,7 @@ ALTER TABLE `ratings`
 -- AUTO_INCREMENT for table `refreshtokens`
 --
 ALTER TABLE `refreshtokens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=168;
 
 --
 -- AUTO_INCREMENT for table `roles`

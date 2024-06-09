@@ -20,5 +20,29 @@ class PostController {
         const result = await postServices.getPosts();
         res.json(result);
     }
+    // FORUM
+    async createForum(req, res, next) {
+        const { decoded_authorization } = req;
+        const userID = decoded_authorization.userID;
+        const { title, content, thumbnail } = req.body;
+        const result = await postServices.createForum(userID, title, content, thumbnail);
+        res.json(result);
+    }
+    async getForum(req, res, next) {
+        const result = await postServices.getForum();
+        res.json(result);
+    }
+    async getForumDetail(req, res, next) {
+        const { id_post } = req.params;
+        const result = await postServices.getForumDetail(id_post);
+        res.json(result);
+    }
+    async comment(req, res, next) {
+        const { decoded_authorization } = req;
+        const userID = decoded_authorization.userID;
+        const { id_post, content } = req.body;
+        const result = await postServices.comment(id_post, userID, content);
+        res.json(result);
+    }
 }
 module.exports = new PostController();

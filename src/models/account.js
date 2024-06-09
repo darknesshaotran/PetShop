@@ -16,7 +16,9 @@ module.exports = (sequelize, DataTypes) => {
             Account.hasMany(models.Message, { foreignKey: 'id_sender' });
             Account.hasMany(models.addressInfor, { foreignKey: 'id_account' });
             Account.hasMany(models.Order, { foreignKey: 'id_account' });
+            Account.hasMany(models.Post, { foreignKey: 'id_account' });
             Account.hasMany(models.Rating, { foreignKey: 'id_account' });
+            Account.hasMany(models.Comment, { foreignKey: 'id_account' });
         }
     }
     Account.init(
