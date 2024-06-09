@@ -3,6 +3,7 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const userServices = require('../services/user.services');
 const hashPassword = require('./crypto');
 const dotenv = require('dotenv');
+const sendEmail = require('./Email');
 dotenv.config();
 passport.use(
     new GoogleStrategy(
