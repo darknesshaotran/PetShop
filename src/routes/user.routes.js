@@ -35,7 +35,7 @@ router.post(
     '/login-success/:userID',
     UserExistValidator,
     wrapController((req, res, next) => {
-        req.user = { id: req.params, id_role: 2 };
+        req.user = { id: req.params.userID, id_role: 2 };
         next();
     }),
     wrapController(userControllers.login),
