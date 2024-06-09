@@ -10,6 +10,7 @@ class PostServices {
             postType: PostType.BLOG,
             thumbnail: thumbnail,
             content: content,
+            view: 0,
         });
 
         return {
@@ -43,6 +44,12 @@ class PostServices {
         const post = await db.Post.findOne({
             where: { id: id_post },
         });
+        await db.Post.update(
+            {
+                view: Number(post.view) + 1,
+            },
+            { where: { id: id_post } },
+        );
         return {
             success: true,
             result: post,
@@ -55,6 +62,7 @@ class PostServices {
             postType: PostType.FORUM,
             thumbnail: thumbnail,
             content: content,
+            view: 0,
         });
         return {
             success: true,
@@ -115,6 +123,12 @@ class PostServices {
                 },
             ],
         });
+        await db.Post.update(
+            {
+                view: Number(post.view) + 1,
+            },
+            { where: { id: id_post } },
+        );
         const Post = JSON.parse(JSON.stringify(post));
         const comment = await db.Comment.findAll({
             where: { id_post: id_post },
