@@ -5,6 +5,12 @@ const HTTP_STATUS = require('../constants/httpStatus');
 const PostType = require('../constants/PostType');
 class PostServices {
     async addPost(title, thumbnail, content) {
+        if (!title) {
+            throw new ErrorsWithStatus({
+                status: HTTP_STATUS.UNPROCESSABLE_ENTITY,
+                message: 'title is required',
+            });
+        }
         await db.Post.create({
             title: title,
             postType: PostType.BLOG,
@@ -27,10 +33,12 @@ class PostServices {
             message: 'delete post successfully',
         };
     }
-    async getPosts(limit = 20) {
+    async getPosts(search = '', limit = 20) {
+        const searchCondition = search ? { title: { [Op.like]: `%${search}%` } } : {};
         const posts = await db.Post.findAll({
             where: {
                 postType: PostType.BLOG,
+                ...searchCondition,
             },
             limit: limit,
             order: [['createdAt', 'DESC']],
@@ -56,6 +64,12 @@ class PostServices {
         };
     }
     async createForum(userID, title, content, thumbnail = '') {
+        if (!title) {
+            throw new ErrorsWithStatus({
+                status: HTTP_STATUS.UNPROCESSABLE_ENTITY,
+                message: 'title is required',
+            });
+        }
         await db.Post.create({
             id_account: userID,
             title: title,
@@ -69,10 +83,12 @@ class PostServices {
             message: 'add forum successfully',
         };
     }
-    async getForum(limit = 20) {
+    async getForum(search = '', limit = 20) {
+        const searchCondition = search ? { name: { [Op.like]: `%${search}%` } } : {};
         const posts = await db.Post.findAll({
             where: {
                 postType: PostType.FORUM,
+                ...searchCondition,
             },
             include: [
                 {

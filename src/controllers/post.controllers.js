@@ -17,7 +17,8 @@ class PostController {
         res.json(result);
     }
     async getPosts(req, res, next) {
-        const result = await postServices.getPosts();
+        const { search, limit } = req.query;
+        const result = await postServices.getPosts(search, limit);
         res.json(result);
     }
     // FORUM
@@ -29,7 +30,8 @@ class PostController {
         res.json(result);
     }
     async getForum(req, res, next) {
-        const result = await postServices.getForum();
+        const { search, limit } = req.query;
+        const result = await postServices.getForum(search, limit);
         res.json(result);
     }
     async getForumDetail(req, res, next) {

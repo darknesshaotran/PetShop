@@ -31,6 +31,7 @@ const initSocket = (httpServer) => {
                     await messageServices.addMessage(data.id_receiver, userID, data.content);
                 } catch (error) {
                     console.error('Error sending message:', error);
+                    socket.emit('error', 'something went wrong');
                 }
             });
         }
