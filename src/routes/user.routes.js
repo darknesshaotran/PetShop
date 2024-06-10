@@ -67,5 +67,6 @@ router.put(
     wrapController(userControllers.updateProfile),
 ); // ko update avatar trong này
 router.put('/update-avatar', accessTokenValidator, FormdataValidator, wrapController(userControllers.changeAvatar));
+router.get('/notifyNum', accessTokenValidator, wrapController(userControllers.getUnReadNotificationsNum));
 router.get('/notify', accessTokenValidator, wrapController(userControllers.getNotifications));
 module.exports = router;

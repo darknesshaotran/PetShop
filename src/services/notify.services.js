@@ -12,9 +12,30 @@ class NotificationServices {
             limit: limit,
             order: [['createdAt', 'DESC']],
         });
+        await db.Notification.update(
+            { isRead: 1 },
+            {
+                where: {
+                    id_account: userID,
+                    isRead: 0,
+                },
+            },
+        );
         return {
             success: true,
             result: notifications,
+        };
+    }
+    async getUnreadNotifyNum(userID) {
+        const notificationsNum = await db.Notification.count({
+            where: {
+                id_account: userID,
+                isRead: 0,
+            },
+        });
+        return {
+            success: true,
+            unreadNotifyNum: notificationsNum,
         };
     }
     async sendNotify(userID, message, transaction = null) {
