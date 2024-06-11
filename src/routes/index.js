@@ -11,6 +11,7 @@ const paymentRoute = require('./payment.routes.js');
 const serviceRoute = require('./service.routes.js');
 const appointmentRoute = require('./appointment.routes.js');
 const postRoute = require('./post.routes.js');
+const researchRoute = require('./research.routes.js');
 const route = (app) => {
     app.use('/api/payment', paymentRoute);
     app.use('/api/user', accountRoute);
@@ -25,6 +26,7 @@ const route = (app) => {
     app.use('/api/appointment', appointmentRoute);
     app.use('/api/message', messageRoute);
     app.use('/api/post', postRoute);
+    app.use('/api/research', researchRoute);
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     app.use('/', (req, res, next) => {
         return res.send('WELCOME TO SERVER');
