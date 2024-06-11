@@ -4,6 +4,7 @@ const { accessTokenValidator, refreshTokenValidator } = require('../middlewares/
 const messageControllers = require('../controllers/message.controllers');
 const { UserExistValidator } = require('../middlewares/message.middlewares.js');
 const router = Router();
+router.post('/', accessTokenValidator, wrapController(messageControllers.addMessage));
 router.get(
     '/:chat_user_ID',
     accessTokenValidator,
