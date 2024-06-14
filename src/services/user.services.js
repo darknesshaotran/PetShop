@@ -48,6 +48,7 @@ class UserServices {
                     lastname: data.lastname,
                     firstname: data.firstname,
                     phoneNumber: data.phoneNumber,
+                    avatar: 'https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg',
                 },
                 { transaction },
             );
