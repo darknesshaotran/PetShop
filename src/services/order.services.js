@@ -99,6 +99,7 @@ class OrderServices {
                 await db.Payment.update(
                     {
                         id_order_momo: orderId,
+                        payUrl: payUrl,
                     },
                     {
                         where: { id_order: order.id },

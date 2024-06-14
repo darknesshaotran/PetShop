@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
             id_transaction: DataTypes.STRING,
             id_order_momo: DataTypes.STRING,
             money: DataTypes.INTEGER,
+            payUrl: DataTypes.STRING,
         },
         {
             sequelize,
