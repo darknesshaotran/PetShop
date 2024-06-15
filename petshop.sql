@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 14, 2024 at 11:21 AM
+-- Generation Time: Jun 16, 2024 at 11:16 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -46,7 +46,7 @@ INSERT INTO `accounts` (`id`, `email`, `password`, `id_role`, `point`, `forgot_p
 (2, 'darknessclmm@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 1, 1056, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInR5cGUiOiJmb3Jnb3RQYXNzd29yZFRva2VuIiwiaWF0IjoxNjk4ODI0NzM4LCJleHAiOjE2OTg5OTc1Mzh9.pMtZYtph38yr5GJdGBSFMhZ0fFUb5mgwz3EvImB14zs', '2023-10-27 08:51:32', '2024-06-14 01:27:10'),
 (5, 'hothanhhungtran@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, 10160, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjUsInR5cGUiOiJmb3Jnb3RQYXNzd29yZFRva2VuIiwiaWF0IjoxNjk4ODI0NTExLCJleHAiOjE2OTg5OTczMTF9.kvCnD6GMZhhe5qVufCjY0Wri3QljsUYRwEkYF5ZiwSk', '2023-11-01 07:35:08', '2024-06-14 00:45:27'),
 (6, 'hothanhhungtran1@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, 0, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjYsInR5cGUiOiJmb3Jnb3RQYXNzd29yZFRva2VuIiwiaWF0IjoxNjk4ODI0Mzk3LCJleHAiOjE2OTg5OTcxOTd9.L37kBCUkfexxYwHE1IB9GufnyrJi_lTZW_6hSIH4JvM', '2023-11-01 07:36:30', '2023-11-01 07:39:57'),
-(7, 'darknessclmm1@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, 90, NULL, '2023-11-03 07:00:41', '2024-06-02 05:47:12'),
+(7, 'darknessclmm1@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, 37290, NULL, '2023-11-03 07:00:41', '2024-06-14 17:26:33'),
 (8, 'manhddt2508@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, 0, NULL, '2023-11-30 11:07:40', '2023-11-30 11:07:40'),
 (9, 'manhddt111@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, 0, NULL, '2023-11-30 16:23:49', '2023-11-30 16:23:49'),
 (10, 'manhddt250811@gm1ail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, 0, NULL, '2023-12-01 06:18:18', '2023-12-01 06:18:18'),
@@ -173,7 +173,39 @@ INSERT INTO `breeds` (`id`, `name`, `image`, `description`, `createdAt`, `update
 (55, 'Mèo Sphynx', 'https://2momart.vn/photos/2momart/10062023/meo-ai-cap.jpg', 'Mèo Sphinx hay còn gọi là mèo không lông Sphinx hay còn được biết đến là mèo Canada hoặc mèo Mexico không lông là một giống mèo được phát triển vào thập niên 1960 với đặc điểm là thân thể trần trụi, không có sợi lông nào. Giống mèo này được coi là một trong những giống mèo xấu nhất thế giới nhưng lại có giá rất đắt. \r\nNguồn gốc: Toronto\r\nTên khoa học: Felis catus', '2024-06-14 02:51:37', '2024-06-14 02:51:37'),
 (56, 'mèo Scottish Fold', 'https://www.mcleanvet.com/wp-content/uploads/sites/227/2022/03/scottish-fold-cat-owl.jpg', 'Mèo tai cụp là một giống mèo nhà với sự đột biến sinh học tự nhiên gen lặn gây ảnh hưởng đến phần sụn toàn thân, khiến cho tai bị \"cụp\", bẻ ra phía trước và xuống phía đầu, từ đó khiến chúng hay được so sánh rằng trông giống cú. \r\nTên khoa học: Felis catus\r\nKhối lượng: 4 – 6 kg (Đực), 2,7 – 4 kg (Cái)\r\nNguồn gốc: Scôtlen\r\nTên khác: Scot Fold', '2024-06-14 02:53:12', '2024-06-14 02:53:12'),
 (57, 'Mèo Bengal', 'https://vuipet.com/wp-content/uploads/2021/07/giong-meo-bengal-3.jpg', 'Mèo Bengal là một giống mèo nhà được phát triển sao cho giống những loài họ mèo hoang dã với mục tiêu tạo ra một giống mèo tinh ranh, khỏe mạnh và thân thiện với bộ lông mang màu sắc rực rỡ và độ tương phản cao. Người đã lai tạo mèo Bengal có tên là Jean Mill khi cô ấy mua được một chú mèo báo và chú mèo nhà. \r\nNguồn gốc: Hoa Kỳ\r\nTên khoa học: Felis catus × Prionailurus bengalensis', '2024-06-14 02:53:12', '2024-06-14 02:53:12'),
-(58, 'Mèo Mỹ tai xoắn', 'https://pet247.vn/wp-content/uploads/2022/12/Meo-my-tai-xoan-American-Curl-3.jpg', 'Mèo tai quăn Hoa Kỳ là một giống mèo đặc trưng bởi đôi tai bất thường của nó, được uốn cong từ mặt về phía sau của hộp sọ. Tai của Mèo tai quăn Hoa Kỳ nên được xử lý cẩn thận vì việc xử lý thô có thể làm hỏng sụn ở tai. Loài này có nguồn gốc ở Lakewood, California, là kết quả của một đột biến tự phát. \r\nNguồn gốc: Hoa Kỳ', '2024-06-14 02:54:13', '2024-06-14 02:54:13');
+(58, 'Mèo Mỹ tai xoắn', 'https://pet247.vn/wp-content/uploads/2022/12/Meo-my-tai-xoan-American-Curl-3.jpg', 'Mèo tai quăn Hoa Kỳ là một giống mèo đặc trưng bởi đôi tai bất thường của nó, được uốn cong từ mặt về phía sau của hộp sọ. Tai của Mèo tai quăn Hoa Kỳ nên được xử lý cẩn thận vì việc xử lý thô có thể làm hỏng sụn ở tai. Loài này có nguồn gốc ở Lakewood, California, là kết quả của một đột biến tự phát. \r\nNguồn gốc: Hoa Kỳ', '2024-06-14 02:54:13', '2024-06-14 02:54:13'),
+(59, 'Basset', 'https://cdn.britannica.com/87/236687-050-DD7F62CC/basset-hound-dog.jpg', 'Chó săn chân lùn là một loài chó săn có nguồn gốc từ nước Pháp. Đây là giống chó săn mùi, chuyên đánh hơi con mồi để sủa báo động. \r\nTuổi thọ: 10 đến 12 năm\r\nChiều cao: Cái: 28–36 cm, Đực: 30–38 cm\r\nCân nặng: Cái: 20–29 kg, Đực: 25–34 kg\r\nTính khí: Tính cách ngọt ngào, Affectionate, Kiên trì, Thân thiện, Hết lòng, Gentle\r\nCác màu: Lemon & White, Black & Brown, Tri-color, Nâu và trắng, Đỏ và trắng, Đen và trắng\r\nNguồn gốc: Pháp, Đảo Anh\r\nNặng: male: 55–75 pound (25–34 kg); female: 45–65 pound (20–29 kg)', '2024-06-15 04:19:32', '2024-06-15 04:19:32'),
+(60, 'Blenheim Spaniel', 'https://images.pexels.com/photos/290224/pexels-photo-290224.jpeg', 'Chó King Charles Spaniel là một giống chó nhỏ của thuộc loại chó Spaniel. Năm 1903, Câu lạc bộ Chăm sóc Chó kết hợp bốn giống chó cảnh Spaniel riêng biệt dưới cái tên duy nhất này. \r\nKhối lượng: 3,6 – 6,4 kg\r\nTuổi thọ: 12 đến 14 năm\r\nTính khí: Affectionate, Hay vui đùa, Gentle, Happy, Reserved, Loving', '2024-06-15 04:19:32', '2024-06-15 04:19:32'),
+(61, 'Norwegian Elkhound', 'https://cdn.britannica.com/14/8114-050-1E928C8D/Norwegian-elkhound.jpg', 'Chó săn hươu Na Uy hay Chó săn nai Na Uy là một trong những giống chó đuôi cuộn Bắc và là Chó Quốc gia Na Uy. Chó Norwegian Elkhound đã được nuôi để săn bắn, canh gác, chăn gia súc, bảo vệ. Nó được biết đến với sự can đảm của mình trong việc theo dõi và săn lùng nai và các con mồi khác. \r\nTuổi thọ: 12 đến 15 năm\r\nTính khí: Hardy, Strong Willed, Trung thành, Táo bạo, Cảnh giác, Hay vui đùa\r\nKhối lượng: 22 – 25 kg', '2024-06-15 04:21:50', '2024-06-15 04:21:50'),
+(62, 'Border Terrier', 'https://a.storyblok.com/f/152976/6296x3940/a58d387f86/border-terrier.jpg', 'Chó sục Border là một giống chó nhỏ, có lớp lông lởm chởm và thuộc nhóm chó sục. Được huấn luyện nhằm trở thành một giống chó săn cáo và các động vật có hại, giống chó sục Border cùng chia sẻ chung một tổ tiên với các giống chó khác như Chó sục Dandie Dinmont và Chó sục Bedlington.\r\nTính khí: Affectionate, Thông minh, Even Tempered, Vâng lời, Cảnh giác, Bạo dạn\r\nTuổi thọ: 12 đến 15 năm\r\nCân nặng: Đực: 5,9–7,1 kg, Cái: 5,1–6,4 kg\r\nCác màu: Màu xanh và nâu vàng, Grizzle & Tan, Wheaten, Đỏ\r\nChiều cao: Đực: 33–40 cm, Cái: 28–36 cm\r\nNguồn gốc: Vương Quốc Anh, Scôtlen, Anh', '2024-06-15 04:21:50', '2024-06-15 04:21:50'),
+(63, 'Miniature Schnauzer', 'https://cdn.sanity.io/images/4ij0poqn/production/afc12c4dde3d5c177d48c2f78791307d9ea632c1-1200x700.jpg', 'Miniature Schnauzer là giống chó cảnh và chó sục có nguồn gốc từ Đức, tên Schnauzer có nghĩa là cái rọ mõm, bắt nguồn từ việc lông mặt của chó rất dài, và bọc quanh mõm chó giống như cái rọ. Đây cũng là nét đặc trưng của chó Schnauzer. \r\nNguồn gốc: Đức\r\nCân nặng: Cái: 5,4–9,1 kg, Đực: 5,4–9,1 kg\r\nTính khí: Thông minh, Thân thiện, Vâng lời, Cảnh giác, Spirited, Bạo dạn\r\nCác màu: Đen, Trắng, Salt & Pepper, Black & Silver\r\nChiều cao: Cái: 30–36 cm, Đực: 30–36 cm\r\nTuổi thọ: 12 đến 15 năm\r\nTên khoa học: Canis lupus familiaris', '2024-06-15 04:24:06', '2024-06-15 04:24:06'),
+(64, 'Chó Kuvasz', 'https://chocung.net/wp-content/uploads/2021/10/1634485962_222_Kuvasz.jpg', 'Chó Kuvasz là một giống chó cổ của một giống chó nông trại có nguồn gốc từ Hungary. Nói về các tài liệu có đề cập đến giống chó này, có thể nhắc đến các văn bản của Hungary xưa. \r\nTuổi thọ: 10 đến 12 năm\r\nCân nặng: Đực: 48–62 kg, Cái: 37–50 kg\r\nTính khí: Thông minh, Phòng vệ, Trung thành, Clownish, Patient, Độc lập', '2024-06-15 04:24:06', '2024-06-15 04:24:06'),
+(65, 'Chó Kelpie', 'https://www.dogbreedslist.info/uploads/dog-pictures/australian-kelpie-2.jpg', 'Chó chăn cừu Kelpie Úc là một giống chó chăn cừu có nguồn gốc từ nước Úc. Tên Kelpie đến từ nước Kelpie được đề cập bởi Robert Louis Stevenson, nhà văn Scotland, trong tác phẩm Bị bắt cóc, chúng nổi tiếng từ năm 1870. \r\nTính khí: Thông minh, Thân thiện, Trung thành, Mạnh mẽ, Cảnh giác, Eager\r\nCân nặng: Đực: 14–21 kg, Cái: 14–21 kg\r\nChiều cao: Đực: 46–51 cm, Cái: 43–48 cm\r\nCác màu: Đen, Nâu vàng, Nâu đen, Chocolate, Kem, Nâu, Blue', '2024-06-15 04:26:08', '2024-06-15 04:26:08'),
+(66, 'Shetland Sheepdog', 'https://file.hstatic.net/1000238938/file/shetland-sheepdog-i2-i3-sz6_8611a25256074ba9bb898b864a211228_grande.jpg', 'Shetland Sheepdog, đôi khi được biết tới như Sheltie, là một giống chó chăn cừu. Chúng là chó nhỏ đến trung bình, và có nhiều màu sắc màu sắc, chẳng hạn như lông chồn, tam thể, và xanh chim hoét. Giống này một phần bắt nguồn từ những con chó được sử dụng tại đảo Shetland cho chăn gia súc và bảo vệ cừu. \r\nTuổi thọ: 12 đến 13 năm\r\nTính khí: Thông minh, Hoạt bát, Dễ sai khiến, Trung thành, THÔNG TIN KHÁC\r\nCân nặng: Đực: 6,4–12 kg, Cái: 6,4–12 kg\r\nCác màu: Merle, Blue Merle, Tri-color, Vàng ánh cam, Màu lông chồn & trắng, Đen và trắng, Nâu đen\r\nNguồn gốc: Scôtlen\r\nChiều cao: Đực: 33–41 cm, Cái: 33–41 cm', '2024-06-15 04:26:08', '2024-06-15 04:26:08'),
+(67, 'Chó Boxer', 'https://www.vidavetcare.com/wp-content/uploads/sites/234/2022/04/boxer-dog-breed-info.jpeg', 'Chó võ sĩ hay Chó Boóc-xơ là một giống chó chọi có nguồn gốc từ châu Âu do lai tạo với chó Bun. \r\nTuổi thọ: 10 đến 12 năm\r\nCân nặng: Cái: 25–29 kg, Đực: 27–32 kg\r\nCác màu: Trắng, Brindle, Nâu vàng\r\nChiều cao: Cái: 53–60 cm, Đực: 57–63 cm\r\nTính khí: Thông minh, Thân thiện, Trung thành, Mạnh mẽ, Hết lòng, Cheerful, Bạo dạn, Tự tin, Lanh lợi, Điềm tĩnh, Hay vui đùa, Brave', '2024-06-15 04:27:38', '2024-06-15 04:27:38'),
+(68, 'Saint Bernard', 'https://cdn.britannica.com/69/235669-050-E70D097B/Saint-bernard-dog-st-bernard-head.jpg', 'St. Bernard là một giống chó rất lớn từ Ý và Alps Thụy Sĩ, ban đầu được nuôi với mục đích cứu hộ. Giống này đã trở nên nổi tiếng qua câu chuyện về việc giải cứu trên núi cao, cũng như kích thước to lớn của nó. \r\nTính khí: Hoạt bát, Thân thiện, Gentle, Điềm tĩnh, Watchful\r\nCác màu: Đỏ và trắng, Brownish-yellow, Reddish-brown Brindle, Reddish-brown Splash, Reddish-brown Mantle\r\nTuổi thọ: 8 đến 10 năm\r\nKhối lượng: 64 – 82 kg (Đực), 54 – 64 kg (Cái)\r\nNguồn gốc: Thụy Sĩ\r\nChiều cao: Đực: 70–90 cm, Cái: 65–80 cm', '2024-06-15 04:27:38', '2024-06-15 04:27:38'),
+(69, 'Siamese', 'https://assets.elanco.com/8e0bf1c2-1ae4-001f-9527-f2be3c683fb1/fca42f04-2474-4320-a238-990c8aebfe8c/Siamese_cat_1110x740.jpg', '', '2024-06-15 05:08:16', '2024-06-15 05:08:16'),
+(70, 'Russian Blue', 'https://www.thukieng.com/wp-content/uploads/2017/11/russian-blue-cat-1.jpg', '', '2024-06-15 05:08:16', '2024-06-15 05:08:16'),
+(71, 'Exotic Shorthair', 'https://sieupet.com/sites/default/files/ba_tu8.jpg', '', '2024-06-15 05:08:16', '2024-06-15 05:08:16'),
+(72, 'Domestic Short Hair', 'https://scrumbles.co.uk/cdn/shop/articles/domestic-shorthair-cat.jpg?', '', '2024-06-15 05:08:16', '2024-06-15 05:08:16'),
+(73, 'Domestic Medium Hair', 'https://cdn-fastly.petguide.com/media/2022/02/16/8260199/domestic-medium-hair.jpg', '', '2024-06-15 05:08:16', '2024-06-15 05:08:16'),
+(74, 'Domestic Long Hair', 'https://www.guildinsurance.com.au/images/librariesprovider3/breed-images/500x500/domestic-longhair-(1)-(1).jpg', '', '2024-06-15 05:08:16', '2024-06-15 05:08:16'),
+(75, 'Calico', 'https://images.wagwalkingweb.com/media/daily_wag/blog_articles/hero/1692065997.4906063/calico-cat.jpg', '', '2024-06-15 05:08:16', '2024-06-15 05:08:16'),
+(76, 'Tuxedo', 'https://vuongquocloaivat.com/wp-content/uploads/2018/12/meo-nhi-the-1.jpg', '', '2024-06-15 05:08:16', '2024-06-15 05:08:16'),
+(77, 'Abyssinian', 'https://chomeocanh.com/wp-content/uploads/2021/07/giong-meo-cuc-ky-yeu-thich-do-cao-kham-pha-the-gioi-xung-quanh.jpg', '', '2024-06-15 05:08:16', '2024-06-15 05:08:16'),
+(78, 'Birman', 'https://d128mj055rz53e.cloudfront.net/media/images/blog-breed-sacre_de_birmanie_1_w.max-500x500.format-jpeg.jpg', '', '2024-06-15 05:08:16', '2024-06-15 05:08:16'),
+(79, 'Bombay', 'https://2momart.vn/photos/2momart/23092023/hinh-anh-cua-meo-bombay-thuan-chung.jpg', '', '2024-06-15 05:08:16', '2024-06-15 05:08:16'),
+(80, 'Burmese', 'https://lolipet.net/wp-content/uploads/BLKC2.jpg', '', '2024-06-15 05:08:16', '2024-06-15 05:08:16'),
+(81, 'Turkish Van', 'https://cdn.tgdd.vn/Files/2022/12/09/1494635/nguon-goc-meo-van-tho-nhi-ky-dac-diem-cach-nuoi-gia-ban-202212090135401256.jpg', '', '2024-06-15 05:08:16', '2024-06-15 05:08:16'),
+(82, 'Oriental Short Hair', 'https://www.pumpkin.care/wp-content/uploads/2021/05/Oriental-Shorthair-Hero.jpg', '', '2024-06-15 05:08:16', '2024-06-15 05:08:16'),
+(83, 'Oriental Long Hair', 'https://www.purina.co.uk/sites/default/files/styles/square_medium_440x440/public/2022-06/Oriental%20Long%20Hair.1.jpg', '', '2024-06-15 05:08:16', '2024-06-15 05:08:16'),
+(84, 'Turkish Angora', 'https://www.catster.com/wp-content/uploads/2023/11/white-turkish-angora-cat-on-the-couch_TheCats_Shutterstock-800x534.jpg', '', '2024-06-15 05:08:16', '2024-06-15 05:08:16'),
+(85, 'Devon Rex', 'https://nuoitrong.com/wp-content/uploads/2023/11/meo-Devon-Rex-3.jpg', '', '2024-06-15 05:08:16', '2024-06-15 05:08:16'),
+(86, 'Norwegian Forest', 'https://catinaflat.blog/wp-content/uploads/2024/03/pexels-kate-mcneil-19902540-2.jpg', '', '2024-06-15 05:08:16', '2024-06-15 05:08:16'),
+(87, 'Singapura', 'https://cattime.com/wp-content/uploads/sites/14/2011/12/GettyImages-506347140-e1701882426401.jpg?w=1024', '', '2024-06-15 05:08:16', '2024-06-15 05:08:16'),
+(88, 'Japanese Bobtail', 'https://www.catster.com/wp-content/uploads/2023/11/Japanese-Bobtail-Domestic-Cat-against-Black-Background_slowmotiongli_Shutterstock.jpg', '', '2024-06-15 05:08:16', '2024-06-15 05:08:16'),
+(89, 'Egyptian Mau', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Egyptian_Mau_Bronze.jpg/640px-Egyptian_Mau_Bronze.jpg', '', '2024-06-15 05:08:16', '2024-06-15 05:08:16'),
+(90, 'Tonkinese', 'https://cattime.com/wp-content/uploads/sites/14/2011/12/GettyImages-92049326-e1699476970176.jpg', '', '2024-06-15 05:08:16', '2024-06-15 05:08:16');
 
 -- --------------------------------------------------------
 
@@ -1756,7 +1788,11 @@ INSERT INTO `orders` (`id`, `id_account`, `id_status`, `isService`, `order_addre
 (68, 2, 1, 0, 'Xuan Thieu 14 street', '0962240446', 0, '2024-06-14 00:44:46', '2024-06-14 00:44:46'),
 (69, 5, 1, 0, 'Ân Thi, Hưng Yên', '0357139594', 5000000, '2024-06-14 00:45:27', '2024-06-14 00:45:27'),
 (70, 2, 1, 0, 'Xuan Thieu 14 street', '0962240446', 0, '2024-06-14 01:27:10', '2024-06-14 01:27:10'),
-(71, 5, 1, 1, NULL, '0375118027', 989000, '2024-06-14 08:01:55', '2024-06-14 08:01:55');
+(71, 5, 1, 1, NULL, '0375118027', 989000, '2024-06-14 08:01:55', '2024-06-14 08:01:55'),
+(72, 7, 1, 0, 'Huyện Đại Từ, Tỉnh Thái Nguyên', '0357139594', 8600000, '2024-06-14 17:19:27', '2024-06-14 17:19:27'),
+(73, 7, 1, 0, 'Huyện An Lão, Thành phố Hải Phòng', '0357139594', 8600000, '2024-06-14 17:20:58', '2024-06-14 17:20:58'),
+(74, 7, 1, 0, 'a', '0357139594', 8000000, '2024-06-14 17:22:06', '2024-06-14 17:22:06'),
+(75, 7, 1, 0, 'Huyện An Dương, Thành phố Hải Phòng', '0357139594', 12000000, '2024-06-14 17:26:33', '2024-06-14 17:26:33');
 
 -- --------------------------------------------------------
 
@@ -1774,6 +1810,16 @@ CREATE TABLE `order_items` (
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `order_items`
+--
+
+INSERT INTO `order_items` (`id`, `id_product`, `id_order`, `quantity`, `fixed_price`, `isRate`, `createdAt`, `updatedAt`) VALUES
+(83, 1836, 72, 1, 8600000, 0, '2024-06-14 17:19:27', '2024-06-14 17:19:27'),
+(84, 1836, 73, 1, 8600000, 0, '2024-06-14 17:20:58', '2024-06-14 17:20:58'),
+(85, 1838, 74, 1, 8000000, 0, '2024-06-14 17:22:06', '2024-06-14 17:22:06'),
+(86, 2083, 75, 1, 12000000, 0, '2024-06-14 17:26:33', '2024-06-14 17:26:33');
 
 -- --------------------------------------------------------
 
@@ -1823,7 +1869,11 @@ INSERT INTO `payments` (`id`, `id_order`, `paymentDate`, `paymentMethod`, `isPai
 (28, 68, NULL, 'MOMO', 0, NULL, NULL, 0, NULL, '2024-06-14 07:44:46', '2024-06-14 07:44:46'),
 (29, 69, NULL, 'MOMO', 0, NULL, '69PETSHOP1718325927114', 5000000, 'https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT3w2OVBFVFNIT1AxNzE4MzI1OTI3MTE0&s=a7df9601f06f0e67413b5172fc7057cb4dab3a329a785ef4bc691aac2ee7cf7a', '2024-06-14 07:45:27', '2024-06-14 07:45:27'),
 (30, 70, NULL, 'MOMO', 0, NULL, NULL, 0, NULL, '2024-06-14 08:27:10', '2024-06-14 08:27:10'),
-(31, 71, NULL, 'COD', 0, NULL, NULL, 989000, NULL, '2024-06-14 15:01:55', '2024-06-14 15:01:55');
+(31, 71, NULL, 'COD', 0, NULL, NULL, 989000, NULL, '2024-06-14 15:01:55', '2024-06-14 15:01:55'),
+(32, 72, NULL, 'MOMO', 0, NULL, NULL, 8600000, NULL, '2024-06-15 00:19:27', '2024-06-15 00:19:27'),
+(33, 73, NULL, 'MOMO', 0, NULL, NULL, 8600000, NULL, '2024-06-15 00:20:58', '2024-06-15 00:20:58'),
+(34, 74, NULL, 'MOMO', 0, NULL, '74PETSHOP1718385726203', 8000000, 'https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT3w3NFBFVFNIT1AxNzE4Mzg1NzI2MjAz&s=d9acfff772ce6039619e0f32de49a227406fee784c1696bd59e2248c4d94d1db', '2024-06-15 00:22:06', '2024-06-15 00:22:06'),
+(35, 75, NULL, 'MOMO', 0, NULL, '75PETSHOP1718385993955', 12000000, 'https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT3w3NVBFVFNIT1AxNzE4Mzg1OTkzOTU1&s=e7abbef20e866fec6f4837ed445388726a3593a70f6b94293a85558238a3b39a', '2024-06-15 00:26:33', '2024-06-15 00:26:34');
 
 -- --------------------------------------------------------
 
@@ -2096,9 +2146,9 @@ INSERT INTO `products` (`id`, `id_breed`, `name`, `amount`, `soldProductNum`, `p
 (1833, 13, 'Chó Phốc Sóc Mini vàng cam mã PS849', 20, 0, 0, 10200000, 7140000, 'Tháng tuổi: 2 tháng tuổi, Bố: Rasta. Giới tính: Cái, Mẹ: Miza. Màu: Vàng cam, Sức khỏe: Nhanh nhẹn, ăn uống tốt. Tình trạng: Có Sẵn, Vận chuyển: Miễn phí. Tẩy giun: 2 lần, Tiêm phòng: 1 mũi vacxin. Nguồn gốc: Thuần chủng, sinh sản tại Trại Pethouse, Đặc đ', '2024-06-14 03:11:10', '2024-06-14 03:11:10'),
 (1834, 13, 'Chó Phốc Sóc Mini Vip trắng mã PS229', 20, 0, 0, 11000000, 7700000, 'Tháng tuổi: 2 tháng tuổi, Bố: Jack. Giới tính: Cái, Mẹ: Rose. Màu: Trắng, Sức khỏe: Nhanh nhẹn, ăn uống tốt. Tình trạng: Có Sẵn, Vận chuyển: Miễn phí. Tẩy giun: 2 lần, Tiêm phòng: 1 mũi vacxin. Nguồn gốc: Thuần chủng, sinh sản tại Trại Pethouse, Đặc điểm:', '2024-06-14 03:11:12', '2024-06-14 03:11:12'),
 (1835, 13, 'Chó Phốc Sóc trắng mã PS221', 20, 0, 0, 8800000, 6160000, 'Tháng tuổi: 2 tháng tuổi, Bố: Jack. Giới tính: Cái, Mẹ: Rose. Màu: Trắng, Sức khỏe: Nhanh nhẹn, ăn uống tốt. Tình trạng: Có Sẵn, Vận chuyển: Miễn phí. Tẩy giun: 2 lần, Tiêm phòng: 1 mũi vacxin. Nguồn gốc: Thuần chủng, sinh sản tại Trại Pethouse, Đặc điểm:', '2024-06-14 03:11:13', '2024-06-14 03:11:13'),
-(1836, 13, 'Chó Phốc Sóc trắng mã PS220', 20, 12, 103200000, 8600000, 6020000, 'Tháng tuổi: 2 tháng tuổi, Bố: Jack. Giới tính: Đực, Mẹ: Rose. Màu: Trắng, Sức khỏe: Nhanh nhẹn, ăn uống tốt. Tình trạng: Có Sẵn, Vận chuyển: Miễn phí. Tẩy giun: 2 lần, Tiêm phòng: 1 mũi vacxin. Nguồn gốc: Thuần chủng, sinh sản tại Trại Pethouse, Đặc điểm:', '2024-06-14 03:11:14', '2024-06-14 03:11:14'),
+(1836, 13, 'Chó Phốc Sóc trắng mã PS220', 18, 14, 120400000, 8600000, 6020000, 'Tháng tuổi: 2 tháng tuổi, Bố: Jack. Giới tính: Đực, Mẹ: Rose. Màu: Trắng, Sức khỏe: Nhanh nhẹn, ăn uống tốt. Tình trạng: Có Sẵn, Vận chuyển: Miễn phí. Tẩy giun: 2 lần, Tiêm phòng: 1 mũi vacxin. Nguồn gốc: Thuần chủng, sinh sản tại Trại Pethouse, Đặc điểm:', '2024-06-14 03:11:14', '2024-06-14 17:20:58'),
 (1837, 13, 'Chó Phốc Sóc party ( trắng nâu ) mã PS218', 20, 11, 132000000, 12000000, 8400000, 'Tháng tuổi: 2 tháng tuổi, Bố: Jack. Giới tính: Đực, Mẹ: Rose. Màu: Trắng nâu, Sức khỏe: Nhanh nhẹn, ăn uống tốt. Tình trạng: Có Sẵn, Vận chuyển: Miễn phí. Tẩy giun: 2 lần, Tiêm phòng: 1 mũi vacxin. Nguồn gốc: Thuần chủng, sinh sản tại Trại Pethouse, Đặc đ', '2024-06-14 03:11:16', '2024-06-14 03:11:16'),
-(1838, 13, 'Chó Phốc Sóc trắng mã PS216', 20, 14, 112000000, 8000000, 5500000, 'Tháng tuổi: 2 tháng tuổi, Bố: Adam. Giới tính: Cái, Mẹ: Alex. Màu: Trắng, Sức khỏe: Nhanh nhẹn, ăn uống tốt. Tình trạng: Có Sẵn, Vận chuyển: Miễn phí. Tẩy giun: 2 lần, Tiêm phòng: 2 mũi vacxin. Nguồn gốc: Thuần chủng, sinh sản tại Trại Pethouse, Đặc điểm:', '2024-06-14 03:11:17', '2024-06-14 03:11:17'),
+(1838, 13, 'Chó Phốc Sóc trắng mã PS216', 19, 15, 120000000, 8000000, 5500000, 'Tháng tuổi: 2 tháng tuổi, Bố: Adam. Giới tính: Cái, Mẹ: Alex. Màu: Trắng, Sức khỏe: Nhanh nhẹn, ăn uống tốt. Tình trạng: Có Sẵn, Vận chuyển: Miễn phí. Tẩy giun: 2 lần, Tiêm phòng: 2 mũi vacxin. Nguồn gốc: Thuần chủng, sinh sản tại Trại Pethouse, Đặc điểm:', '2024-06-14 03:11:17', '2024-06-14 17:22:06'),
 (1839, 13, 'Chó Phốc Sóc trắng mã PS215', 20, 0, 0, 15000000, 10500000, 'Tháng tuổi: 12 tháng tuổi, Bố: Adam. Giới tính: Đực, Mẹ: Alex. Màu: Trắng, Sức khỏe: Nhanh nhẹn, ăn uống tốt. Tình trạng: Có Sẵn, Vận chuyển: Miễn phí. Tẩy giun: 2 lần, Tiêm phòng: 3 mũi vacxin. Nguồn gốc: Thuần chủng, sinh sản tại Trại Pethouse, Đặc điểm', '2024-06-14 03:11:18', '2024-06-14 03:11:18'),
 (1840, 13, 'Chó Phốc Sóc trắng mã PS211', 20, 0, 0, 10000000, 7000000, 'Tháng tuổi: 2 tháng tuổi, Bố: Adam. Giới tính: Cái, Mẹ: Alex. Màu: Trắng, Sức khỏe: Nhanh nhẹn, ăn uống tốt. Tình trạng: Có Sẵn, Vận chuyển: Miễn phí. Tẩy giun: 2 lần, Tiêm phòng: 1 mũi vacxin. Nguồn gốc: Thuần chủng, sinh sản tại Trại Pethouse, Đặc điểm:', '2024-06-14 03:11:20', '2024-06-14 03:11:20'),
 (1841, 13, 'Chó Phốc Sóc trắng kem mã PS210', 20, 0, 0, 8000000, 5600000, 'Tháng tuổi: 2 tháng tuổi, Bố: Adam. Giới tính: Đực, Mẹ: Alex. Màu: Trắng kem, Sức khỏe: Nhanh nhẹn, ăn uống tốt. Tình trạng: Có Sẵn, Vận chuyển: Miễn phí. Tẩy giun: 2 lần, Tiêm phòng: 1 mũi vacxin. Nguồn gốc: Thuần chủng, sinh sản tại Trại Pethouse, Đặc đ', '2024-06-14 03:11:22', '2024-06-14 03:11:22'),
@@ -2345,7 +2395,7 @@ INSERT INTO `products` (`id`, `id_breed`, `name`, `amount`, `soldProductNum`, `p
 (2080, 16, 'Chó Shiba vàng mã SB473', 20, 0, 0, 19000000, 13300000, 'Tháng tuổi: 3,5 tháng tuổi, Bố: Cole. Giới tính: Đực, Mẹ: Bany. Màu: Vàng, Sức khỏe: Nhanh nhẹn, ăn uống tốt. Tình trạng: Có Sẵn, Vận chuyển: Miễn phí. Tẩy giun: 2 lần, Tiêm phòng: 3 mũi vacxin. Nguồn gốc: Thuần chủng, sinh sản tại Trại Pethouse, Đặc điểm', '2024-06-14 03:24:54', '2024-06-14 03:24:54'),
 (2081, 16, 'Chó Shiba vàng mã SB464', 20, 0, 0, 22000000, 15400000, 'Tháng tuổi: 3 tháng tuổi, Bố: Cole. Giới tính: Đực, Mẹ: Bany. Màu: Vàng, Sức khỏe: Nhanh nhẹn, ăn uống tốt. Tình trạng: Có Sẵn, Vận chuyển: Miễn phí. Tẩy giun: 2 lần, Tiêm phòng: 2 mũi vacxin. Nguồn gốc: Thuần chủng, sinh sản tại Trại Pethouse, Đặc điểm: ', '2024-06-14 03:24:55', '2024-06-14 03:24:55'),
 (2082, 16, 'Chó Shiba Vip mã SB670', 20, 0, 0, 24000000, 16800000, 'Tháng tuổi: 2 tháng tuổi, Bố: Mana. Giới tính: Cái, Mẹ: Panaji. Màu: Vàng trắng, Sức khỏe: Nhanh nhẹn, ăn uống tốt. Tình trạng: Có Sẵn, Vận chuyển: Miễn phí. Tẩy giun: 2 lần, Tiêm phòng: 1 mũi vacxin. Nguồn gốc: Thuần chủng, sinh sản tại Trại Pethouse, Đặ', '2024-06-14 03:24:57', '2024-06-14 03:24:57'),
-(2083, 16, 'Chó Shiba Inu vàng trắng mã SB1210', 20, 0, 0, 12000000, 8400000, 'Tháng tuổi: 11 tháng tuổi, Bố: Monday. Giới tính: Đực, Mẹ: Holly. Màu: Vàng trắng, Sức khỏe: Nhanh nhẹn, ăn uống tốt. Tình trạng: Có Sẵn, Vận chuyển: Miễn phí. Tẩy giun: 2 lần, Tiêm phòng: 3 mũi vacxin. Nguồn gốc: Thuần chủng, sinh sản tại Trại Pethouse, ', '2024-06-14 03:24:58', '2024-06-14 03:24:58'),
+(2083, 16, 'Chó Shiba Inu vàng trắng mã SB1210', 19, 1, 12000000, 12000000, 8400000, 'Tháng tuổi: 11 tháng tuổi, Bố: Monday. Giới tính: Đực, Mẹ: Holly. Màu: Vàng trắng, Sức khỏe: Nhanh nhẹn, ăn uống tốt. Tình trạng: Có Sẵn, Vận chuyển: Miễn phí. Tẩy giun: 2 lần, Tiêm phòng: 3 mũi vacxin. Nguồn gốc: Thuần chủng, sinh sản tại Trại Pethouse, ', '2024-06-14 03:24:58', '2024-06-14 17:26:33'),
 (2084, 16, 'Chó Shiba Inu vàng trắng mã SB377', 20, 0, 0, 24000000, 16800000, 'Tháng tuổi: 2 tháng tuổi, Bố: Mane. Giới tính: Cái, Mẹ: Pana. Màu: Vàng trắng, Sức khỏe: Nhanh nhẹn, ăn uống tốt. Tình trạng: Có Sẵn, Vận chuyển: Miễn phí. Tẩy giun: 2 lần, Tiêm phòng: 2 mũi vacxin. Nguồn gốc: Thuần chủng, sinh sản tại Trại Pethouse, Đặc ', '2024-06-14 03:24:59', '2024-06-14 03:24:59'),
 (2085, 16, 'Chó Shiba Inu vàng trắng mã SB376', 20, 0, 0, 22800000, 15960000, 'Tháng tuổi: 2 tháng tuổi, Bố: Mane. Giới tính: Cái, Mẹ: Pana. Màu: Vàng trắng, Sức khỏe: Nhanh nhẹn, ăn uống tốt. Tình trạng: Có Sẵn, Vận chuyển: Miễn phí. Tẩy giun: 2 lần, Tiêm phòng: 2 mũi vacxin. Nguồn gốc: Thuần chủng, sinh sản tại Trại Pethouse, Đặc ', '2024-06-14 03:25:01', '2024-06-14 03:25:01'),
 (2086, 16, 'Chó Shiba Inu vàng trắng mã SB375', 20, 0, 0, 23000000, 16100000, 'Tháng tuổi: 2 tháng tuổi, Bố: Mane. Giới tính: Đực, Mẹ: Pana. Màu: Vàng trắng, Sức khỏe: Nhanh nhẹn, ăn uống tốt. Tình trạng: Có Sẵn, Vận chuyển: Miễn phí. Tẩy giun: 2 lần, Tiêm phòng: 1 mũi vacxin. Nguồn gốc: Thuần chủng, sinh sản tại Trại Pethouse, Đặc ', '2024-06-14 03:25:03', '2024-06-14 03:25:03'),
@@ -3412,7 +3462,8 @@ INSERT INTO `refreshtokens` (`id`, `refreshToken`, `exp`, `createdAt`, `updatedA
 (204, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjE2LCJyb2xlIjoiY3VzdG9tZXIiLCJpYXQiOjE3MTgzNTYwMzksImV4cCI6MTcxODUyODgzOX0.xjEmu-JphKozZzyPOA6gO0cWwU6kbJWMTZDG-CumgoY', '1718528839', '2024-06-14 09:07:19', '2024-06-14 09:07:19'),
 (205, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiIyIiwicm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNzE4MzU2MDc4LCJleHAiOjE3MTg1Mjg4Nzh9.EDZX1AX_lIPdluu9cewMtmiEf9qoZg2CqtLG2ep_BLY', '1718528878', '2024-06-14 09:07:58', '2024-06-14 09:07:58'),
 (206, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjE2LCJyb2xlIjoiY3VzdG9tZXIiLCJpYXQiOjE3MTgzNTYxMDQsImV4cCI6MTcxODUyODkwNH0.5Z_Rt6kj6oXs2cLhkhiV1VeWeQXC2fFh3evyobAQD-k', '1718528904', '2024-06-14 09:08:24', '2024-06-14 09:08:24'),
-(207, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjcsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTcxODM1NjIwMywiZXhwIjoxNzE4NTI5MDAzfQ.rKe494zg7wwAcbuBcHSSSAGlybk3zdNh8XTj79qDrUw', '1718529003', '2024-06-14 09:10:03', '2024-06-14 09:10:03');
+(207, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjcsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTcxODM1NjIwMywiZXhwIjoxNzE4NTI5MDAzfQ.rKe494zg7wwAcbuBcHSSSAGlybk3zdNh8XTj79qDrUw', '1718529003', '2024-06-14 09:10:03', '2024-06-14 09:10:03'),
+(208, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjcsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTcxODM4NTU0NiwiZXhwIjoxNzE4NTU4MzQ2fQ.xJhhGz9k1rQz_X47-zGq24GsFNF_X3VXZxPGgtL9huA', '1718558346', '2024-06-14 17:19:06', '2024-06-14 17:19:06');
 
 -- --------------------------------------------------------
 
@@ -3708,7 +3759,7 @@ ALTER TABLE `appointments`
 -- AUTO_INCREMENT for table `breeds`
 --
 ALTER TABLE `breeds`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT for table `carts`
@@ -3720,7 +3771,7 @@ ALTER TABLE `carts`
 -- AUTO_INCREMENT for table `cart_items`
 --
 ALTER TABLE `cart_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `comments`
@@ -3756,19 +3807,19 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `posts`
@@ -3792,7 +3843,7 @@ ALTER TABLE `ratings`
 -- AUTO_INCREMENT for table `refreshtokens`
 --
 ALTER TABLE `refreshtokens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=208;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=209;
 
 --
 -- AUTO_INCREMENT for table `roles`
