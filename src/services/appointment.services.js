@@ -250,7 +250,12 @@ class AppointmentServices {
                     transaction,
                 },
             );
-            await notifyServices.sendNotify(order.id_account, `lịch hẹn của bạn đã bị hủy`, transaction);
+            await notifyServices.sendNotify(
+                order.id_account,
+                `lịch hẹn của bạn đã bị hủy`,
+                process.env.CLIENT_URL + `/historyAppointmentCanceled`,
+                transaction,
+            );
             await transaction.commit();
             return {
                 success: true,
@@ -280,6 +285,7 @@ class AppointmentServices {
         await notifyServices.sendNotify(
             order.id_account,
             `lịch hẹn của bạn đã được chấp thuận, hãy chuẩn bị cho buổi hẹn của bạn!`,
+            process.env.CLIENT_URL + `/historyAppointmentAccepted`,
         );
         return {
             success: true,
@@ -314,6 +320,7 @@ class AppointmentServices {
         await notifyServices.sendNotify(
             order.id_account,
             `lịch hẹn của bạn đã hoàn thành, cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!, hãy đánh giá dịch vụ để chúng tôi phục vụ bạn tốt hơn!`,
+            process.env.CLIENT_URL + `/historyAppointmentFinished`,
         );
         return {
             success: true,

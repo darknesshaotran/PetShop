@@ -38,12 +38,13 @@ class NotificationServices {
             unreadNotifyNum: notificationsNum,
         };
     }
-    async sendNotify(userID, message, transaction = null) {
+    async sendNotify(userID, message, url, transaction = null) {
         await db.Notification.create(
             {
                 id_account: userID,
                 notify: message,
                 isRead: 0,
+                url: url,
             },
             { transaction },
         );

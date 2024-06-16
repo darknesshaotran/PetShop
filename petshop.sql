@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2024 at 11:16 AM
+-- Generation Time: Jun 16, 2024 at 05:49 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -1710,6 +1710,7 @@ CREATE TABLE `notifications` (
   `id_account` int(11) NOT NULL,
   `notify` text NOT NULL,
   `isRead` int(11) NOT NULL,
+  `url` varchar(100) DEFAULT NULL,
   `createdAt` datetime NOT NULL DEFAULT current_timestamp(),
   `updatedAt` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -1718,29 +1719,29 @@ CREATE TABLE `notifications` (
 -- Dumping data for table `notifications`
 --
 
-INSERT INTO `notifications` (`id`, `id_account`, `notify`, `isRead`, `createdAt`, `updatedAt`) VALUES
-(1, 2, 'đơn hàng 65000 đồng với mã số 55 đang được chuẩn bị', 1, '2024-06-06 19:15:20', '2024-06-12 17:21:31'),
-(2, 2, 'đơn hàng 65000 đồng với mã số 55 đang được giao', 1, '2024-06-06 19:15:39', '2024-06-12 17:21:31'),
-(3, 2, 'đơn hàng 65000 đồng với mã số 55 đã được giao thành công', 1, '2024-06-06 19:15:47', '2024-06-12 17:21:31'),
-(8, 5, 'đơn hàng 60000 đồng với mã số 57 đang được chuẩn bị', 1, '2024-06-07 07:14:45', '2024-06-11 20:37:47'),
-(9, 2, 'đơn hàng 65000 đồng với mã số 54 đang được chuẩn bị', 1, '2024-06-07 07:14:49', '2024-06-12 17:21:31'),
-(10, 2, 'đơn hàng 65000 đồng với mã số 52 đang được chuẩn bị', 1, '2024-06-07 07:14:53', '2024-06-12 17:21:31'),
-(11, 5, 'đơn hàng 60000 đồng với mã số 57 đang được giao', 1, '2024-06-07 07:14:59', '2024-06-11 20:37:47'),
-(12, 5, 'đơn hàng 60000 đồng với mã số 57 đã được giao thành công', 1, '2024-06-07 07:15:04', '2024-06-11 20:37:47'),
-(13, 2, 'đơn hàng 65000 đồng với mã số 58 đã bị hủy', 1, '2024-06-07 07:20:38', '2024-06-12 17:21:31'),
-(14, 2, 'đơn hàng 65000 đồng với mã số 58 đã bị hủy', 1, '2024-06-07 07:21:11', '2024-06-12 17:21:31'),
-(16, 2, 'đơn hàng 65000 đồng với mã số 58 đã bị hủy', 1, '2024-06-07 07:26:08', '2024-06-12 17:21:31'),
-(17, 2, 'đã thanh toán đơn hàng 65000 đồng với mã số 59 thành công', 1, '2024-06-07 07:29:23', '2024-06-12 17:21:31'),
-(18, 2, 'đã hoàn trả số tiền 65000 đồng về ví của bạn', 1, '2024-06-07 07:29:45', '2024-06-12 17:21:31'),
-(19, 2, 'đã thanh toán đơn hàng 65000 đồng với mã số 60 thành công', 1, '2024-06-07 07:34:31', '2024-06-12 17:21:31'),
-(20, 2, 'đã hoàn trả số tiền 65000 đồng về ví của bạn', 1, '2024-06-07 07:34:58', '2024-06-12 17:21:31'),
-(21, 2, 'đơn hàng 65000 đồng với mã số 60 đã bị hủy', 1, '2024-06-07 07:34:58', '2024-06-12 17:21:31'),
-(22, 2, 'đơn hàng 65000 đồng với mã số 61 đang được chuẩn bị', 1, '2024-06-07 07:35:27', '2024-06-12 17:21:31'),
-(23, 2, 'đơn hàng 65000 đồng với mã số 61 đang được giao', 1, '2024-06-07 07:35:34', '2024-06-12 17:21:31'),
-(24, 2, 'lịch hẹn của bạn đã được chấp thuận, hãy chuẩn bị cho buổi hẹn của bạn!', 1, '2024-06-07 07:44:00', '2024-06-12 17:21:31'),
-(25, 2, 'lịch hẹn của bạn đã bị hủy', 1, '2024-06-07 07:45:11', '2024-06-12 17:21:31'),
-(26, 2, 'lịch hẹn của bạn đã hoàn thành, cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!, hãy đánh giá dịch vụ để chúng tôi phục vụ bạn tốt hơn!', 1, '2024-06-07 07:45:49', '2024-06-12 17:21:31'),
-(27, 5, 'đã thanh toán đơn hàng 25000 đồng với mã số 62 thành công', 1, '2024-06-07 07:57:30', '2024-06-11 20:37:47');
+INSERT INTO `notifications` (`id`, `id_account`, `notify`, `isRead`, `url`, `createdAt`, `updatedAt`) VALUES
+(1, 2, 'đơn hàng 65000 đồng với mã số 55 đang được chuẩn bị', 1, NULL, '2024-06-06 19:15:20', '2024-06-12 17:21:31'),
+(2, 2, 'đơn hàng 65000 đồng với mã số 55 đang được giao', 1, NULL, '2024-06-06 19:15:39', '2024-06-12 17:21:31'),
+(3, 2, 'đơn hàng 65000 đồng với mã số 55 đã được giao thành công', 1, NULL, '2024-06-06 19:15:47', '2024-06-12 17:21:31'),
+(8, 5, 'đơn hàng 60000 đồng với mã số 57 đang được chuẩn bị', 1, NULL, '2024-06-07 07:14:45', '2024-06-11 20:37:47'),
+(9, 2, 'đơn hàng 65000 đồng với mã số 54 đang được chuẩn bị', 1, NULL, '2024-06-07 07:14:49', '2024-06-12 17:21:31'),
+(10, 2, 'đơn hàng 65000 đồng với mã số 52 đang được chuẩn bị', 1, NULL, '2024-06-07 07:14:53', '2024-06-12 17:21:31'),
+(11, 5, 'đơn hàng 60000 đồng với mã số 57 đang được giao', 1, NULL, '2024-06-07 07:14:59', '2024-06-11 20:37:47'),
+(12, 5, 'đơn hàng 60000 đồng với mã số 57 đã được giao thành công', 1, NULL, '2024-06-07 07:15:04', '2024-06-11 20:37:47'),
+(13, 2, 'đơn hàng 65000 đồng với mã số 58 đã bị hủy', 1, NULL, '2024-06-07 07:20:38', '2024-06-12 17:21:31'),
+(14, 2, 'đơn hàng 65000 đồng với mã số 58 đã bị hủy', 1, NULL, '2024-06-07 07:21:11', '2024-06-12 17:21:31'),
+(16, 2, 'đơn hàng 65000 đồng với mã số 58 đã bị hủy', 1, NULL, '2024-06-07 07:26:08', '2024-06-12 17:21:31'),
+(17, 2, 'đã thanh toán đơn hàng 65000 đồng với mã số 59 thành công', 1, NULL, '2024-06-07 07:29:23', '2024-06-12 17:21:31'),
+(18, 2, 'đã hoàn trả số tiền 65000 đồng về ví của bạn', 1, NULL, '2024-06-07 07:29:45', '2024-06-12 17:21:31'),
+(19, 2, 'đã thanh toán đơn hàng 65000 đồng với mã số 60 thành công', 1, NULL, '2024-06-07 07:34:31', '2024-06-12 17:21:31'),
+(20, 2, 'đã hoàn trả số tiền 65000 đồng về ví của bạn', 1, NULL, '2024-06-07 07:34:58', '2024-06-12 17:21:31'),
+(21, 2, 'đơn hàng 65000 đồng với mã số 60 đã bị hủy', 1, NULL, '2024-06-07 07:34:58', '2024-06-12 17:21:31'),
+(22, 2, 'đơn hàng 65000 đồng với mã số 61 đang được chuẩn bị', 1, NULL, '2024-06-07 07:35:27', '2024-06-12 17:21:31'),
+(23, 2, 'đơn hàng 65000 đồng với mã số 61 đang được giao', 1, NULL, '2024-06-07 07:35:34', '2024-06-12 17:21:31'),
+(24, 2, 'lịch hẹn của bạn đã được chấp thuận, hãy chuẩn bị cho buổi hẹn của bạn!', 1, NULL, '2024-06-07 07:44:00', '2024-06-12 17:21:31'),
+(25, 2, 'lịch hẹn của bạn đã bị hủy', 1, NULL, '2024-06-07 07:45:11', '2024-06-12 17:21:31'),
+(26, 2, 'lịch hẹn của bạn đã hoàn thành, cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!, hãy đánh giá dịch vụ để chúng tôi phục vụ bạn tốt hơn!', 1, NULL, '2024-06-07 07:45:49', '2024-06-12 17:21:31'),
+(27, 5, 'đã thanh toán đơn hàng 25000 đồng với mã số 62 thành công', 1, NULL, '2024-06-07 07:57:30', '2024-06-11 20:37:47');
 
 -- --------------------------------------------------------
 

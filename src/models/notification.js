@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
             id_account: DataTypes.INTEGER,
             notify: DataTypes.STRING,
             isRead: DataTypes.INTEGER,
+            url: DataTypes.STRING,
         },
         {
             sequelize,

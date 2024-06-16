@@ -159,6 +159,7 @@ class PaymentServices {
         await notifyServices.sendNotify(
             order.id_account,
             `đã thanh toán đơn hàng ${order.totalPrice} đồng với mã số ${order.id} thành công`,
+            process.env.CLIENT_URL,
         );
         return {
             success: true,

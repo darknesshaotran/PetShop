@@ -224,7 +224,7 @@ class OrderServices {
                 ],
                 transaction,
             });
-            if (order.id_status > 1)
+            if (order.id_status == 2 || order.id_status > 3)
                 throw new ErrorsWithStatus({
                     status: HTTP_STATUS.UNPROCESSABLE_ENTITY,
                     message: 'Can not cancel order anymore',
@@ -286,12 +286,14 @@ class OrderServices {
                 await notifyServices.sendNotify(
                     order.id_account,
                     `đã hoàn trả số tiền ${order.totalPrice} đồng về ví của bạn`,
+                    process.env.CLIENT_URL + `/historyOrderCanceled`,
                     transaction,
                 );
             }
             await notifyServices.sendNotify(
                 order.id_account,
                 `đơn hàng ${order.totalPrice} đồng với mã số ${order.id} đã bị hủy`,
+                process.env.CLIENT_URL + `/historyOrderCanceled`,
                 transaction,
             );
             await transaction.commit();
@@ -341,16 +343,19 @@ class OrderServices {
             await notifyServices.sendNotify(
                 order.id_account,
                 `đơn hàng ${order.totalPrice} đồng với mã số ${order.id} đang được chuẩn bị`,
+                process.env.CLIENT_URL + `/historyOrderWaiting`,
             );
         } else if (order.id_status === 2) {
             await notifyServices.sendNotify(
                 order.id_account,
                 `đơn hàng ${order.totalPrice} đồng với mã số ${order.id} đang được giao`,
+                process.env.CLIENT_URL + `/historyOrderDelivering`,
             );
         } else if (order.id_status === 3) {
             await notifyServices.sendNotify(
                 order.id_account,
                 `đơn hàng ${order.totalPrice} đồng với mã số ${order.id} đã được giao thành công`,
+                process.env.CLIENT_URL + `/historyOrderSuccess`,
             );
             const payment = await db.Payment.findOne({
                 where: { id_order: id_order },
