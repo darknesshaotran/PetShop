@@ -43,7 +43,6 @@ class BreedServices {
         };
     }
     async updateBreed(data, id_breed) {
-        console.log(data);
         await db.Breed.update(
             {
                 ...data,

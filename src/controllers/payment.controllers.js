@@ -15,7 +15,7 @@ class PaymentController {
             let dataStr = req.body.data;
             let dataJson = JSON.parse(dataStr);
             let reqMac = req.body.mac;
-
+            console.log(dataJson);
             const app_trans_id = dataJson.app_trans_id;
             const order_id = Number(app_trans_id.split('_')[1]);
             const zp_trans_id = dataJson.zp_trans_id;

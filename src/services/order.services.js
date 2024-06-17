@@ -94,6 +94,7 @@ class OrderServices {
             let payURL = '';
             if (paymentMethod === PAYMENT_METHOD.MOMO) {
                 const data = await paymentServices.createPaymentLink(order.id);
+                console.log('data', data);
                 const { payUrl } = data;
                 payURL = payUrl;
                 await db.Payment.update(
@@ -105,6 +106,7 @@ class OrderServices {
                     },
                 );
             }
+            console.log('payurrl:', payURL);
             return {
                 success: true,
                 message: 'create Order successfully',

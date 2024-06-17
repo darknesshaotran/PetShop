@@ -5,6 +5,7 @@ const { default: axios } = require('axios');
 dotenv.config();
 
 const createPayment = async ({ orderContent, amount, id_order }) => {
+    console.log('process ZaloPay');
     const embed_data = {
         redirecturl: process.env.CLIENT_URL,
     };
@@ -43,16 +44,15 @@ const createPayment = async ({ orderContent, amount, id_order }) => {
 };
 
 const refundPayment = async ({ id_transaction, amount }) => {
-    console.log('refund:' + id_transaction + ' ' + amount);
     const timestamp = Date.now();
     const uid = `${timestamp}${Math.floor(111 + Math.random() * 999)}`; // unique id
 
     let params = {
-        app_id: process.env.ZALO_APP_ID,
+        app_id: Number(process.env.ZALO_APP_ID),
         m_refund_id: `${moment().format('YYMMDD')}_${process.env.ZALO_APP_ID}_${uid}`,
         timestamp, // miliseconds
         zp_trans_id: id_transaction,
-        amount: amount,
+        amount: Number(amount),
         description: 'ZaloPay Refund',
     };
 
@@ -68,9 +68,13 @@ const refundPayment = async ({ id_transaction, amount }) => {
         params.timestamp;
     params.mac = crypto.createHmac('sha256', process.env.ZALO_KEY1).update(data).digest('hex');
 
-    const result = await axios.post(process.env.ZALOPAY_ENDPOINT + `/refund`, null, { params });
+    const result = await axios.post(process.env.ZALOPAY_ENDPOINT + `/refund`, params, {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
     console.log(result.data);
-    return result;
+    return result.data;
 };
 
 exports.createPayment = createPayment;
