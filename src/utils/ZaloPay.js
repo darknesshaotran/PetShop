@@ -10,10 +10,10 @@ const createPayment = async ({ orderContent, amount, id_order }) => {
         redirecturl: process.env.CLIENT_URL,
     };
     const items = [{}];
-    // const transID = Math.floor(Math.random() * 1000000);
+    const transID = Math.floor(Math.random() * 100);
     const order = {
         app_id: process.env.ZALO_APP_ID,
-        app_trans_id: `${moment().format('YYMMDD')}_${id_order}`, // translation missing: vi.docs.shared.sample_code.comments.app_trans_id
+        app_trans_id: `${moment().format('YYMMDD')}_${id_order}_${transID}`, // translation missing: vi.docs.shared.sample_code.comments.app_trans_id
         app_user: 'user123',
         app_time: Date.now(), // miliseconds
         item: JSON.stringify(items),
@@ -42,6 +42,9 @@ const createPayment = async ({ orderContent, amount, id_order }) => {
     const result = await axios.post(process.env.ZALOPAY_ENDPOINT + `/create`, null, { params: order });
     return result;
 };
+createPayment({ orderContent: 'hehe', amount: 300000, id_order: 12312 }).then((res) => {
+    console.log(r);
+});
 
 const refundPayment = async ({ id_transaction, amount }) => {
     const timestamp = Date.now();
