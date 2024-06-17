@@ -93,12 +93,11 @@ class OrderServices {
             await transaction.commit();
             let payURL = '';
             if (paymentMethod === PAYMENT_METHOD.MOMO) {
-                const { orderId, payUrl } = await paymentServices.createPaymentLink(order.id);
-
+                const data = await paymentServices.createPaymentLink(order.id);
+                const { payUrl } = data;
                 payURL = payUrl;
                 await db.Payment.update(
                     {
-                        id_order_momo: orderId,
                         payUrl: payUrl,
                     },
                     {
@@ -106,7 +105,6 @@ class OrderServices {
                     },
                 );
             }
-
             return {
                 success: true,
                 message: 'create Order successfully',
@@ -126,7 +124,7 @@ class OrderServices {
             where: {
                 id_order: id_order,
             },
-            attributes: ['paymentDate', 'paymentMethod', 'isPaid', 'id_transaction', 'id_order_momo', 'money'],
+            attributes: ['paymentDate', 'paymentMethod', 'isPaid', 'id_transaction', 'money'],
         });
         const payment = JSON.parse(JSON.stringify(Payment));
 
@@ -272,8 +270,8 @@ class OrderServices {
                 transaction,
             });
             if (payment.isPaid && payment.paymentMethod === PAYMENT_METHOD.MOMO) {
-                const { id_order_momo } = payment;
-                const result = await paymentServices.refundMoney(id_order_momo);
+                const { id_transaction, money } = payment;
+                const result = await paymentServices.refundMoney({ id_transaction, amount: money });
                 await db.Payment.update(
                     {
                         isPaid: 0,

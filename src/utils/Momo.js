@@ -61,7 +61,7 @@ const createPayment = async ({ orderContent, amount, id_order, items, userInfo }
     //Create the HTTPS objects
     const option = {
         method: 'POST',
-        url: 'https://test-payment.momo.vn/v2/gateway/api/create',
+        url: process.env.MOMO_ENDPOINT + '/gateway/api/create',
         headers: {
             'Content-Type': 'application/json',
             'Content-Length': Buffer.byteLength(requestBody),
@@ -93,7 +93,7 @@ const TransactionStatus = async (id_order) => {
 
     const options = {
         method: 'POST',
-        url: 'https://test-payment.momo.vn/v2/gateway/api/query',
+        url: process.env.MOMO_ENDPOINT + '/gateway/api/query',
         headers: {
             'Content-Type': 'application/json',
         },
@@ -121,7 +121,7 @@ const refundPayment = async ({ id_order, id_transaction, amount }) => {
     });
     const option = {
         method: 'POST',
-        url: 'https://test-payment.momo.vn/v2/gateway/api/refund',
+        url: process.env.MOMO_ENDPOINT + '/gateway/api/refund',
         headers: {
             'Content-Type': 'application/json',
             'Content-Length': Buffer.byteLength(requestBody),
