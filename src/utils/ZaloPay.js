@@ -42,9 +42,6 @@ const createPayment = async ({ orderContent, amount, id_order }) => {
     const result = await axios.post(process.env.ZALOPAY_ENDPOINT + `/create`, null, { params: order });
     return result;
 };
-createPayment({ orderContent: 'hehe', amount: 300000, id_order: 12312 }).then((res) => {
-    console.log(r);
-});
 
 const refundPayment = async ({ id_transaction, amount }) => {
     const timestamp = Date.now();
