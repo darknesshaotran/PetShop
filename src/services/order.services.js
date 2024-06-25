@@ -92,7 +92,7 @@ class OrderServices {
 
             await transaction.commit();
             let payURL = '';
-            if (paymentMethod === PAYMENT_METHOD.MOMO) {
+            if (paymentMethod === PAYMENT_METHOD.ZALOPAY) {
                 const data = await paymentServices.createPaymentLink(order.id);
                 console.log('data', data);
                 const { payUrl } = data;
@@ -271,7 +271,7 @@ class OrderServices {
                 where: { id_order: id_order },
                 transaction,
             });
-            if (payment.isPaid && payment.paymentMethod === PAYMENT_METHOD.MOMO) {
+            if (payment.isPaid && payment.paymentMethod === PAYMENT_METHOD.ZALOPAY) {
                 const { id_transaction, money } = payment;
                 const result = await paymentServices.refundMoney({ id_transaction, amount: money });
                 await db.Payment.update(
