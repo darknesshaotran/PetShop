@@ -39,6 +39,7 @@ class RevenueServices {
                 orders: ordersForDay,
             });
         }
+        resultByDay.sort((a, b) => new Date(a.date) - new Date(b.date));
 
         return {
             success: true,
@@ -49,7 +50,6 @@ class RevenueServices {
             },
         };
     }
-    async getServiceRevenueBytime(startTime, endTime) {}
     async getListOrderByTime(startTime, endTime) {
         const Orders = await db.Order.findAll({
             where: {
@@ -131,6 +131,7 @@ class RevenueServices {
         const Customers = await db.Account.findAll({
             where: {
                 point: { [Op.gt]: 0 },
+                id_role: 2,
             },
             offset: offset,
             limit: limit,
