@@ -21,10 +21,17 @@ const validate = (validation) => {
                     return next(err);
                 }
             }
+            const keys = Object.keys(errorsObject);
+
+            const lastKey = keys[keys.length - 1];
+            const message = errorsObject.authorization
+                ? 'phiên đăng nhập kể thúc, yêu cầu đăng nhập lại'
+                : errorsObject[lastKey].message;
             return res.status(422).json({
                 success: false,
-                message: 'Validation error',
+                // message: 'Validation error',
                 errors: errorsObject,
+                message,
             });
         };
     } catch (error) {

@@ -18,7 +18,7 @@ const USERS_MESSAGES = {
     LOGIN_SUCCESS: 'login success',
     LOGOUT_SUCCESS: 'logout success',
     REGISTER_SUCCESS: 'register success',
-    ACCESS_TOKEN_REQUIRED: 'Access token is required',
+    ACCESS_TOKEN_REQUIRED: 'Yêu cầu đăng nhập',
     REFRESH_TOKEN_REQUIRED: 'Refresh token is required',
     REFRESH_TOKEN_SUCCESS: 'refresh token is successfully',
     USED_REFRESH_TOKEN_OR_NOT_EXIST: 'Used refresh token or not exist',
