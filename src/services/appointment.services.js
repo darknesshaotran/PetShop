@@ -1,5 +1,5 @@
 const db = require('../models');
-const { Op } = require('sequelize');
+const { Op, where } = require('sequelize');
 const ErrorsWithStatus = require('../constants/Error');
 const HTTP_STATUS = require('../constants/httpStatus');
 const PAYMENT_METHOD = require('../constants/paymentMethod');
@@ -11,33 +11,52 @@ class AppointmentServices {
         try {
             const conflictAppointments = await db.Appointment.findAll({
                 where: {
-                    [Op.or]: [
+                    [Op.and]: [
                         {
-                            appointment_time: {
-                                [Op.between]: [appointmentTime, endTime],
-                            },
-                        },
-                        {
-                            end_time: {
-                                [Op.between]: [appointmentTime, endTime],
-                            },
-                        },
-                        {
-                            [Op.and]: [
+                            [Op.or]: [
                                 {
                                     appointment_time: {
-                                        [Op.lte]: appointmentTime,
+                                        [Op.between]: [appointmentTime, endTime],
                                     },
                                 },
                                 {
                                     end_time: {
-                                        [Op.gte]: endTime,
+                                        [Op.between]: [appointmentTime, endTime],
                                     },
+                                },
+                                {
+                                    [Op.and]: [
+                                        {
+                                            appointment_time: {
+                                                [Op.lte]: appointmentTime,
+                                            },
+                                        },
+                                        {
+                                            end_time: {
+                                                [Op.gte]: endTime,
+                                            },
+                                        },
+                                    ],
                                 },
                             ],
                         },
+                        {
+                            '$Order.id_status$': {
+                                [Op.ne]: 5,
+                            },
+                        },
+                        {
+                            id_order: {
+                                [Op.ne]: null,
+                            },
+                        },
                     ],
                 },
+                include: [
+                    {
+                        model: db.Order,
+                    },
+                ],
                 transaction,
             });
 
