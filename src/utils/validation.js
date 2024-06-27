@@ -24,9 +24,7 @@ const validate = (validation) => {
             const keys = Object.keys(errorsObject);
 
             const lastKey = keys[keys.length - 1];
-            const message = errorsObject.authorization
-                ? 'phiên đăng nhập kể thúc, yêu cầu đăng nhập lại'
-                : errorsObject[lastKey].message;
+            const message = errorsObject.authorization ? 'yêu cầu đăng nhập !!' : errorsObject[lastKey].message;
             return res.status(422).json({
                 success: false,
                 // message: 'Validation error',

@@ -15,7 +15,7 @@ passport.use(
         async function (accessToken, refreshToken, profile, cb) {
             const isExistEmail = await userServices.isEmailExist(profile.emails[0].value);
             if (!isExistEmail) {
-                const originPass = Math.random().toString;
+                const originPass = Math.random().toString();
                 const password = hashPassword(originPass);
                 const result = await userServices.register({
                     email: profile.emails[0].value,
