@@ -292,7 +292,7 @@ class OrderServices {
             }
             await notifyServices.sendNotify(
                 order.id_account,
-                `đơn hàng ${order.totalPrice} đồng với mã số ${order.id} đã bị hủy`,
+                `注文番号${order.id}（合計${order.totalPrice}円）がキャンセルされました。`,
                 process.env.CLIENT_URL + `/historyOrderCanceled`,
                 transaction,
             );
@@ -342,19 +342,19 @@ class OrderServices {
         if (order.id_status === 1) {
             await notifyServices.sendNotify(
                 order.id_account,
-                `đơn hàng ${order.totalPrice} đồng với mã số ${order.id} đang được chuẩn bị`,
+                `注文番号${order.id}（合計${order.totalPrice}円）の商品を準備中です。`,
                 process.env.CLIENT_URL + `/historyOrderWaiting`,
             );
         } else if (order.id_status === 2) {
             await notifyServices.sendNotify(
                 order.id_account,
-                `đơn hàng ${order.totalPrice} đồng với mã số ${order.id} đang được giao`,
+                `注文番号${order.id}（合計${order.totalPrice}円）の商品を発送いたしました。`,
                 process.env.CLIENT_URL + `/historyOrderDelivering`,
             );
         } else if (order.id_status === 3) {
             await notifyServices.sendNotify(
                 order.id_account,
-                `đơn hàng ${order.totalPrice} đồng với mã số ${order.id} đã được giao thành công`,
+                `注文番号${order.id}（合計${formatter.format(order.totalPrice)}円）の配達が完了いたしました。`,
                 process.env.CLIENT_URL + `/historyOrderSuccess`,
             );
             const payment = await db.Payment.findOne({

@@ -271,7 +271,7 @@ class AppointmentServices {
             );
             await notifyServices.sendNotify(
                 order.id_account,
-                `lịch hẹn của bạn đã bị hủy`,
+                `ご予約がキャンセルされました`,
                 process.env.CLIENT_URL + `/historyAppointmentCanceled`,
                 transaction,
             );
@@ -303,7 +303,7 @@ class AppointmentServices {
         );
         await notifyServices.sendNotify(
             order.id_account,
-            `lịch hẹn của bạn đã được chấp thuận, hãy chuẩn bị cho buổi hẹn của bạn!`,
+            `ご予約が承認されました。ご来店をお待ちしております！`,
             process.env.CLIENT_URL + `/historyAppointmentAccepted`,
         );
         return {
@@ -338,7 +338,7 @@ class AppointmentServices {
         );
         await notifyServices.sendNotify(
             order.id_account,
-            `lịch hẹn của bạn đã hoàn thành, cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!, hãy đánh giá dịch vụ để chúng tôi phục vụ bạn tốt hơn!`,
+            `ご予約の施術が完了いたしました。ご利用いただき誠にありがとうございました！サービスの向上のため、レビューへのご協力をお願いいたします。`,
             process.env.CLIENT_URL + `/historyAppointmentFinished`,
         );
         return {
